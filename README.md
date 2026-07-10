@@ -10,7 +10,10 @@ controls block the preview server from reading Desktop and Documents. A symlink
 
 ## Files
 
-- `build_corpus.py`  Compiles `data/corpus.json` (200 active documents),
+- `build_corpus.py`  Compiles `data/corpus.json` (200 active documents,
+  each with a `provenance` field from RCDAS_Live_Tracker.xlsx (a copy of
+  the team's live "RCDAS Policies and Procedures" tracker): "Updated by staff"
+  when the New Draft column is filled OR Status is Done, else "Not yet updated"),
   `data/glossary.json` (603 terms incl. extras), `data/gaps.json`. Filters
   against RCDAS_Document_Registry.xlsx (Active only), strips APET references
   (D-9), never touches `_Retired - do not publish/`. Re-run after any corpus
@@ -31,10 +34,13 @@ controls block the preview server from reading Desktop and Documents. A symlink
   RCDAS_MODEL); without it they return labeled demo responses.
 - `index.html`, `styles.css`, `app.js`  The front end: mock sign-in, search
   (synonym expansion, IDF weighting, section-heading boosts), document viewer,
-  Ask a Question (with the FAQ merged in), Compliance Check, Glossary, and
-  Request a Procedure with the Draft This Policy flow. Sign-in lands on a
-  Home screen of option cards; Find a Document starts with category boxes,
-  never a wall of documents. Document types are Policy and Procedure (the
+  Ask a Question (with the FAQ merged in), Compliance Check, and Glossary.
+  Sign-in lands on a Home screen of four brand-colored option cards; Find a
+  Document starts with category boxes, never a wall of documents. The last
+  category box, "Not Written Yet", opens the curated list in data/gaps.json
+  (SOPs most shelters have that RCDAS does not, grouped by domain, each with
+  a Create a draft button); the Draft a procedure box below the categories
+  takes free-form topics. Document types are Policy and Procedure (the
   registry's "Protocol" is relabeled at build time). Branding follows the DAS Brand Reference Sheet:
   Turquoise #00B5CC, Brown #572700, Navy #002858, Yellow #FDD963, Gray
   #C7C9D4, Montserrat. Logos: logo.jpg (round mark), logo-stacked.png
@@ -67,9 +73,8 @@ SOP Consolidation folder (Kristen's Mac).
 
 ## Not yet done (production path)
 
-- Real hosting and county SSO or email auth (mock sign-in accepts anything).
-- Live web research for drafts (system prompt requires ASV and shelter
-  medicine grounding; a hosted version should add real web search).
+- County SSO if required (shared password auth is in place via RCDAS_PASSCODE;
+  mock sign-in accepts anything when unset).
 - Document statuses beyond "Draft pending approval" (edit log has the data).
 - Six dual-listed documents (000-36, 000-46, 000-51, 000-58, 000-76, Needs
   Rescue) are flagged in the UI pending leadership resolution.

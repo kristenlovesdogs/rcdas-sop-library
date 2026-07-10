@@ -9,16 +9,35 @@ end to end without a key.
 Run:  python3 server.py  (port 8642)
 """
 import json
+import re
 import os
 import urllib.request
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def _load_env():
+    """Load KEY=VALUE pairs from a local .env (gitignored) into the
+    environment, without overriding values already set by the host."""
+    path = os.path.join(HERE, ".env")
+    if not os.path.exists(path):
+        return
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+
+
+_load_env()
+
 # Render (and most hosts) inject PORT; bind publicly there, locally otherwise
 PORT = int(os.environ.get("PORT", 8642))
 HOST = "0.0.0.0" if "PORT" in os.environ else "127.0.0.1"
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "").strip()
-MODEL = os.environ.get("RCDAS_MODEL", "claude-sonnet-5")
+MODEL = os.environ.get("RCDAS_MODEL", "claude-opus-4-8")
 # Shared staff password. If unset (local dev), any sign-in is accepted.
 PASSCODE = os.environ.get("RCDAS_PASSCODE", "").strip()
 
@@ -29,14 +48,23 @@ STYLE = (
 
 SYSTEM_ASK = (
     "You answer questions for staff of the Riverside County Department of Animal "
-    "Services using ONLY the policy and procedure excerpts provided. Rules: "
+    "Services using ONLY the policy and procedure excerpts provided. Staff may "
+    "ask a plain question (\"what is the stray hold for a cat with no ID?\") or "
+    "describe a situation and ask whether it followed policy (\"a microchipped "
+    "stray was adopted on day 3 without a chip trace; did that follow policy?\"). "
+    "Rules: "
     "1) Answer from the excerpts alone; if they do not contain the answer, say no "
     "current RCDAS document covers it and suggest requesting a draft. "
     "2) Cite the document number or title for every claim. "
-    "3) All documents are consolidation drafts pending approval; if the question "
+    "3) For a situation question, structure the reply: which documents apply, "
+    "what they require, and where the described situation aligns with or differs "
+    "from those requirements. Describe policy requirements and differences only. "
+    "Never render a verdict of guilt, discipline, or legal liability; this is an "
+    "informational comparison, and personnel matters follow the chain of command. "
+    "4) All documents are consolidation drafts pending approval; if the question "
     "involves fees, named contacts, or statute citations, add a one-line caution "
     "that these may predate current law. "
-    "4) For anything involving euthanasia, use of force, or public health, remind "
+    "5) For anything involving euthanasia, use of force, or public health, remind "
     "the reader to confirm with a supervisor. " + STYLE
 )
 
@@ -54,20 +82,89 @@ SYSTEM_CHECK = (
 
 SYSTEM_DRAFT = (
     "You draft Standard Operating Procedures for the Riverside County Department "
-    "of Animal Services. Ground the draft in published, research-based best "
-    "practices for animal sheltering: the Association of Shelter Veterinarians "
-    "Guidelines for Standards of Care, shelter medicine literature (Koret, "
-    "Maddie's Fund, UF shelter medicine), and applicable California law. Name your "
-    "sources in a References section. Use exactly this template structure with "
-    "these headings: SUBJECT, PURPOSE, AUTHORITY (Director of Animal Services), "
-    "SCOPE, DEFINITIONS, PROCEDURE (numbered steps grouped under lettered "
-    "subheadings), CAMPUS VARIATIONS (note if none), RELATED DOCUMENTS, "
-    "REFERENCES, REVISION HISTORY (single line: Draft prepared for review). "
+    "of Animal Services (RCDAS), a large open-intake municipal shelter system in "
+    "Southern California (four campuses, 30,000+ animals a year). "
+    "RESEARCH FIRST: before writing, use web search to ground the draft in "
+    "published, research-based best practices. Search, at minimum: the "
+    "Association of Shelter Veterinarians (ASV) Guidelines for Standards of Care "
+    "in Animal Shelters (current edition), the UC Davis Koret Shelter Medicine "
+    "Program, the University of Florida Maddie's Shelter Medicine Program, "
+    "Maddie's Fund, AVMA and AAHA guidance, peer-reviewed shelter medicine "
+    "literature (e.g. JAVMA, Journal of Shelter Medicine and Community Animal "
+    "Health), and applicable California law and code where relevant. Prefer "
+    "primary and university sources over blogs. Where sources conflict, follow "
+    "the most current research-based guidance and note the divergence. "
+    "THEN WRITE a complete, operational draft: concrete numbered steps a staff "
+    "member could follow today, with specific criteria, timeframes, dosing or "
+    "protocol parameters where the literature provides them, and documentation "
+    "requirements. Use exactly this template structure with these headings: "
+    "SUBJECT, PURPOSE, AUTHORITY (Director of Animal Services), SCOPE, "
+    "DEFINITIONS, PROCEDURE (numbered steps grouped under lettered subheadings), "
+    "CAMPUS VARIATIONS (note if none), RELATED DOCUMENTS, REFERENCES, "
+    "REVISION HISTORY (single line: Draft prepared for review). "
+    "REFERENCES must cite the actual sources you consulted, with titles, "
+    "publishers, years, and URLs. "
     "Begin the draft with the line 'DRAFT PENDING APPROVAL. Prepared for "
     "leadership review; not in effect until approved and signed by the Director.' "
-    "If related RCDAS documents are provided, align terminology with them and "
-    "list them under RELATED DOCUMENTS. " + STYLE
+    "If related RCDAS documents are provided, align terminology with them "
+    "(Chameleon codes, campus names, position titles) and list them under "
+    "RELATED DOCUMENTS. " + STYLE
 )
+
+
+def _post_messages(body):
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages",
+        data=json.dumps(body).encode(),
+        headers={
+            "content-type": "application/json",
+            "x-api-key": API_KEY,
+            "anthropic-version": "2023-06-01",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=480) as r:
+        return json.loads(r.read())
+
+
+def call_claude_research(system, user_text, max_tokens=16000):
+    """Draft with live web research. Web search runs server-side at Anthropic.
+    Resumes on pause_turn (server tool loop) and continues on max_tokens
+    (thinking + research can consume a large share of the output budget)."""
+    first_user = {"role": "user", "content": user_text}
+    messages = [first_user]
+    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 8}]
+    parts = []
+    for i in range(8):
+        data = _post_messages({
+            "model": MODEL,
+            "max_tokens": max_tokens,
+            "system": system,
+            "thinking": {"type": "adaptive"},
+            "tools": tools,
+            "messages": messages,
+        })
+        parts.append("".join(b.get("text", "") for b in data.get("content", [])))
+        reason = data.get("stop_reason")
+        print(f"draft research: iteration {i} stop_reason={reason}")
+        if reason == "pause_turn":
+            messages = [first_user, {"role": "assistant", "content": data["content"]}]
+            continue
+        if reason == "max_tokens":
+            messages = [first_user,
+                        {"role": "assistant", "content": data["content"]},
+                        {"role": "user", "content": "You hit the output token limit. Continue the draft exactly where you left off. Do not repeat anything you already wrote and do not restart."}]
+            continue
+        break
+    text = "".join(parts)
+    # The model narrates its research before the letterhead; keep only the SOP,
+    # from the DRAFT banner through the end of the revision history.
+    m = re.search(r"DRAFT PENDING APPROVAL", text)
+    if m:
+        text = text[m.start():]
+    m = re.search(r"REVISION HISTORY[:\s\S]*?Draft prepared for review\.", text)
+    if m:
+        text = text[:m.end()]
+    return text.strip()
 
 
 def call_claude(system, user_text, max_tokens=2500):
@@ -206,7 +303,9 @@ class Handler(SimpleHTTPRequestHandler):
                 if not t:
                     return self._json({"error": "empty topic"}, 400)
                 if API_KEY:
-                    text = call_claude(SYSTEM_DRAFT, f"DRAFT REQUEST TOPIC: {t}\n\nPOSSIBLY RELATED RCDAS DOCUMENTS:\n{doc_block(docs)}", max_tokens=4000)
+                    text = call_claude_research(
+                        SYSTEM_DRAFT,
+                        f"DRAFT REQUEST TOPIC: {t}\n\nPOSSIBLY RELATED RCDAS DOCUMENTS:\n{doc_block(docs)}")
                     return self._json({"mode": "live", "text": text})
                 return self._json({"mode": "demo", "text": demo_draft(t, docs)})
 

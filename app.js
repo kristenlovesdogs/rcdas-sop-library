@@ -62,9 +62,8 @@ async function boot() {
   $("#glossBox").placeholder = `Search ${glossary.length} terms: intake types, outcome codes, SAC metrics, SOP definitions`;
   buildFilters();
   buildGlossaryFilters();
-  renderFAQ();
+  renderAskExamples();
   renderHome();
-  renderGaps();
   renderResults(searchDocs(""));
 }
 
@@ -218,6 +217,23 @@ function badges(d) {
   return h;
 }
 
+// Provenance: whether staff updated each document, from the consolidation plan.
+// Label text (short + full) is computed at build time; the front end only maps
+// the state to a colour class.
+const PROV_CLS = {
+  "reviewed": "prov-reviewed",
+  "in-progress": "prov-progress",
+  "reformatted": "prov-reformatted",
+  "reference": "prov-reference",
+};
+
+function provBadge(d) {
+  const p = d.provenance;
+  if (!p) return "";
+  const cls = PROV_CLS[p.state] || PROV_CLS.reformatted;
+  return `<span class="badge prov ${cls}" title="${esc(p.label)}">${esc(p.short)}</span>`;
+}
+
 function browseCategory(cat) {
   $("#catFilter").value = cat;
   renderResults(searchDocs($("#searchBox").value));
@@ -229,11 +245,31 @@ function renderCategoryBoxes() {
     counts.set(d.category, (counts.get(d.category) || 0) + 1);
   });
   const cats = [...counts.keys()].sort();
+  const gapCount = S.gaps.reduce((n, g) => n + g.items.length, 0);
   $("#results").innerHTML = `<div class="cat-grid">` + cats.map((c) => `
     <button class="cat-card" onclick="browseCategory(${JSON.stringify(c).replace(/"/g, "&quot;")})">
       <span class="cat-name">${esc(c)}</span>
       <span class="cat-count">${counts.get(c)} ${counts.get(c) === 1 ? "document" : "documents"}</span>
-    </button>`).join("") + `</div>`;
+    </button>`).join("") + `
+    <button class="cat-card cat-card--gaps" onclick="showGaps()">
+      <span class="cat-name">Not Written Yet</span>
+      <span class="cat-count">${gapCount} SOPs most shelters have</span>
+    </button></div>`;
+}
+
+function showGaps() {
+  $("#results").innerHTML = `
+    <button class="back-link" onclick="renderCategoryBoxes()">&larr; All categories</button>
+    <h3 class="gaps-title">SOPs most shelters have that RCDAS does not, yet</h3>
+    <p class="hint">These topics are standard at comparable shelters (ASV Guidelines for Standards of Care) or were flagged by staff during the 2026 consolidation. Pick one and a research-based draft will be prepared for leadership review.</p>` +
+    S.gaps.map((g) => `
+      <h4 class="gap-group">${esc(g.group)}</h4>` +
+      g.items.map((it) => `
+        <div class="gap-card">
+          <div class="gap-text"><b>${esc(it.topic)}</b><div class="gap-note">${esc(it.note)}</div></div>
+          <button class="btn-draft" onclick="requestDraft('${esc(it.topic).replace(/'/g, "\\'")}')">Create a draft</button>
+        </div>`).join("")).join("");
+  window.scrollTo(0, 0);
 }
 
 function renderResults(list) {
@@ -263,7 +299,7 @@ function renderResults(list) {
     `<p class="showing">Showing ${Math.min(cap, filtered.length)} of ${filtered.length} documents</p>` +
     filtered.slice(0, cap).map((d) => `
       <div class="result-card" onclick="openDoc('${d.id}')">
-        <div class="result-head">${badges(d)}</div>
+        <div class="result-head">${badges(d)}${provBadge(d)}</div>
         <div class="result-title">${esc(d.title)}</div>
         <div class="result-snip">${q ? snippet(d, q) : esc((d.purpose || "").slice(0, 220))}</div>
       </div>`).join("") +
@@ -286,79 +322,132 @@ function renderSteps(steps) {
   if (!steps || !steps.length) return "";
   return "<ol>" + steps.map((st) => {
     if (typeof st === "string") return `<li>${esc(st)}</li>`;
-    const txt = st.text || st.step || JSON.stringify(st);
+    const txt = st.text || st.step || "";
     let sub = "";
     if (st.substeps && st.substeps.length) sub = renderSteps(st.substeps);
     return `<li>${esc(txt)}${sub}</li>`;
   }).join("") + "</ol>";
 }
 
-function renderSections(sections, depth = 0) {
+// A. B. C. lettering for the procedure subsections, like the SOP template.
+const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+function renderProcedure(sections) {
   if (!sections || !sections.length) return "";
-  return sections.map((s) => {
-    const head = depth === 0
-      ? `<h3>${esc(s.heading || "")}</h3>`
-      : `<div class="doc-sub">${esc(s.heading || "")}</div>`;
-    return `<div class="doc-section">${s.heading ? head : ""}
+  return sections.map((s, i) => `
+    <div class="sop-sub">
+      ${s.heading ? `<div class="sop-sub-head">${LETTERS[i] || (i + 1)}. ${esc(s.heading)}</div>` : ""}
       ${s.body ? `<p>${esc(s.body)}</p>` : ""}
       ${renderSteps(s.steps)}
-      ${renderSections(s.subsections, depth + 1)}
-    </div>`;
-  }).join("");
+      ${(s.subsections || []).map((ss) => `
+        <div class="sop-subsub">
+          ${ss.heading ? `<div class="sop-subsub-head">${esc(ss.heading)}</div>` : ""}
+          ${ss.body ? `<p>${esc(ss.body)}</p>` : ""}
+          ${renderSteps(ss.steps)}
+        </div>`).join("")}
+    </div>`).join("");
+}
+
+// Guide chapters keep the simpler heading layout (not SOP-template documents).
+function renderGuideSections(sections) {
+  if (!sections || !sections.length) return "";
+  return sections.map((s) => `
+    <div class="doc-section">
+      ${s.heading ? `<h3>${esc(s.heading)}</h3>` : ""}
+      ${s.body ? `<p>${esc(s.body)}</p>` : ""}
+      ${renderSteps(s.steps)}
+    </div>`).join("");
 }
 
 function openDoc(id) {
   const d = S.byId.get(id);
   if (!d) return;
-  const staleNote = "Consolidation draft. Fees, contact names, and statute citations may predate current law until substantive review completes. Confirm anything time-sensitive with your supervisor.";
-  let banners = d.type === "Guide"
-    ? `<div class="doc-banner info">Staff reference guide. Source: ${esc(d.source || "RCDAS New Staff Reference Guide")}.</div>`
-    : `<div class="doc-banner">${esc(d.status)}. ${esc(staleNote)}</div>`;
-  if (d.dualListed) banners += `<div class="doc-banner warn">This document appears on both the active and sunsetted tracker tabs. Its status is unresolved; confirm with leadership before relying on it.</div>`;
-  if (d.flag) banners += `<div class="doc-banner warn">Registry flag: ${esc(d.flag)}</div>`;
 
-  const defs = (d.definitions || []).map((x) =>
-    `<div class="def-item"><b>${esc(x.term)}</b>: ${esc(x.def)}</div>`).join("");
+  // Guide chapters are reference material, not SOP-template documents.
+  if (d.type === "Guide") return openGuide(d);
 
-  const rel = (d.related || []).map((r) => {
-    const label = typeof r === "string" ? r : (r.number || r.title || "");
-    const target = S.docs.find((x) => x.number === label || x.title === label || x.id === label);
-    return target
-      ? `<button class="cite-chip" onclick="openDoc('${target.id}')">${esc(target.number ? target.number + " " : "")}${esc(target.title)}</button>`
-      : `<span class="badge cat">${esc(typeof r === "string" ? r : JSON.stringify(r))}</span>`;
+  const relRows = (d.related || []).map((r) => {
+    const type = typeof r === "string" ? "Related" : (r.type || "Related");
+    const name = typeof r === "string" ? r : (r.name || r.title || r.number || "");
+    const target = S.docs.find((x) => x.title === name || x.number === name);
+    const cell = target
+      ? `<a class="sop-link" onclick="event.stopPropagation();openDoc('${target.id}')">${esc(name)}</a>`
+      : esc(name);
+    return `<tr><td class="sop-td-type">${esc(type)}</td><td>${cell}</td></tr>`;
   }).join("");
 
-  const campus = (d.campusVariations || []).map((c) => {
-    if (typeof c === "string") return `<li>${esc(c)}</li>`;
-    return `<li><b>${esc(c.campus || "")}</b>: ${esc(c.variation || c.note || JSON.stringify(c))}</li>`;
-  }).join("");
+  const defRows = (d.definitions || []).map((x) =>
+    `<tr><td class="sop-td-term">${esc(x.term)}</td><td>${esc(x.def || x.definition || "")}</td></tr>`).join("");
 
-  const revs = (d.revisions || []).map((r) => {
-    if (typeof r === "string") return `<div class="rev-item">${esc(r)}</div>`;
-    return `<div class="rev-item">${esc(r.date || "")} ${esc(r.desc || r.description || "")}</div>`;
-  }).join("");
+  const campus = (d.campusVariations || []).map((c) =>
+    `<li>${typeof c === "string" ? esc(c) : `<b>${esc(c.campus || "")}</b>: ${esc(c.variation || c.note || "")}`}</li>`).join("");
 
+  const refRows = (d.references || []).map((r) =>
+    `<li>${esc(typeof r === "string" ? r : (r.name || r.title || ""))}</li>`).join("");
+
+  const appendices = (d.appendices || []).map((a) => `<li>${esc(a)}</li>`).join("");
+
+  const revRows = (d.revisions || []).map((r) => typeof r === "string"
+    ? `<tr><td colspan="4">${esc(r)}</td></tr>`
+    : `<tr><td>${esc(r.date || "")}</td><td>${esc(r.version || "")}</td><td>${esc(r.author || "")}</td><td>${esc(r.desc || r.description || "")}</td></tr>`).join("");
+
+  const p = d.provenance || { state: "reformatted", label: "", short: "" };
+  const provCls = PROV_CLS[p.state] || PROV_CLS.reformatted;
+
+  $("#viewerBody").innerHTML = `
+    <div class="sop">
+      <div class="sop-header">County of Riverside — Department of Animal Services<br><span>${d.type === "Policy" ? "Departmental Policy" : "Standard Operating Procedure"}</span></div>
+
+      <div class="sop-provenance ${provCls}"><b>${esc(p.short)}.</b> ${esc(p.label)}</div>
+      ${d.dualListed ? `<div class="doc-banner warn">This document appears on both the active and sunsetted tracker tabs; its status is unresolved. Confirm with leadership before relying on it.</div>` : ""}
+      ${d.flag ? `<div class="doc-banner warn">Registry flag: ${esc(d.flag)}</div>` : ""}
+
+      <table class="sop-meta">
+        <tr><th>SOP Number</th><td>${d.number ? esc(d.number) : "To be assigned by administrator"}</td></tr>
+        <tr><th>Subject</th><td>${esc(d.title)}</td></tr>
+        <tr><th>Type</th><td>${esc(d.type)} &middot; ${esc(d.category)}</td></tr>
+        <tr><th>Supersedes</th><td>${esc(d.supersedes || "N/A")}</td></tr>
+        <tr><th>Effective Date</th><td>To be set upon final approval</td></tr>
+        <tr><th>Approved By</th><td>${esc(d.authority || "Director of Animal Services")}</td></tr>
+        <tr><th>Status</th><td>${esc(d.status)}</td></tr>
+      </table>
+
+      ${d.purpose ? `<div class="sop-section"><div class="sop-label">Purpose</div><p>${esc(d.purpose)}</p></div>` : ""}
+
+      ${refRows ? `<div class="sop-section"><div class="sop-label">References</div><ul class="sop-bullets">${refRows}</ul></div>` : ""}
+
+      <div class="sop-section">
+        <div class="sop-label">Procedure</div>
+        ${d.scope ? `<div class="sop-sub"><div class="sop-sub-head">Scope</div><p>${esc(d.scope)}</p></div>` : ""}
+        ${defRows ? `<div class="sop-sub"><div class="sop-sub-head">Definitions</div>
+          <table class="sop-table"><thead><tr><th>Term</th><th>Definition</th></tr></thead><tbody>${defRows}</tbody></table></div>` : ""}
+        ${renderProcedure(d.sections)}
+        ${campus ? `<div class="sop-sub"><div class="sop-sub-head">Campus-Specific Variations</div><ul>${campus}</ul></div>` : ""}
+      </div>
+
+      ${relRows ? `<div class="sop-section"><div class="sop-label">Related Documents and Systems</div>
+        <table class="sop-table"><thead><tr><th>Type</th><th>Document / System Name</th></tr></thead><tbody>${relRows}</tbody></table></div>` : ""}
+
+      ${appendices ? `<div class="sop-section"><div class="sop-label">Appendices</div><ul class="sop-bullets">${appendices}</ul></div>` : ""}
+
+      ${revRows ? `<div class="sop-section"><div class="sop-label">Revision History</div>
+        <table class="sop-table"><thead><tr><th>Date</th><th>Version</th><th>Author</th><th>Description of Changes</th></tr></thead><tbody>${revRows}</tbody></table></div>` : ""}
+    </div>`;
+  $("#viewer").classList.remove("hidden");
+  $("#viewer").scrollTop = 0;
+}
+
+function openGuide(d) {
   $("#viewerBody").innerHTML = `
     <div class="doc-head">
       <div class="letterhead"><b>Riverside County Department of Animal Services</b>
-      <span>${d.type === "Policy" ? "Departmental Policy" : d.type === "Guide" ? "New Staff Reference Guide" : "Standard Operating Procedure"}</span></div>
+      <span>New Staff Reference Guide</span></div>
       <div class="doc-badges">${badges(d)}</div>
       <h2>${esc(d.title)}</h2>
     </div>
-    ${banners}
-    <dl class="meta-grid">
-      ${d.authority ? `<dt>Authority</dt><dd>${esc(d.authority)}</dd>` : ""}
-      ${d.scope ? `<dt>Scope</dt><dd>${esc(d.scope)}</dd>` : ""}
-      ${d.supersedes ? `<dt>Supersedes</dt><dd>${esc(d.supersedes)}</dd>` : ""}
-    </dl>
+    <div class="doc-banner info">Staff reference guide. Source: ${esc(d.source || "RCDAS New Staff Reference Guide")}.</div>
     ${d.purpose ? `<div class="doc-section"><h3>Purpose</h3><p>${esc(d.purpose)}</p></div>` : ""}
-    ${defs ? `<div class="doc-section"><h3>Definitions</h3>${defs}</div>` : ""}
-    ${renderSections(d.sections)}
-    ${campus ? `<div class="doc-section"><h3>Campus variations</h3><ul>${campus}</ul></div>` : ""}
-    ${(d.references || []).length ? `<div class="doc-section"><h3>References</h3><ul>${d.references.map((r) => `<li>${esc(typeof r === "string" ? r : JSON.stringify(r))}</li>`).join("")}</ul></div>` : ""}
-    ${rel ? `<div class="doc-section"><h3>Related documents</h3><div class="rel-chips">${rel}</div></div>` : ""}
-    ${revs ? `<div class="doc-section"><h3>Revision history</h3>${revs}</div>` : ""}
-  `;
+    ${renderGuideSections(d.sections)}`;
   $("#viewer").classList.remove("hidden");
   $("#viewer").scrollTop = 0;
 }
@@ -392,7 +481,9 @@ function sectionsText(sections) {
 }
 
 async function callAPI(path, payload, outEl, renderFn) {
-  outEl.innerHTML = `<p class="thinking">Reading the relevant documents...</p>`;
+  outEl.innerHTML = path.includes("draft")
+    ? `<p class="thinking">Researching published best practices (ASV Guidelines, university shelter medicine programs) and writing the draft. This can take a few minutes...</p>`
+    : `<p class="thinking">Reading the relevant documents...</p>`;
   try {
     const r = await fetch(path, {
       method: "POST",
@@ -415,25 +506,12 @@ function citeChips(docs) {
 function ask() {
   const q = $("#askBox").value.trim();
   if (!q) return;
-  const docs = retrieve(q);
+  const docs = retrieve(q, 5);
   callAPI("api/ask", { question: q, docs }, $("#askOut"), (data) => {
     $("#askOut").innerHTML = `
       <div class="answer"><h4>Answer</h4>${esc(data.text)}
       ${citeChips(docs)}</div>
       ${data.mode === "demo" ? `<div class="demo-note">Demo mode: this answer was generated without the AI service. Add an Anthropic API key to enable real grounded answers. The document retrieval above is real.</div>` : ""}`;
-  });
-}
-
-function check() {
-  const situation = $("#checkBox").value.trim();
-  if (!situation) return;
-  const docs = retrieve(situation, 5);
-  callAPI("api/check", { situation, docs }, $("#checkOut"), (data) => {
-    $("#checkOut").innerHTML = `
-      <div class="answer"><h4>Policy comparison</h4>${esc(data.text)}
-      ${citeChips(docs)}</div>
-      <div class="demo-note">This comparison is informational and is not a disciplinary finding or legal advice. Personnel concerns follow the chain of command.</div>
-      ${data.mode === "demo" ? `<div class="demo-note">Demo mode: add an Anthropic API key for real analysis. The document retrieval above is real.</div>` : ""}`;
   });
 }
 
@@ -507,21 +585,7 @@ function renderGlossary() {
       </div>`).join("");
 }
 
-/* ---------- FAQ / gaps ---------- */
-
-function renderFAQ() {
-  $("#faqNote").textContent = S.faq.note;
-  $("#faqOut").innerHTML = S.faq.items.map((it, i) => `
-    <div class="faq-item" id="faq-${i}" onclick="this.classList.toggle('open')">
-      <div class="faq-q"><span>${esc(it.q)}</span><span>+</span></div>
-      <div class="faq-a">${esc(it.a)}
-        <div class="cites">${it.docs.map((id) => {
-          const d = S.byId.get(id);
-          return d ? `<button class="cite-chip" onclick="event.stopPropagation();openDoc('${id}')">${esc(d.number ? d.number + " " : "")}${esc(d.title)}</button>` : "";
-        }).join("")}</div>
-      </div>
-    </div>`).join("");
-}
+/* ---------- gaps ---------- */
 
 const ICONS = {
   search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>',
@@ -529,30 +593,48 @@ const ICONS = {
   book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.6-3.7-2-6-2H4v14h2.5c2 0 4 .4 5.5 2 1.5-1.6 3.5-2 5.5-2H20V4h-2c-2.3 0-4.5.4-6 2z"/><line x1="12" y1="6" x2="12" y2="20"/></svg>',
   shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>',
   draft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>',
+  quiz: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.1 9a3 3 0 1 1 4.6 2.5c-.9.6-1.7 1.3-1.7 2.5"/><line x1="12" y1="17" x2="12" y2="17"/><circle cx="12" cy="12" r="10"/></svg>',
 };
 
 const HOME_CARDS = [
-  { tab: "search", icon: "search", title: "Find a document", color: "teal" },
-  { tab: "ask", icon: "chat", title: "Ask a question", color: "navy" },
-  { tab: "glossary", icon: "book", title: "Look up a term", color: "yellow" },
-  { tab: "check", icon: "shield", title: "Check a situation", color: "brown" },
+  { action: "switchTab('search')", icon: "search", title: "Find a document", color: "teal" },
+  { action: "switchTab('ask')", icon: "chat", title: "Ask a question", color: "navy" },
+  { action: "switchTab('glossary')", icon: "book", title: "Look up a term", color: "yellow" },
+  { action: "goDraft()", icon: "draft", title: "Draft a new SOP or policy", color: "brown" },
 ];
 
 function renderHome() {
   $("#homeGrid").innerHTML = HOME_CARDS.map((c) => `
-    <button class="home-card home-card--${c.color}" onclick="switchTab('${c.tab}')">
+    <button class="home-card home-card--${c.color}" onclick="${c.action}">
       <span class="home-head"><span class="home-icon">${ICONS[c.icon]}</span>
       <span class="home-title">${c.title}</span></span>
-      ${c.desc ? `<span class="home-desc">${c.desc}</span>` : ""}
     </button>`).join("");
 }
 
-function renderGaps() {
-  $("#gapsOut").innerHTML = S.gaps.map((g) => `
-    <div class="gap-card">
-      <div><b>${esc(g.topic)}</b><div class="gap-note">${esc(g.note)}</div></div>
-      <button class="btn-draft" onclick="requestDraft('${esc(g.topic).replace(/'/g, "\\'")}')">Create a draft</button>
-    </div>`).join("");
+// Jump to the draft tool inside Find a Document and focus it.
+function goDraft() {
+  switchTab("search");
+  const box = $("#gapBox");
+  box.scrollIntoView({ behavior: "smooth", block: "center" });
+  setTimeout(() => box.focus(), 250);
+}
+
+const ASK_EXAMPLES = [
+  "Is there a policy for parvo treatment?",
+  "What is the stray hold for a cat with no ID?",
+  "A stray dog with a microchip was adopted on day 3 without a chip trace being run. Did that follow policy?",
+  "How do I handle a bite report?",
+  "What has to happen before an animal can be euthanized?",
+];
+
+function renderAskExamples() {
+  $("#askExamples").innerHTML = ASK_EXAMPLES.map((q) =>
+    `<button class="example-chip" onclick="askExample(${JSON.stringify(q).replace(/"/g, "&quot;")})">${esc(q)}</button>`).join("");
+}
+
+function askExample(q) {
+  $("#askBox").value = q;
+  ask();
 }
 
 /* ---------- tabs & events ---------- */
@@ -572,7 +654,6 @@ function initEvents() {
   $("#catFilter").addEventListener("change", () => renderResults(searchDocs($("#searchBox").value)));
   $("#askBtn").addEventListener("click", ask);
   $("#askBox").addEventListener("keydown", (e) => { if (e.key === "Enter") ask(); });
-  $("#checkBtn").addEventListener("click", check);
   $("#gapBtn").addEventListener("click", draft);
   $("#gapBox").addEventListener("keydown", (e) => { if (e.key === "Enter") draft(); });
   $("#glossBox").addEventListener("input", renderGlossary);

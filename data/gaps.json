@@ -1,26 +1,89 @@
 [
  {
-  "topic": "Animal evacuation (shelter-wide)",
-  "note": "No standalone evacuation SOP; Facility ERP covers portions."
+  "group": "Medical & Disease",
+  "items": [
+   {
+    "topic": "Parvovirus treatment",
+    "note": "A prevention procedure exists (puppy housing movement); there is no treatment protocol for infected animals."
+   },
+   {
+    "topic": "Feline panleukopenia response",
+    "note": "No document covers panleukopenia identification, isolation, or treatment."
+   },
+   {
+    "topic": "Upper respiratory infection (URI) treatment",
+    "note": "The most common shelter illness; no treatment or monitoring protocol."
+   },
+   {
+    "topic": "Ringworm identification and treatment",
+    "note": "No identification, lime-sulfur treatment, or clearance protocol."
+   },
+   {
+    "topic": "Infectious disease outbreak response",
+    "note": "Rabies quarantines are covered; there is no general outbreak response plan (closure criteria, testing, communication)."
+   },
+   {
+    "topic": "Disease isolation protocols",
+    "note": "Quarantine documents cover rabies observation only, not routine isolation for infectious disease."
+   },
+   {
+    "topic": "Neonatal and fading kitten care",
+    "note": "No protocol for bottle feeding, warmth, or fading kitten emergencies."
+   }
+  ]
  },
  {
-  "topic": "Whole-shelter sanitation",
-  "note": "Kennel and area cleaning SOPs exist; no facility-wide sanitation program document."
+  "group": "Operations & Population",
+  "items": [
+   {
+    "topic": "Population management and capacity for care",
+    "note": "No document ties intake, housing capacity, and daily population decisions together."
+   },
+   {
+    "topic": "Daily population rounds",
+    "note": "No SOP for structured daily walk-throughs checking every animal's status and pathway."
+   },
+   {
+    "topic": "Community cat program",
+    "note": "In progress per the consolidation; will define the TNR, CCP, and RTF outcome types."
+   },
+   {
+    "topic": "Large-scale intake (hoarding and cruelty seizures)",
+    "note": "No plan for intaking dozens of animals at once from a single case."
+   },
+   {
+    "topic": "Whole-shelter sanitation",
+    "note": "Kennel and area cleaning SOPs exist; no facility-wide sanitation program document."
+   },
+   {
+    "topic": "Animal evacuation (shelter-wide)",
+    "note": "No standalone evacuation SOP; the Facility ERP covers portions."
+   },
+   {
+    "topic": "Missing animals",
+    "note": "No SOP for animals missing from inventory."
+   }
+  ]
  },
  {
-  "topic": "Missing animals",
-  "note": "No SOP for animals missing from inventory."
- },
- {
-  "topic": "Phone-center triage (current)",
-  "note": "Existing call center docs predate current triage practice."
- },
- {
-  "topic": "Telework",
-  "note": "No department telework policy."
- },
- {
-  "topic": "Time Clock SOP",
-  "note": "Policy 000-12 requires a Time Clock SOP that was never written."
+  "group": "Personnel & Administration",
+  "items": [
+   {
+    "topic": "Euthanasia technician training and certification",
+    "note": "No document covers training, certification, and competency requirements."
+   },
+   {
+    "topic": "Phone-center triage (current practice)",
+    "note": "Existing call center documents predate current triage practice."
+   },
+   {
+    "topic": "Telework",
+    "note": "No department telework policy."
+   },
+   {
+    "topic": "Time Clock SOP",
+    "note": "Policy 000-12 requires a Time Clock SOP that was never written."
+   }
+  ]
  }
 ]
