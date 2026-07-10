@@ -1,0 +1,1025 @@
+﻿RCDAS New Staff Reference Guide
+RCDAS Call Center and Customer Service Staff Reference Guide
+Welcome to RCDAS        2
+About RCDAS        2
+What We Do        2
+Roles and Responsibilities        3
+Expectations        3
+Section 1: Essential Information        3
+Codes        3
+Definitions        4
+Required Programs        6
+E-Resources Required        7
+Essential Keyboard Shortcuts        7
+Service Area and Jurisdiction        7
+Reference:        7
+Shelter Hours and Locations        8
+Fees        8
+Other Services:        8
+Helpful Web Links        9
+Key Contact Information        9
+Section 2: Call Handling Procedures        10
+Information Collection Standards        10
+Priority System for Field Activities        11
+Emergency Situations        12
+Section 3: Specific Call Types and Procedures        12
+Lost and Found Animals        12
+Community Cat Program        12
+Animal Complaints        13
+Owner Surrender Services        14
+Diversion Resources to Offer:        14
+Healthy Pet Zone Services        14
+Dibs program (pre-adoption)        16
+Wildlife Issues        16
+Cat Calls (Updated Process)        17
+Owned Deceased Animal Removal        17
+Pet Services        17
+Adoptions        17
+Foster Program        18
+Section 4: Specialized Procedures        18
+Citations and Violations        18
+Spay/Neuter Appointments        19
+Bite Reports        19
+Media Requests        19
+Section 5: Standard Scripts        19
+General Guidelines        19
+Scripts        20
+
+
+Welcome to RCDAS
+Welcome to the Riverside County Department of Animal Services. As a staff member, you serve as the primary point of contact between the public and our animal services. This manual provides essential knowledge and procedures needed to assist the public and coordinate services across all programs effectively.
+About RCDAS
+RCDAS is one of the largest shelter systems in the nation, taking in between 30,000 and 40,000 animals each year. RCDAS operates four campuses. The Jurupa Valley campus is the largest and houses the majority of the administrative staff. The San Jacinto facility is the second-largest, followed by the Coachella Valley (CVAC) campus. The Blythe campus is located near the Arizona border and primarily serves as an intake facility for this remote part of the County. 
+What We Do
+
+
+* Stray and lost pets. We take in stray and lost pets and help them get back to their owners. 
+* Owned pets. We also help struggling pet owners keep their pets and sometimes take in pets that their owners must surrender. 
+* Adoptions. We adopt thousands of pets to loving homes each year. 
+* Volunteer. We work with volunteers to help provide the best possible care to animals staying at our shelters.
+* Foster. We work with foster caregivers to expand our shelter capacity while they provide medical care and time, and assist with placement by providing pet information and marketing.
+* Rescue. We work with rescue and shelter partners to save the lives of the most vulnerable animals.
+* Euthanasia. We provide end-of-life euthanasia services to people who cannot afford to take their pet to a shelter or private veterinarian.
+* Sick and injured animals. Our vet team cares for sick and injured animals, as well as orphaned puppies and kittens. 
+* Animal care. We provide clean housing, food, and medicine for 1,000 or more animals each day. 
+* Animal control and field services. Our animal control officers investigate cases of cruelty, neglect, and hoarding. They also work to protect public safety by removing dangerous animals from the community. Officers also respond to routine nuisance and stray animal complaints. 
+* Spay and neuter. We offer spay and neuter services for owned pets in under-resourced parts of our community and provide microchips and tags to these animals. 
+* Trap-Neuter-Return.  We provide free sterilization, ear tipping, and vaccination for outdoor cats to prevent unwanted litters. 
+Roles and Responsibilities 
+
+
+There are more than 250 employees across four campuses. Most people fall into one of the following position categories: 
+
+
+* Animal care technician (ACT)
+* Animal service representative (ASR)
+* Animal service counselor (ASC)
+* Veterinary staff, including registered veterinary technicians (RVT) and veterinary assistants (VA)
+* Animal control officer (ACO)
+* Dispatchers
+* Administrative and executive staff (various positions)
+* Temporary Assignment Program (TAP)
+
+
+Expectations 
+
+
+1. Treat every person and animal with respect and kindness. 
+2. If you don’t know something, ask instead of guessing. 
+3. Know your limits to keep everyone safe. Don’t do something that would put your safety or the safety of you or others at risk. 
+4. If you have a problem you can’t resolve, talk to your supervisor or the on-duty supervisor. 
+5. Make customer service a priority and continuously strive to improve the customer experience, both internally and externally.
+6. Set others up for success by sharing information and helping each other.
+7. Treat every animal as if its life and well-being are as important as your own pets at home.
+
+
+Section 1: Essential Information 
+
+
+Codes
+
+
+Code/Acronym
+	Full Term
+	Definition
+	137
+	Euthanasia Request
+	Owner requests humane euthanasia due to medical or behavioral issue
+	597
+	California Penal Code for Animal Cruelty
+	California Penal Code section 597.1 prohibits animal cruelty and abuse, defining various harmful actions against animals and establishing penalties for offenders
+	ASR
+	Animal Services Representative
+	Customer service staff position for call center and front counter
+	ASC
+	Animal Services Counselor
+	Staff position focused on adoption and rescue
+	SST
+	Support Services Technician
+	Support staff who assist behind the scenes such as facilities or janitorial
+	BAR
+	Bright - Alert - Responsive
+	Animal intake condition
+	CA
+	Complaint Against
+	Who is the complaint about?
+The person, owner, business, or responsible party that the caller is reporting
+	RP
+	Reporting Party
+	Who is calling?
+The person, organization, or agency that is contacting the shelter to report a concern or request service
+	CCP
+	Community Cat Program
+	Community Cat means any free-roaming cat that may be cared for by one or more residents of the immediate area, whether known or unknown.  A community cat may or may not be feral.  These cats are counted as intakes and outcomes for the shelter
+	DOA
+	Dead on Arrival
+	An animal that is deceased at the time it arrives at the shelter
+	DRO
+	Dangerous Restraint Order
+	Order placed on animal that is deemed to be dangerous based on municipal code
+	DSO
+	Department Safety Officer
+	Appointed department safety representative.  Each shelter has their own DSO
+	FRA
+	Fluorescent Rabies Antibody Test
+	A laboratory test used to determine whether an animal is infected with rabies
+	HBC
+	Hit by Car
+	Animal hit by car
+	OTC
+	Over the Counter
+	Animal brought in over the counter (by member of the public)
+	OTI
+	Owner Turn In
+	Animal surrendered by its owner
+	PDR
+	Potentially Dangerous Restraint Order
+	Order placed on animal that is deemed to be potentially dangerous based on municipal code
+	QT
+	Quarantine (Rabies only)
+	Animal under state mandated rabies quarantine
+	QTR
+	Quarantine Release
+	Animal under state mandated rabies quarantine is released
+	RCI
+	Rabies Control Investigation
+	Also known as bite report
+	RTO
+	Return to Owner
+	Animal returned to its owner after being processed as an intake
+	Definitions
+
+
+Activity: A service request or case created in the Chameleon system for field officers or staff to complete (such as responding to a stray animal complaint or conducting a welfare check).
+
+
+Animal Control Officer (ACO): Field staff who respond to animal-related calls, investigate complaints, and enforce animal laws.
+
+
+Animal ID: Unique identification number assigned to each animal that enters the RCDAS system.
+
+
+CalTrans: California Department of Transportation, responsible for deceased animal removal on state highways and freeways.
+
+
+Chameleon: RCDAS's shelter software database that manages shelter operations by tracking animals, owners, activities, and case management.
+
+
+Cisco Finesse: Phone system software used for call center operations.
+
+
+Community cat (aka stray cat or free-roaming cat)t: Cats are not required to be licensed or registered in the State of California. Cats that live outdoors, either part of the time or all the time, are considered community cats. 
+
+
+Community Foster: Temporary care for stray animals by volunteers in their own homes instead of bringing them to the shelter, which increases the chances of reuniting with owners.
+
+
+Contracted Cities: Incorporated cities that contract with Riverside County Department of Animal Services (RCDAS) to provide animal control field services, animal sheltering services, or both.
+
+
+Cross Streets: The intersecting streets nearest to a specific address, used to help locate exact positions.
+
+
+CVAC: Coachella Valley Animal Campus, one of four RCDAS shelter facilities.
+
+
+Diversion: Process of offering alternatives to pet surrender, including resources and support services to help owners keep their animals.
+
+
+End-of-Life Services: Humane euthanasia services provided to pet owners who cannot afford private veterinary care.
+
+
+Euthanasia: The humane ending of an animal's life, typically due to severe illness, injury, or behavioral issues.
+
+
+Extension Request: A request to extend the deadline for paying an animal control citation.
+
+
+Feral: Wild or untamed animals that avoid human contact, typically referring to cats that were not socialized to humans.
+
+
+GEO Codes: Geographic reference codes used to identify specific locations within the county.
+
+
+HPZ: Healthy Pet Zone program providing veterinary care, supplies, and support to help families keep their pets during difficult times.
+
+
+Intake: The process of receiving and documenting animals brought into the shelter system.
+
+
+Jurisdiction: Geographic area served by RCDAS (unincorporated Riverside County plus contracted cities).
+
+
+Kennel: Individual housing unit for animals in the shelter; also refers to the department that manages daily animal care.
+
+
+Kennel License: License issued by DAS that allows more than four dogs to be maintained on a property. 
+
+
+Microchip: A Small electronic device implanted under an animal's skin that contains identification information.
+
+
+Neonate: Newborn animals, typically referring to puppies or kittens under four weeks of age.
+
+
+Noisy Animal Declaration: A formal complaint document required to initiate noise violation proceedings against pet owners.
+
+
+Official Notice (Green Card): Door hanger used by ACOs after visiting a property and not making contact with a person. 
+
+
+OOJ: Out of Jurisdiction - areas not served by RCDAS, requiring referral to other agencies.
+
+
+Owner Surrender: When pet owners voluntarily give up their animals to the shelter.
+
+
+Person ID (PID): ID number used to identify individuals in the Chameleon database system.
+
+
+Priority Levels: Classification system for field activities based on urgency (1=Emergency, 2=Urgent, 3=Assist Fire/Law, 4=Must be responded to same day, 5=Routine).
+
+
+Rabies Control: A program that monitors and prevents rabies transmission, including bite investigations and quarantine procedures.
+
+
+RCDAS: Riverside County Department of Animal Services.
+
+
+RVT: Registered Veterinary Technician, licensed animal healthcare professional.
+
+
+SNR: Shelter-Neuter-Return program for friendly stray cats that are spayed/neutered, then adopted or returned to their territory.
+
+
+Spay/Neuter: Surgical procedures to prevent animal reproduction (spay for females, neuter for males).
+
+
+Stray: Lost or abandoned animals found roaming without owners.
+
+
+Surrender Fee: A fee charged to owners who surrender their pets to the shelter, intended to cover care costs.
+
+
+Timestamp: Date and time notation added to database records to track when actions occurred.
+
+
+TNR: Trap-Neuter-Return program for feral community cats that are captured, sterilized, and returned to their territory to control the population.
+
+
+Trap: A humane cage device used to capture cats for TNR programs safely.
+
+
+Unincorporated County: Areas of Riverside County not within city limits, served directly by county government rather than municipal services.
+
+
+Violation Number: Unique identifier assigned to each citation or violation case.
+
+
+Welfare Check: Investigation to assess whether animals are receiving proper care, food, water, and shelter.
+Required Programs
+
+
+* Microsoft Teams
+* Riverside email address
+* Chameleon (animal services database system)
+* Google Earth Pro
+* Acuity (appointment scheduling system)
+* Browser tabs:
+   * Riverside County Map My County
+   * Google Maps
+   * RCDAS Homepage 
+   * Cisco Finess
+E-Resources Required
+
+
+* Training manual PDF
+* GEO Codes
+* Out of Jurisdiction (OOJ) List
+* Staff Directory
+* Chain of Command
+* Spay/neuter list for Western Riverside
+Essential Keyboard Shortcuts
+
+
+* F Keys
+* F3 - Reports
+* F4 - Pop-ups
+* F5 - Timestamp
+* F6 - Look up a past ID
+* F7 - Back
+* F8 - Update/Save existing entry
+* F9 - Save new entry
+* F10 - Menu
+* F11 - Clear Screen
+* F12: Search
+* Ctrl+F: Find
+Service Area and Jurisdiction
+RCDAS serves unincorporated Riverside County and contracted cities. Some cities maintain their own animal control services. Always verify jurisdiction before creating activities or directing someone to one of our shelters. When uncertain, direct callers to the appropriate agency. When uncertain who to direct the caller to, reach out to your lead.
+Reference:
+
+
+Contract City. Incorporated city that contracts Riverside County Department of Animal Services (RCDAS) to provide animal control field services, animal sheltering services, or both.
+County Area. Unincorporated areas of Riverside County.
+
+
+SB Co Contract. Cities inside San Bernardino County who contracted RCDAS to provide animal sheltering services.
+
+
+RivCo Non Contract City. Incorporated city inside Riverside County that does not contract RCDAS for animal control field services. Contract is for shelter services only.
+
+
+Out of Jurisdiction. Areas outside of Riverside County
+
+
+Shelter Hours and Locations
+
+
+Main Shelters (Riverside, CVAC, San Jacinto):
+* Tuesday through Friday, 11 am to 6 pm
+* Saturday, Sunday: 10 am to 4 pm
+* Closed: Mondays and holidays
+
+
+Blythe Shelter:
+* Monday through Saturday: 10 am to 4 pm
+* Closed: Sundays and holidays
+
+
+Toll Free:
+* 1-888-636-7387 (PETS)
+Fees
+
+
+Standard Fees and Services
+
+
+Adoption Fees:
+
+
+* Dogs: $105 (0-15 days), $55 (16-30 days), $20 (31+ days)
+* Cats: $65 (8wks-4mos), $45 (5mos-1yr), $25 (over 1yr)
+* Horses and donkeys: $150
+* Goats: $75
+* Pigs $50
+* Rabbits, turtles, guinea pigs, and small pets: $5
+* Senior discount: 50% off
+* Military/Veteran discount: Free
+* NOTE: Volunteers, foster caregivers, and employees receive a 50% discount on adoptions.
+Other Services:
+
+
+Pet licensing: Online at riversidecounty.docupet.com or 1-877-239-6072
+
+
+Deceased owned animal pickup: $55 (city areas), $25 for disposal (unincorporated, drop-off required)
+
+
+* Pick-ups are $30 and must be approved by a Sargent or Lieutenant of that area. 
+* No horses or livestock
+
+
+Owner surrender: Dogs $222, Cats $204 (consultation required, not guaranteed)
+
+
+Euthanasia services (in our jurisdiction only): $50 
+
+
+* Appointment required
+* Euthanasia is not guaranteed and will be performed if the staff determines it’s in the best interest of the animal. 
+* Registered owner must be present with approved identification
+
+
+Spay/neuter: Dogs $108, Cats $63 (unless event price is listed or listed as FREE)
+
+
+* Offered only through the mobile spay/neuter vehicle event days
+* Most mobile bus days are FREE. 
+* Not currently offered at any of the campuses
+
+
+Microchipping:
+
+
+* Offered by RCDAS for $21
+* RCDAS chips: Register at 24petwatch.com or 866-597-2424
+* Private vendor chips: Contact the company directly
+* Vendor lookup: rcdas.org/pet-services/microchip-registration
+* Where to get microchips: You can get them at RCDAS by appointment. Cost is $21. 
+Helpful Web Links
+
+
+Riverside County Animal Ordinances
+Key Contact Information
+
+
+Primary Website: www.rcdas.org
+
+
+Frequently Used Email Addresses:
+
+
+* Adoptions: adoptions@rivco.org 
+* Bites: rabiescontrol@rivco.org 
+* Citations: dascitations@rivco.org 
+* Collections: dascollections@rivco.org
+* General email: shelterinfo@rivco.org 
+* Hearings: dashearings@rivco.org 
+* Kennel Licenses and Rescue Permits: daskennels@rivco.org 
+* Lost and Found: lostandfoundDAS@rivco.org 
+* Licensing: rabiescontrol@rivco.org 
+* Foster Program Riverside: foster@rivco.org
+* Foster Program San Jacinto: sjfoster@rivco.org
+* Foster Program CVAC: cvacfoster@rivco.org
+* Rabies: rabiescontrol@rivco.org  
+* Rescue Organizations: TransferDAS@rivco.org 
+* Volunteer Program: dasvolunteer@rivco.org 
+* Noisy Animals: DASnoisyanimals@rivco.org 
+* Media Inquiries: VePerez@RIVCO.ORG 
+
+
+Counselor Teams:
+
+
+* Western Riverside: riversidecats@rivco.org 
+* San Jacinto: SJCounselors@rivco.org 
+* CVAC/Blythe: CVACCounselors@rivco.org 
+* Always CC: DValenci@RIVCO.ORG and Dacruz@RIVCO.ORG and ashrodri@rivco.org 
+
+
+Staff Directory
+S Drive->ANMSHLT_Shared->Department Phone List-> Phone List
+
+
+External Agencies:
+
+
+* Fish and Wildlife: 909-484-0167
+* Desert Areas: 760-200-9158
+* Cal Trans reports: https://csr.dot.ca.gov/index.php/msrsubmit
+* Cal Trans (Deceased animal pickup on freeways): 909-383-4631
+
+
+Financial Assistance Organizations:
+
+
+* Refer to RCDAS website
+
+
+Anonymous Callers
+
+
+* Anonymous caller: Use PID 0396507
+* Caller refuses contact information: Use PID 0656455
+____________________________________________________________________________
+Section 2: Call Handling Procedures
+Information Collection Standards
+
+
+For every call, collect the following minimum information:
+
+
+* Exact address and cross streets
+* Age of caller (confirm age of caller - must be an adult 18+)
+* Caller name and address (get phone, and email when possible)
+* Detailed description of situation - Who, what, where, when, why
+* Animal description (size, breed, color, behavior)
+* Relevant Animal ID numbers
+* Timeframe of observed issues
+Priority System for Field Activities
+
+
+Priority 1 Emergency: Threat to human life or safety
+
+
+* An aggressive animal is currently attacking a human
+* Rattlesnakes (must maintain visual)
+* Deceased or alive bats in homes
+* Must have visual confirmation
+* Immediate public safety threat
+
+
+Priority 2 Urgent: Threat to animal life or safety
+
+
+* Extreme cruelty or neglect - the animal may die without intervention
+* Injured or sick animals requiring immediate attention
+* Aggressive animals are preventing normal activities
+* Animal blocking traffic
+
+
+Priority 3: same-day response
+
+
+* Animals tied up
+* Law enforcement assist (including fire department, CHP, public assistance)
+* Traffic hazards
+* Lose livestock on streets or train tracks
+* Animals in distress
+
+
+Priority 4: same-day response
+
+
+* The animal is confined, requiring increased attention
+
+
+Priority 5 (Routine Response):
+
+
+* Stray roam
+* Stray habit
+* Deceased animal
+* Inv kennel
+* Inv bite (not within the last hour, and the animal is not loose or stray). 
+* Disposal requests
+* General welfare checks
+Emergency Situations
+For active emergencies involving aggressive animals, immediate public safety threats, or emergency assist requests from law enforcement/fire department, transfer calls directly to Dispatch at extension x87350
+____________________________________________________________________________
+Section 3: Specific Call Types and Procedures
+Lost and Found Animals
+
+
+Lost Pet Procedure:
+
+
+1. Ask if the animal is microchipped
+2. If microchipped, then search system immediately
+3. Direct the caller to the RCDAS lost and found page to file a report with Petco Love Lost
+4. Inform the caller that they can walk through the kennels to search for their lost pet
+5. Inform the caller of website updates every 30 minutes
+6. Direct the caller to follow the steps outlined on the RCDAS website
+7. Provide email for support: lostandfoundDAS@rivco.org
+
+
+Found Pet Procedure:
+
+
+1. Determine whether the animal is visibly sick or injured, or poses a threat to public or finder safety.
+2. Ask the caller if they can hold the animal they found.
+3. If the caller cannot keep the animal, provide them instructions for bringing the animal to the shelter
+   1. If the caller is unable to drive or otherwise unable to get the animal to the shelter, create a pickup activity
+4. Recommend microchip scanning at a veterinarian, PetSmart, Petco, or shelter
+5. Direct to petcolovelost.org registration and social media posting
+Community Cat Program
+
+
+Services Available:
+
+
+* Trap-Neuter-Return (TNR) for community cats (services vary based on location. See current TNR flyer) 
+* Working Cat Program to find barn homes for cats that are feral but cannot be released to where they came from. 
+* Community Foster support
+
+
+TNR Program Guidelines (as of December 19, 2024):
+
+
+* Walk-in TNRs limited to 10 cats per day, Monday-Friday
+* First-come, first-served basis
+* 2 cats per person maximum
+* Must live in the RCDAS jurisdiction with a valid ID
+* Check-in times: 8:00-8:30 AM, must be present with the cat
+* Required: Cats must arrive in proper cat traps only
+* San Jacinto - by appointment only. 
+* Direct people to the RCDAS website.
+
+
+Community Cat Inquiries:
+
+
+1. Assess situation: feral colony, nuisance complaints, or population control needs
+2. For feral cat complaints: Offer TNR services and community education
+3. For stray cats: Consider the SNR program or community foster
+4. Schedule site assessment if needed
+Animal Complaints
+
+
+Noisy Animal Complaints:
+* Instruct the complainant to visit https://rcdas.org/noisy-animals 
+* Require a formal Declaration of Noisy Animal form
+* Available at RCDAS.org under Services → Forms
+* NOT an anonymous process - information will be shared
+* The owner receives a warning notice first
+* If the complainant does not have access to the internet, staff can mail out a complaint letter, and a notice can be mailed back or emailed. 
+* Questions: DASnoisyanimals@rivco.org
+
+
+Stray Animals: Create an activity with detailed information:
+* Exact location with landmarks
+* Animal description and behavior
+* The duration the animal has been present
+* Whether the animal appears injured, aggressive, or contained
+
+
+Animal Welfare Concerns: Document specific observations:
+* Lack of food, water, or shelter
+* Visible injuries or illness
+* Timeframes for observed conditions
+* The caller must have an address or cross streets
+* Must be reported by an observer; no third-party calls are permitted.
+* Number of animals (over 4 dogs or 9 cats requires permits)
+   * An INV KENNEL can be created for complaints on number of animals
+
+
+Deceased Animal (not owned by caller):
+* Exact location, including cross streets, address, and where exactly the animal is. Example- in the road, next to the big tree, under the patio table. 
+* Type of animal
+* Freeways: Refer to CalTrans (909-383-4631)
+* Under Homes: RCDAS does not provide this service
+
+
+Livestock:
+* Refer to the County code
+Owner Surrender Services
+
+
+Owner Turn-In Consultation Process:
+
+
+1. Verify the caller is in our jurisdiction. 
+2. Refer to the call center script.
+3. If they wish to speak with someone before coming into the shelter, email the shelter supervisor:
+   1. Western Riverside: Rivcounselors@rivco.org
+   2. San Jac: SJCounselors@rivco.org
+   3. CVAC: CVACCounselors@rivco.org
+4. Schedule a consultation appointment within 24 hours - direct them to email the supervisor at the shelter where they wish to surrender. 
+5. Conduct a diversion interview to explore alternatives
+6. Offer appropriate support services before accepting surrender
+Diversion Resources to Offer:
+
+
+* Healthy Pet Zone services (veterinary care, food pantry, supplies)
+* Behavior support and training resources
+* Temporary boarding (up to 2 weeks for crises)
+* Financial assistance referrals
+* Rehoming guidance and support
+
+
+Assessment Required:
+
+
+* Not guaranteed service
+* Requires an evaluation appointment if diversion is unsuccessful
+* Must have a valid ID and proof of ownership
+* Must be named the owner on the microchip/license
+Healthy Pet Zone Services
+
+
+Eligibility: Riverside County residents and contract city residents only
+
+
+Availability: Services and supplies available may vary by location and we cannot guarantee availability in advance.
+
+
+Services Available:
+
+
+Veterinary Care:
+
+
+* Must be approved by the RVT supervisor and the veterinarian
+* The caller should email shelterinfo@rivco.org to make a request
+* Low-cost medical exams and basic veterinary care
+* Subsidized through grants when available
+* Create HPZ-Vet Exam Consult appointment
+* Referrals from field officers, diversion team, or self-referrals
+
+
+Temporary Boarding Program:
+
+
+* Up to 2 weeks of emergency housing during a crisis
+* Must have a specific end date
+* Available for hospitalization, housing crisis, and personal emergencies
+* Create HPZ-Temporary Boarding appointment
+* Email the boarding agreement to the client
+* Refer individual to shelterinfo@rivco.org. Ideally, a case manager or social worker should be the one making contact.
+   * If an individual is in distress and is seeking immediate help, email the shelter manager to make a decision
+   * Western Riverside: Maria Vogel cc Jaclyn Schart
+   * San Jac: Damien Cruz cc Jaclyn Schart, Frances Leblanc
+   * CVAC: Marisa Sanabria cc Jaclyn Schart
+
+
+Pet Food Pantry:
+
+
+* Pet food assistance for families in need
+* Interview to determine need
+* Create an HPZ-Pet Supply pickup appointment
+* Available through officer referrals, diversion team, or self-referrals
+
+
+Pet Supplies and Support:
+
+
+* Fence repairs, leashes, collars, ID tags, dog houses
+* Assessment required for all requests
+* Field distribution or appointment-based pickup
+
+
+Homeless Outreach:
+
+
+* Support for individuals entering treatment programs
+* Coordination with the county Homeless Coordinated Entry System
+* Free spay/neuter, microchips, vaccines for homeless individuals
+* Refer to the HPZ Program Manager
+Dibs program (pre-adoption)
+
+
+Animals Eligible:  Any dog that is marked “stray wait” or “known wait”.  Cats are not eligible, as there is no stray holding period for them.
+
+
+Script for animals eligible for DIBS
+
+
+Thank you for your interest in (Animal Name) (A#).  This pet is currently on stray hold, awaiting their family to find them; however, if you would like to adopt them, you may place DIBS on this pet by visiting in person (Shelter Name) (Shelter Address) anytime during business hours, which are Tuesday - Friday 11 am - 6 pm, and Saturday and Sunday 10 am - 4 pm. 
+
+
+All pets are available on a first-come, first-served basis for the DIBS program and adoption.  RCDAS can not guarantee the availability of any pet.
+Pets on DIBS will remain at the shelter until the stray hold has expired. If an owner is identified or reunited with their pet at any time during the stray hold, the pet is no longer eligible for DIBS.  Pets with DIBS must be picked up by the end of the business day once they become the property of RCDAS.
+
+
+Thank you, and we look forward to seeing you soon.
+
+
+If an animal is marked “available”, let the caller know that the pet can be adopted immediately.
+Script for “Available” animals
+
+
+Thank you for your interest in (Animal Name) (A#).  This pet is currently available for adoption. You can learn more or adopt this pet by visiting the in person (Shelter Name) (Shelter Address) anytime during business hours, which are  Tuesday - Friday 11 am - 6 pm, and Saturday and Sunday 10 am - 4 pm. 
+All pets are available for adoption on a first-come, first-served basis.  RCDAS can not guarantee the availability of any pet.
+Thank you, and we look forward to seeing you soon.
+Wildlife Issues
+
+
+RCDAS generally does NOT handle the following types of calls, but can create a call for any animal that is sick, injured, or actively attacking. 
+
+
+* Coyotes, mountain lions, bobcats, foxes (refer to Fish and Wildlife: 909-484-0167)
+* Coyotes in the City of Riverside can be reported to 311. 
+* Bees (refer to pest control services)
+* When to assist a baby animal
+* Healthy wildlife in natural habitats
+   * Refer to deterrents for backyard wildlife (can be found online)
+
+
+RCDAS Does Handle:
+
+
+* Injured wildlife
+* Aggressive wildlife posing immediate threats
+* Deceased wildlife removal 
+Cat Calls (Updated Process)
+New Procedure (effective June 9, 2025): For cats that are not bleeding, biting, or broken, refer to Counselor Teams:
+
+
+* Western Riverside: riversidecats@rivco.org
+* San Jacinto: SJCounselors@rivco.org
+* CVAC/Blythe: CVACCounselors@rivco.org
+* Always CC: DValenci@RIVCO.ORG and Dacruz@RIVCO.ORG
+Owned Deceased Animal Removal
+
+
+* City Areas: $55 fee, city pickup service
+* Unincorporated County: $25 fee, must drop off at shelter
+* OWNED deceased animal pickup requires approval by a sergeant or lieutenant. 
+Pet Services
+
+
+Pet Licensing:
+
+
+* Fastest method: riversidecounty.docupet.com
+* Phone: 1-877-239-6072
+* In-person: During shelter hours
+* Required documents: rabies certificate, spay/neuter proof, microchip info
+
+
+Euthanasia Services:
+
+
+* Emergencies accepted only at the Jurupa Valley/Western Riverside location.
+* Appointments can be made at any of the RCDAS campuses except Blythe 
+* Not guaranteed service, requires evaluation by a shelter veterinarian
+* Fee: $50
+* The owner cannot be present during the procedure
+* No return of ashes
+* Must have a valid ID and be the named owner
+Adoptions
+
+
+* No appointment required
+* Visit during shelter hours
+* View available animals at rcdas.org
+* Adoption counselors are available to assist
+* Explain that all pets are available on a first-come, first-served basis.
+* RCDAS can not guarantee the availability of any pet.
+Foster Program
+
+
+Community Foster:
+* Temporary care for stray animals instead of shelter intake
+* RCDAS provides medical care, supplies, and support
+* Increases owner reunion success rates
+
+
+Kitten Foster:
+* Critical during kitten season (spring/summer)
+* Education on non-intervention unless the mother is absent
+* Supply assistance and veterinary support were provided
+* Training resources available at www.rcdas.org
+
+
+Foster Support Services:
+* Neonate care training
+* Medical care coordination
+* Supply provision (food, litter, carriers)
+* 24/7 emergency support line
+____________________________________________________________________________
+Section 4: Specialized Procedures
+Citations and Violations
+
+
+Green Card Questions: Email ACO listed on green card.
+
+
+Citations: Transfer to extension 8-7294. ACO will leave yellow copy for citations.
+
+
+Extension Requests:
+
+
+1. Look up the citation in Chameleon by incident number
+2. Add a timestamp note explaining the extension needed
+3. Update system and email: DAScitations@rivco.org
+
+
+Note: Supervisor approval is not needed for the first extension of an Administrative Citation.  The 2nd or additional extensions must be approved by the field services supervisor (Sgt. or above)
+
+
+Non-Traffic Notice to Appear Citations are not eligible for extensions under any circumstances.   
+
+
+Collections Issues:
+* Email: dascollections@rivco.org with PID and citation information
+* Include owner name, phone, and email
+* City of Riverside collections: 951-826-5557
+
+
+Kennel Licenses and Rescue Permits application or renewal:
+* Email: daskennels@rivco.org with name, address, and license/permit number if known.
+* Include the owner's name and phone number.
+Spay/Neuter Appointments
+For shelter pets (no owned pet spay or neuter services currently being scheduled at the facilities) 
+
+
+* Riverside: Add to shared Excel file
+* CVAC: Verify if already on waitlist; if over 3 months, escalate via email. Follow-up with email on Monday when shelter is closed.
+* San Jacinto: Collect information, send via email to ASR team and CC Maria Rivera
+
+
+CVAC Waitlist Script: "Currently, there is a waitlist for surgery at CVAC. If you haven't reached out to schedule your appointment yet, I will send your information to our team. If it has been less than 3 months since you contacted us, please remain patient. If it has been more than 3 months, I'll send your information for follow-up."
+Bite Reports
+* Forward to Rabies Control Desk when available
+* If unavailable, collect all information and email: rabiescontrol@rivco.org
+* Verify jurisdiction based on bite location
+* Verify owner of the animal responsible for bite (unless happening right now)
+* Collect detailed information about the incident and the parties involved
+Media Requests
+* Non-urgent: Collect information and email VePerez@RIVCO.ORG
+* Urgent: Direct contact at 951-608-4167
+____________________________________________________________________________
+
+
+Section 5: Standard Scripts
+
+
+General Guidelines
+
+
+1. Answer the phone with this greeting: "Department of Animal Services, this is NAME; how can I help you?"  
+2. Start with thank you. This is true regardless of why someone is reaching out. “Thank you so much for reaching out to us.” 
+3. Let them know you’re there to help. “This is also important regardless of why they’re reaching out. “Let’s see how we can best help you today.” 
+4. Be honest and open. “I don’t have a simple solution for that problem, but I’m going to offer you a couple of options.” 
+5. Offer affirmation. “I hear you.” “That makes a lot of sense.” 
+6. Set clear boundaries and explain them. “We cannot house your animal at the shelter for you because we don’t offer boarding here. Our kennels are used for pets that are lost, stray, or have been surrendered by their owners.” 
+7. Negotiate. “I understand you cannot keep your cat long term. Would you agree to post your cat on Rehome and reach out to family and friends to try to find a place for her? If you try for a week and still cannot find a place for her, we can make you a surrender appointment.” 
+
+
+Scripts
+
+
+Shelter Status Script:
+“Our shelter is currently at capacity, meaning we have no available space for incoming pets. If this pet enters the shelter, it may face a risk of euthanasia due to a lack of kennel space. We aim to avoid euthanizing any healthy, adoptable pet and are seeking your assistance to save a life."
+
+
+Found Pets Script
+"Thank you for helping and caring for this lost pet. We want to help reunite this pet with its owner as quickly as possible. We're seeking the community's help as we are at capacity and have nowhere for incoming pets to go. Would you consider holding onto this pet to help it reunite with its owner? We can scan the pet for a microchip and help you get it registered so the owner can easily locate their pet online. If the owner isn't found, we can assist with spaying/neutering and vaccinations if you're open to rehoming the pet outside the shelter. Even a few days of care can be lifesaving during this critical time."
+
+
+Found Pets Script (for the finder who may want to keep the found pet)
+“Thank you so much for your willingness to help with this pet. All you have to do is file a found report with Petco Love Lost. This platform will notify a potential owner that you have found their pet and connect with them through a secure, private platform. We recommend that you also post this pet on local lost-and-found Facebook page(s), Nextdoor, and Pawboost to help the owner find their pet. After 30 days, you can get this pet licensed and microchipped in your name. You can find information about this on our website. 
+
+
+Lost Pets Script
+“I’m sorry to hear that your pet has gone missing. To report your pet as lost, fill out the “I Lost a Pet” form on Petco Love Lost (petcolovelost.org). This platform will notify you if your pet is reported as found by a community member or if your pet enters one of our shelters. We also recommend posting a lost pet on local lost-and-found Facebook page(s), Nextdoor, and Pawboost to increase awareness in the community. If your pet is microchipped, alert the company that microchipped it that it is lost. You can also visit our website https://rcdas.org/lost-and-found to see additional steps to increase the likelihood of reuniting with your pet, or visit our shelter directly to search for your lost pet.
+
+
+Spay and Neuter for Owned Pets (When you don’t have a viable option for them)
+“It can be really challenging to find low-cost or free spay and neuter options these days. There is a national shortage of veterinarians, and costs are pretty high. We recommend looking around at low-cost vets in the region. You may have to look outside of Riverside County. Some veterinarians also offer Care Credit options. You’re doing the right thing, getting your pet spayed or neutered, and it will be worth the extra effort.” 
+
+
+Found Pets Alternative Options:
+"We offer several options. You can file a found report at Petco Love Lost and help us try to get the pet back home. Or we can formally intake the pet into the shelter and send it home with you as a foster pet. Third, we can take the pet in and ask you to post on Petco Love Lost and put signs around your neighborhood. If you can do any of these things, you can help us get the pet home as quickly as possible and help us conserve lifesaving kennel space."
+
+
+Owner Surrender Script: "We are asking people to rehome their pets independently when possible. Even if you can't keep your pet long-term, we ask that you try rehoming it before surrendering it. We can assist you in posting your pet online and connecting with potential adopters. We can connect you to our self-rehoming service partners to help you start marketing your pet for adoption. Let's work together to find your pet a new home without having to go through shelter intake. The great part about doing it this way is that you can meet potential adopters yourself, and we find that owners are the very best adoption counselors."
+
+
+Kittens and Puppies Script: "With over 1,000 pets in our care, kittens and puppies are particularly vulnerable to illness due to their undeveloped immune systems, increasing their risk of euthanasia. Can you assist by caring for this pet until it's old enough to be adopted? In just a couple of weeks, they'll be ready for spay or neuter surgery, and we can help you get them sterilized and ready for adoption. If you would like, we can register them in our system and send them home with you as fosters. That way, you can get them the care they need, and they can stay out of the shelter to give their immune systems a little more time to develop."
+
+
+Limited Services Script: 
+"At this time, we offer limited public services as the shelter is at critical capacity. Most of our focus is on the animals currently in the shelters. Please regularly check [shelter website] for updates on available services and access information. We can connect you to our nonprofit partner group, which provides spay and neuter services on Wednesdays, and try to expedite an appointment for your kitty."
+
+
+Owner Surrender Script
+"I understand you need to surrender your pet. We offer consultation services to explore alternatives that might help you keep your pet, including veterinary assistance, behavior support, temporary boarding, and financial resources. If you aren’t able to keep them, we can provide you with information and support to help you self-rehome your pet. This process is generally less stressful for the pet and lets you participate in finding them a new home. If you'd like to discuss options, you can visit our website at rcdas.org under “Relinquishing a Pet,” or I can schedule a consultation. If we determine surrender is necessary, this service requires an evaluation and is not guaranteed. Fees start at $222 for dogs and $204 for cats and may increase based on the animal's needs. You will need a government-issued ID and must be the named owner on the microchip or license record.  Please bring recent medical records, if you have them.”
+
+
+Healthy Pet Zone Services Script
+"We offer several programs to help families keep their pets during difficult times. Our Healthy Pet Zone provides pet food assistance at the Western Riverside, San Jacinto, and Coachella Valley campuses. We can also help connect you with low-cost veterinary care, temporary boarding during emergencies, and assistance with supplies like leashes and dog houses. These services are available only to Riverside County residents and have limited availability. What specific type of assistance would be most helpful for your situation?"
+
+
+Community Cat Program Script
+"We have several programs to help with community cats. For feral cats, we offer Trap-Neuter-Return services to control populations humanely. For friendly stray cats, we have programs to help them find homes or return to their owners. If you're willing to care for a cat you've found temporarily, we can provide supplies and support. What type of assistance would be most helpful in your situation?"
+
+
+What is included in TNR? Response:
+“TNR includes sterilization surgery for the cat, vaccines, and a microchip upon request, an ear-tip for identification as a TNR participant, and a pain injection. If a microchip is requested, you will be listed as the primary caregiver for the cat.”
+
+
+TNR Participation Response
+“To participate in TNR, cats must be at least two months old and weigh over two pounds. We require cats to be contained in a cat trap (no carriers, boxes, or other receptacles) and brought in to RCDAS by an individual who lives within our service jurisdiction, able to provide proof of residence and a valid government ID.”
+
+
+Euthanasia Request Script
+"I understand this is a difficult decision. Our euthanasia service requires an appointment and evaluation and is not guaranteed. The fee is $50 if we can provide the service. You will not be able to be present during the procedure, and we cannot return the ashes. You will need a government-issued ID and must be the named owner on the microchip or license record. This service is currently available at our Jurupa Valley location."
+
+
+Cat Call Script
+"In Riverside County, cats are legally allowed to roam freely. If the cats appear injured, sick, bleeding, or seem to be abandoned kittens, you can bring them to one of our shelters for treatment, or we can dispatch an Animal Control Officer to assist. For other cat-related concerns, I can connect you with our Counselor Team, who can provide resources and assistance."
+
+
+Foster Program Script
+"Our foster program helps animals in several ways. We have a finder-to-foster program for stray pets, which keeps them in the area where they were found, where they're more likely to reunite with their owners. We also offer traditional foster care for animals that need extra care. Foster families receive medical care, support for medical concerns, and, as available, supplies. Would you like information about becoming a foster family or about our finder to foster program?"
+
+
+Adoption Script
+"We have many wonderful animals available for adoption. You can view all available animals at rcdas.org under Adoptable Pets. No appointment is necessary—simply visit us during our operating hours: Tuesday through Friday, 11 am to 6 pm; Saturday and Sunday, 10 am to 4 pm. Our adoption counselors will be happy to help you find the right match."
+
+
+DIBS Script - When a dog is marked “Stray Wait” or “Known Wait”, please use the script below.  Dogs that were confiscated and all cats are ineligible for DIBS.
+
+
+“Thank you for your interest in (Animal Name) (A#).  This pet is currently on stray hold, awaiting their family to find them; however, if you would like to adopt them, you may place DIBS on this pet by visiting in person (Shelter Name) (Shelter Address) anytime during business hours, which are Tuesday through Friday, 11 am to 6 pm, Saturday and Sunday, 10 am to 4 pm.
+All pets are available on a first-come, first-served basis for the DIBS program and adoption.  RCDAS can not guarantee the availability of any pet.
+
+
+Pets on DIBS will remain at the shelter until the stray hold has expired. If an owner is identified or reunited with their pet at any time during the stray hold, the pet is no longer eligible for DIBS.  Pets with DIBS must be picked up by the end of the business day, once they become the property of RCDAS.
+
+
+Thank you, and we look forward to seeing you soon.”
+
+
+Available Animal Script - When an animal is marked “Available,” please use the script below.
+“Thank you for your interest in (Animal Name) (A#).  This pet is currently available for adoption. You can learn more or adopt this pet by visiting the shelter in person (Shelter Name) (Shelter Address) anytime during business hours, which are Tuesday through Friday, 11 am to 6 pm, Saturday and Sunday, 10 am to 4 pm.
+
+
+All pets are available for adoption on a first-come, first-served basis.  RCDAS can not guarantee the availability of any pet.
+
+
+Thank you, and we look forward to seeing you soon.”

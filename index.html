@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RCDAS Policy &amp; Procedure Library</title>
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=8">
+</head>
+<body>
+
+<!-- Sign-in gate -->
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <img src="logo-stacked.png" alt="Department of Animal Services, County of Riverside, California" class="gate-logo">
+    <p class="gate-sub">Policy &amp; Procedure Library</p>
+    <form id="loginForm">
+      <label for="email">Staff email</label>
+      <input type="email" id="email" placeholder="you@rivco.org" required autocomplete="email">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" class="btn-primary">Sign in</button>
+      <p id="gateError" class="gate-error"></p>
+    </form>
+    <p id="gateNote" class="gate-note">Mockup sign-in: any email and password will work. Production will use county single sign-on.</p>
+  </div>
+</div>
+
+<!-- App shell -->
+<div id="app" class="app hidden">
+  <header class="topbar">
+    <div class="brand">
+      <img src="logo.jpg" alt="">
+      <div>
+        <span class="brand-dept">Riverside County Department of Animal Services</span>
+        <span class="brand-title">Policy &amp; Procedure Library</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span id="corpusStat" class="corpus-stat"></span>
+      <span id="userChip" class="user-chip"></span>
+      <button id="signOut" class="btn-ghost">Sign out</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-tab="home" class="tab active">Home</button>
+    <button data-tab="search" class="tab">Find a Document</button>
+    <button data-tab="ask" class="tab">Ask a Question</button>
+    <button data-tab="check" class="tab">Compliance Check</button>
+    <button data-tab="glossary" class="tab">Glossary</button>
+  </nav>
+
+  <main>
+    <!-- HOME -->
+    <section id="tab-home" class="panel active">
+      <div class="home-hero">
+        <h2>Welcome</h2>
+        <p>Every policy, procedure, term, and answer in one place, always linked to the source document. Not sure where to start? Just ask a question.</p>
+      </div>
+      <div class="home-grid" id="homeGrid"></div>
+    </section>
+
+    <!-- SEARCH -->
+    <section id="tab-search" class="panel">
+      <div class="search-row">
+        <input id="searchBox" type="search" placeholder="Search policies and procedures, e.g. stray hold, bite report, parvo, euthanasia log" autofocus>
+        <select id="typeFilter">
+          <option value="">All types</option>
+          <option>Policy</option>
+          <option>Procedure</option>
+        </select>
+        <select id="catFilter"><option value="">All categories</option></select>
+      </div>
+      <p class="hint">Search understands shelter terminology and Chameleon codes. Try a topic, a document number, or a plain question. Or pick a category below to browse.</p>
+      <div id="results"></div>
+
+      <div class="draft-section">
+        <h3>Draft a procedure</h3>
+        <p class="hint">Could not find a document for something? Enter the topic and a research-based draft will be prepared in the RCDAS SOP template. Drafts always require leadership review and a director signature before taking effect.</p>
+        <div class="ask-row">
+          <input id="gapBox" type="text" placeholder="Topic, e.g. Parvo treatment">
+          <button id="gapBtn" class="btn-primary">Create a draft</button>
+        </div>
+        <div id="draftOut"></div>
+        <h3>Topics staff have flagged as missing</h3>
+        <div id="gapsOut"></div>
+      </div>
+    </section>
+
+    <!-- ASK -->
+    <section id="tab-ask" class="panel">
+      <h2>Ask a question</h2>
+      <p class="hint">Answers come only from the department's own documents and always cite their sources. Answers are guidance; the cited document is the authority. Not sure what to ask? Start with the common questions below.</p>
+      <div class="ask-row">
+        <input id="askBox" type="text" placeholder="e.g. Is there a policy for parvo treatment? What is the hold for a cat with no ID?">
+        <button id="askBtn" class="btn-primary">Ask</button>
+      </div>
+      <div id="askOut"></div>
+      <h3>Common questions</h3>
+      <p class="hint" id="faqNote"></p>
+      <div id="faqOut"></div>
+    </section>
+
+    <!-- COMPLIANCE CHECK -->
+    <section id="tab-check" class="panel">
+      <h2>Compliance check</h2>
+      <p class="hint">Describe a situation. The tool finds the policies and protocols that apply and explains what they require and where the described situation differs. This is an informational comparison, not a disciplinary finding. Personnel matters follow the chain of command.</p>
+      <textarea id="checkBox" rows="5" placeholder="Describe what happened, e.g. A stray dog with a microchip was adopted out on day 3 without a chip trace being run."></textarea>
+      <button id="checkBtn" class="btn-primary">Check against policy</button>
+      <div id="checkOut"></div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section id="tab-glossary" class="panel">
+      <h2>Glossary</h2>
+      <div class="search-row">
+        <input id="glossBox" type="search" placeholder="Search the glossary">
+        <select id="glossCat"><option value="">All categories</option></select>
+        <select id="glossStatus"><option value="">All statuses</option></select>
+      </div>
+      <div id="glossOut"></div>
+    </section>
+
+</main>
+
+  <footer class="foot">
+    <span>Working mockup. Documents are 2026 consolidation drafts pending approval; fees, contacts, and statute citations may predate current law until substantive review completes.</span>
+    <span id="modeChip" class="mode-chip"></span>
+  </footer>
+</div>
+
+<!-- Document viewer -->
+<div id="viewer" class="viewer hidden">
+  <div class="viewer-inner">
+    <button id="viewerClose" class="viewer-close" aria-label="Close">&times;</button>
+    <div id="viewerBody"></div>
+  </div>
+</div>
+
+<script src="app.js?v=6"></script>
+</body>
+</html>

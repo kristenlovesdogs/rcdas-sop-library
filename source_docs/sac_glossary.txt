@@ -1,0 +1,302 @@
+=== PAGE 1 ===
+Animal 
+Welfare 
+Glossary
+Published January 2025
+=== PAGE 2 ===
+Animal Welfare Glossary
+The Animal Welfare Glossary from Shelter Animals Count is 
+designed to help deﬁne the terms commonly used in the animal 
+welfare sector. Whether you are new to the industry or a seasoned 
+professional, this glossary serves as a valuable resource to ensure 
+a clear and consistent understanding of key terms. By providing 
+comprehensive deﬁnitions for the various types of animal welfare 
+organizations, intake and outcome types, and other essential 
+terms, this glossary supports better communication, data 
+collection, and reporting across the ﬁeld.
+=== PAGE 3 ===
+Types of Animal Welfare Organizations (AWO)
+The following are organizations that intake animals into their care:
+Government Animal Shelter: A city or county-operated entity providing animal control services and housing services.
+Other terms that you often see referring to this type of shelter:
+ Animal Services: A term frequently used in the names of organizations or agencies that operate as animal shelters, often
+ providing both sheltering and animal control services. These organizations are sometimes also referred to as Animal Care 
+ and Control.
+ Pound: An antiquated term for a municipal or government animal shelter. It is less commonly used today, as it is tied to a
+ period of animal sheltering when impoundment and euthanasia were the primary functions of municipal animal services.
+Animal Shelter with Government Contract: A private/nonproﬁt agency with a contract for animal control services or housing services. 
+A government contract is a formal agreement with a government entity for animal control and/or housing services.
+Animal Shelter without Government Contract: A private/nonproﬁt agency with a physical facility but no government contract.
+Humane Society or SPCA: Many organizations have these terms in their name. Traditionally, they are unaﬀiliated with national animal 
+organizations with similar names and are nonproﬁt organizations that may or may not have government contracts.
+Animal Rescue: Also called ‘foster-based rescue’ An animal welfare organization that houses animals exclusively in the homes of volunteers 
+and/or staﬀ of the organization. Rescues can also be 501(c)(3) nonproﬁt organizations and in some cases, can hold full or partial contracts 
+with government entities.
+Sanctuary: A nonproﬁt that houses animals for the remainder of their lives. Sanctuaries can also be 501(c)(3) nonproﬁt organizations and 
+some sanctuaries also function as rescue groups that adopt some animals.
+How Shelter Animals Count Distinguishes Organizations 
+We distinguish among six types of animal welfare organizations:
+Government 
+Animal Services
+Animal Shelters 
+with a 
+Government 
+Contracts
+Rescues with 
+Government 
+Contracts
+Animal Shelters 
+without a 
+Government 
+Contracts
+Rescues without 
+Government 
+Contracts
+Non-Sheltering 
+Service 
+Providers
+Note: Animal shelters and rescues with government contracts have one or more agreements with a city, town, or county to intake and 
+care for pets in need. The types of contracts and animals included in these contracts vary widely and may include or exclude certain 
+species (eg. cats), types of impounds (eg. owner surrenders), and services (eg. TNR). In general, organizations with government contracts 
+tend to be open intake or open admission, while organizations that do not have government contracts are more likely to be limited intake 
+or limited admission – though it varies by municipality.
+The following are entities that do not intake or house animals speciﬁcally:
+Non-Sheltering Service Provider: Also called ‘non-sheltering animal welfare organization An agency providing direct or partnered services 
+without sheltering animals.
+Field or Animal Control Services: Entities that provide this may respond to requests in a deﬁned service area to help animals that are 
+lost/free-roaming, sick/injured, dangerous, or in danger, etc. Animals are housed with sheltering or community partners.
+=== PAGE 4 ===
+How Shelter Animals Count Distinguishes Organizations 
+The following are categories of intake, which deﬁne how an organization processes animals entering 
+into their care:
+Open Intake: Also called ‘open admission’ An organization required by government contract to accept all animals from a service area. Most 
+open intake organizations are brick-and-mortar animal shelters, not rescue groups.
+Limited Intake: Also called ‘limited admission’ An organization that can choose which animals to accept and is not required to accept any 
+from the public. Some animal shelters and most rescue groups are considered limited intake.
+Managed Intake: Managed intake is a structured approach to accepting animals into a shelter, where admission is guided by speciﬁc criteria 
+or scheduled based on the organization’s capacity to provide appropriate housing, medical, and behavioral care. This process may include 
+oﬀering alternatives or resources to the community (including low-cost services, supplies to care for the pet, Finder Foster, etc) when 
+immediate admission is not feasible, ensuring animals receive the care they need at the right time.
+Finder Foster Intake: A process in which the organization conducts an intake assessment of stray pets with their ﬁnders or caretakers. The pet 
+stays with the ﬁnder for the agreed-upon hold period, helping to prevent shelter overcrowding and ensuring the pet's well-being by keeping 
+them in a home environment when it beneﬁts both the animal and their caregiver. The ﬁnder has the option to voluntarily care for the pet as a 
+foster during this time, until the pet is reclaimed by its owner or caregiver, adopted, or returned to the shelter.
+Intakes and Outcomes
+Intakes
+Total Intake: Also called ‘Gross Intake’ Total animals entering the organization. This includes animals moving from one animal welfare 
+organization to another, referred to as ‘transfers in’ (see below for deﬁnition).
+Community Intake: Also called ‘Net Intake’ Total animals entering the shelter minus transfers in from other organizations. Community intake is 
+used when summing intakes in larger areas than a single organization to prevent double-counting of animals with intakes solely from transfers 
+among organizations. It assumes that animals transferred between organizations have already been recorded under a diﬀerent intake type by 
+the relevant organization in the data set.
+A shelter in Massachusetts has an intake of 250 dogs in one month, however 50 of those came from a shelter in Florida. Their total 
+intake would be 250 dogs for the month and their community intake would be 200 dogs.
+Community Intakes vs Total Intakes:
+Intake Types
+Stray: Also called ‘at-large’ Animal stated to be unowned, free-roaming, or owner not present. Animal is held for a legally mandated period that 
+must be kept in the custody of an organization to allow for the animal to be returned to its owner or caregiver. Note: Please refer to the 
+deﬁnition of trap-neuter-return for animals brought in as strays with the intent of being returned to their original community.
+Relinquished by Owner: Also called ‘owner surrender’ Animal admitted by its owner, including adoption returns.
+Seizure/Conﬁscate: Pets impounded by animal control or law enforcement due to neglect, cruelty, ordinance violations, police arrests, 
+evictions, or other legal circumstances are housed at the organization for a speciﬁc period as mandated by state and local laws. These pets 
+may be either owned or stray.
+Transfer In: Animal transferred into the organization’s possession from another organization.
+Other Intakes: Pets born in care or other types of intakes not listed above.
+Over-the-Counter: Also called Public Drop Oﬀ Animal is brought into the organization by a community member. These can be stray 
+animals or owner-relinquishments.
+From the Field: Animal is brought into the organization by an animal control oﬀicer or law enforcement. These can be stray animals, 
+owner relinquishments, or animals seized by an animal control or other law enforcement oﬀicer.
+Intake Type Processes from the Community:
+=== PAGE 5 ===
+Outcomes
+Total Live Outcomes: Sum of animals that left the organization’s care through a live placement.
+Community Live Outcomes: Sum of animals that left the organization’s care through a live outcome type minus transfers to another animal 
+welfare organization.
+Total Non-Live Outcomes: Sum of animals that left the organization’s care via a non-live outcome. This includes died, missing, and euthanized.
+Total Outcomes:  Includes all outcomes including adoptions, return to owner/ﬁeld, other live outcomes, transfers out, shelter euthanasia, died 
+in care/lost in care.
+Outcome Types
+Adoption: Animal custody permanently transferred from the organization to an individual adopter via an adoption process.
+Return to Owner (RTO): Also called ‘Return to Home’ or ‘RTH’ Animal returned to its owner after being processed as an intake.
+Return-to-ﬁeld (RTF): Return-to-ﬁeld as an outcome type is the return of felines taken into the organization, counted as stray intake and then 
+returned to their capture location as free roaming felines. This is only for felines brought into the organization as a stray without the intention 
+of having them returned to where they were found. Return-to-ﬁeld is an outcome decision made by the organization.
+Transfer Out: Animal custody transitioned to another organization. Entities may include local rescue partners or national groups.
+Other Types of Outcomes
+Lost in Care: Animal outcome is unknown. This is also referred to as ‘missing’ and may include stolen animals.
+Died in Care: Animal died, unassisted, while in the custody of the organization.
+Shelter Euthanasia: Animal euthanized in the custody of the organization.
+Services that Can be Intakes and Outcomes
+Owner Intended Euthanasia (OIE): Also called “Owner Requested Euthanasia” or “ORE” This term refers to situations where an owner 
+brings their pet to the shelter or community clinic speciﬁcally requesting euthanasia due to a medical or behavioral issue. It does not 
+include cases where a pet is surrendered without an intent for euthanasia, and the shelter later decides on that outcome.
+Shelter Animals Count recommends standardizing data by treating Owner Intended Euthanasia as a community service rather than 
+including it in intake/outcome analyses.
+Since July 1, 2022, Shelter Animals Count has recorded Owner Intended Euthanasia (OIE) as a community service, reﬂecting its 
+primary purpose as a support to the community. Shelters can still choose to log OIE as either an intake/outcome or as a community 
+service in our system. If logged as an intake/outcome, the data appears in the organization’s individual Intake/Outcome dashboards
+(see deﬁnitions) only and does not appear in aggregate intake/outcome public dashboards on the SAC website. All OIE data 
+appears in our Community Services dashboard (see deﬁnitions). For standardized reporting, OIE data is combined and reported 
+solely as a community service in all Shelter Animals Count publications. This approach applies to both new and historical data, and 
+organizations can update their historical records through the SAC portal if needed.
+Standardizing the Data:
+Services that are not Intakes and Outcomes
+Trap-neuter-return (TNR): When a cat is brought to an organization or one of their contracted spay/neuter providers for the purpose of 
+sterilization and ultimately return to where it was found.
+Return to Owner in Field: A pet that is found by animal control or shelter staﬀ while in the community and returned to their owner without 
+entering the organization or processing as an intake.
+Shelter Animals Count advises that you report Trap-Neuter-Return and Return to Owner in Field data as a service in our 
+Community Services Database not as an intake/outcome.
+=== PAGE 6 ===
+Example
+An example of Length of Stay: A pet arrives at your organization as a stray on January 1. The 
+pet serves a 5 day mandated stray hold period and is adopted on January 10th. Their length of 
+stay would equal 9 days.
+Common Calculations
+Population Balance Calculation: The percentage of total intakes that have had an outcome.
+Intakes
+Outcomes
+The Population Balance Calculation (PBC) is a simple formula used by Shelter 
+Animals Count to understand whether a shelter’s animal population is growing, 
+shrinking, or staying the same over a given period. It’s calculated by dividing the 
+total number of animals leaving the shelter (outcomes) by the total number 
+coming in (intakes).
+The Population Balance Calculation
+Here’s what diﬀerent PBC percentages mean:
+ 100%: The shelter is in balance. Animals are leaving at the same rate they’re
+ arriving, so the overall population isn’t changing.
+ Under 100%: The population is increasing. For example, a PBC of 97% means that
+ 3% more animals entered the shelter than left it, so some animals stayed behind.
+ Over 100%: The population is decreasing. For example, a PBC of 107% means that
+ 7% more animals left than entered, reducing the shelter population.
+From January to June 2024, the overall PBC was 94.2%, indicating that slightly more 
+animals came into shelters than were leaving, which increased the population.
+The PBC helps shelters and communities quickly understand whether they are keeping up 
+with animal intake, allowing them to plan resources and strategies eﬀectively.
+Example
+Start Count: The number of animals in your care on the ﬁrst day of the period of time selected
+End Count: The number of animals in your care on the last day of the period of time selected
+When tracking data, consider these key points for measuring your 
+organization's metrics:
+Beginning Count Total in Care
+Beginning Count in Foster
+Beginning Count in Shelter
+When tracking data
+Ending Count Total in Care
+Ending Count in Foster
+Ending Count in Shelter
+Length of Stay (LOS): Calculated as the number of days from intake to outcome for animals 
+that have already had a permanent outcome.
+=== PAGE 7 ===
+Days in Care: The number of days that an animal has been in the organization’s care from the date of the initial intake and has not had a 
+permanent outcome.
+Example
+An example of days in care: You have a pet in your shelter that arrived on May 1st. The pet is still in your care at the shelter on May 10th. 
+The days in care for that pet would equate to 10 days.
+When analyzing data for multiple animals, you can use averages or medians to understand population trends.
+ Averages give a central value for the group but can be inﬂuenced by outliers. For example, if one animal has a much longer or
+ shorter length of stay than the others, it can distort the average.
+ Medians are a better choice when outliers are present because they represent the middle value in the data, providing a more
+ accurate picture of typical trends.
+The following deﬁnitions are metrics that are just one part of assessing outcomes and should not be used as the sole measure of 
+success. When used independently, Shelter Animals Count recommends prioritizing live outcome measurement at the community level 
+rather than limiting the focus to the shelter level.
+Live Release Rate: The percentage of animals with an outcome that leave with a live outcome. Calculated as live outcomes/total 
+outcomes.
+Save Rate: The percentage of animals entering an organization that do not leave by a non-live outcome. It is calculated by taking your 
+Total Intakes minus Non-live Outcomes divided by Total Intakes
+Understanding what your organization’s intake consists of 
+allows for better program development. Here is an example 
+of what an organization’s intake type rate could look like.
+53%
+Strays
+6%
+20%
+Transfer in
+21%
+Relinquished
+by owner
+Other Intakes
+Intake Type Rate: The percentage of total intakes that are a 
+speciﬁc intake type.
+How to Calculate: [Intake Type]/Total Intakes (gross)
+If adoptions are decreasing as a percentage of total 
+outcomes, what outcomes increased? Is there a need for 
+concern or program changes. Here is an example of what an 
+organization’s outcome type rate could look like.
+74%
+Adoption
+Outcome Type Rate: The percentage of total outcomes that 
+are a speciﬁc outcome type.
+How to Calculate: [Outcome Type]/ Total Outcome
+Considerations: Understanding what outcome types make up 
+the majority of your organization’s total outcomes allow your 
+organization to identify areas of strengths and improvements 
+for programming.
+6% Shelter Euthanasia
+5% Died in Care
+1% Other Live Outcomes
+0% Lost in Care
+11% Transfer Out
+1% Return to Owner
+2% Return to Field
+=== PAGE 8 ===
+Days in Care: Outcome Type Rate of Total Intakes: The percentage of animals entering the shelter that are leaving by a certain 
+outcome type.
+How to Calculate: [Outcome Type]/ Total Intakes (gross)
+Considerations: Outcome as a percentage of intake allow you to see that portion of animals coming into your organization’s care, leave 
+by a speciﬁc outcome.
+Note: Outcomes as a percentage of intake allow you to see what portion of animals actually coming into your organization's care, 
+leave by a speciﬁc outcome. If your intake is decreasing, outcomes will also decrease. Therefore, if you look at the outcome rate of 
+intake, you may ﬁnd that more animals entering the shelter are leaving via speciﬁc outcomes.
+55% 8% 11% 7% 19%
+0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Adoptions RTO Transfer Out Euthanasia Gap
+Animal Information
+Altered/unaltered: Also called ‘sterilized/unsterilized,’ or ‘spayed/neutered/intact.’ The animal’s reproductive status. This status may be 
+updated during the animals’ stay so this will not necessarily indicate which animals were spayed or neutered on intake.
+Intake Date: The date the animal entered the organization’s custody.
+Intake Subtype: A more speciﬁc description of why the animal is in the organization’s custody.
+Intake Reason: The reported reason the animal is in the organization’s custody. The list of possible reasons vary widely among shelters.
+Outcome Date: The date the animal left the organization’s custody.
+Outcome Subtype: A more speciﬁc description of why the animal is no longer in the organization’s custody.
+Outcome Reason: The reported reason the animal is no longer in the organization’s custody. The list of possible reasons vary widely 
+among shelters.
+Sex: The sex of the animal.
+Size: The animal’s approximate size classiﬁcation.
+Species: The species of the animal.
+This varies on the species that your organization serves. Can include: Dog, Cat, Guinea Pig, Rabbit, Horse, Pig, Bird, and so on.
+Animal Ages
+Based on software, here are common ways that animals can be aged in your system
+Date of Birth: The reported or estimated birthdate of the animal. This is often an estimate or guess based on appearance and teeth.
+Intake Age (Group): The animal’s age group at intake.
+=== PAGE 9 ===
+Services that are not Intakes and Outcomes
+Trap-neuter-return (TNR): When a cat is brought to an organization or one of their contracted spay/neuter providers for the purpose of 
+sterilization and ultimately return to where it was found.
+Return to Owner in Field: A pet that is found by animal control or shelter staﬀ while in the community and returned to their owner without 
+entering the organization or processing as an intake.
+Shelter Animals Count advises that you report Trap-Neuter-Return and Return to Owner in Field data as a service in our 
+Community Services Database not as an intake/outcome.
+Animal Details
+Breed (Primary): The animal’s primary breed, usually only determined by physical appearance and a breed guess.
+Breed (Secondary): The animal’s secondary breed, if applicable. When selecting breeds, it’s important to list them in a way that provides 
+value to potential adopters, helping them make informed decisions and it helps with your data tracking on what is coming into your shelter.
+Color (Primary): The animal’s primary color.
+Color (Secondary): The animal’s secondary color, if applicable. When selecting colors, it’s important to list them in a way that provides 
+value to potential adopters and it helps with your data tracking on what is coming into your shelter.
+When selecting colors, it’s important to list them in a way that provides value to potential adopters and it helps with your data tracking on 
+what is coming into your shelter.
+Tip
+Adopt-a-Pet has a great resource for Dog Breeds that you can view here.
+About Shelter Animals Count (SAC):
+SAC is a collaborative, industry-led nonproﬁt organization formed by a diverse group 
+of animal welfare agencies to create and share The National Database of sheltered 
+animal statistics, providing facts and enabling insights that will improve animal 
+welfare throughout the country. By relying on the strength of our robust dataset, SAC 
+ensures that the trends we report reﬂect the realities that shelters and rescues are 
+experiencing across the nation. Our data is trusted by thousands of organizations and 
+industry partners because of its accuracy and the integrity of our analysis practices.
+Follow Shelter Animals Count on Facebook, LinkedIn, and Instagram./uni00A0For further 
+insights from Shelter Animals Count, download the 2024 Mid-Year Report and the 
+2023 Annual Report.

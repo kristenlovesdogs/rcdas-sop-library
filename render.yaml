@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: rcdas-sop-library
+    runtime: python
+    plan: free
+    buildCommand: "echo no build step"
+    startCommand: python3 server.py
+    envVars:
+      - key: RCDAS_PASSCODE
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false

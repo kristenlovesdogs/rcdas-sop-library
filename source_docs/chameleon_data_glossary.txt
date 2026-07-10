@@ -1,0 +1,744 @@
+﻿Cover Page
+
+
+Riverside County Department of Animal Services
+
+
+Data Glossary:  Intake and Outcome Types 
+
+
+Version 1.0
+November 2025
+
+
+A Comprehensive Reference Guide for:
+
+
+* New hire training and onboarding
+* Quick reference for existing staff
+* Accurate data collection and reporting
+Table of Contents
+TABLE OF CONTENTS
+
+
+EXECUTIVE SUMMARY
+1.  GLOSSARY
+1.1 Intake Types
+1.2 Outcome Types
+1.3 Glossary of Terms
+1.4 Data Quality & Reporting
+1.5 Obsolete & Historical Codes
+1.6 Working with Historical Data
+1.7 Contact Information
+1.8 Additional Resources
+1.9 Document Version History
+
+
+2.  QUICK REFERENCE GUIDE
+2.1 
+
+
+
+
+
+
+
+
+Executive Summary
+Executive Summary
+
+
+Purpose of This Glossary
+This data glossary defines all intake and outcome types used in the Riverside County Department of Animal Services (RCDAS) data management system (Chameleon).  Accurate coding and data collection are essential for transparent reporting, regulatory compliance, and improving outcomes for animals in our care.
+
+
+Why Accurate Data Matters
+* Reporting and Transparency:  Accurate data enables meaningful public reporting and demonstrates our commitment to transparency in animal welfare
+* Resource Allocation:  Proper classification helps identify trends and allocate resources effectively
+* Legal Compliance:  Many intake and outcome types have specific legal requirements under California State Law
+* Live Release Rate:  Correct coding ensures accurate calculation of our live release rate, a key performance metric
+
+
+Quick Start Guide
+The most commonly used intake and outcome types in our system are:
+
+
+Type / Subtype
+	When to Use
+	STRAY - FIELD
+	Animal picked up by RCDAS Field Services
+	STRAY - OTC (Over The Counter)
+	Stray brought in by a member of the public
+	OWNER SUR - OTC (Over The Counter)
+	Owner surrenders pet at shelter
+	OWNER SUR - FIELD
+	Owner surrenders pet to RCDAS Field Services
+	EUTH - OWNER REQ
+	Owner requests humane euthanasia due to medical or behavioral issues and has been to the clinic to receive service 
+	EUTH - TRT- BEHV
+	Animal humanely euthanized due to behavior issues that could have been treated or managed in a typical home
+	EUTH - UNTRT - MEDI
+	Animal is humanely euthanized due to untreatable medical conditions 
+	RTO - COUNTER
+	Owner reclaiming animal at shelter
+	RTO - CONTRACT
+	Reclaimed, owned, unaltered animal where owner has paid a S/N deposit
+	ADOPTION - NEW
+	General adoption (most common)
+	TRANSFER - RESCUE GRP
+	Animal transferred to rescue group 
+	RELEASED - CCP (Community Cat Program)
+	Community cat returned to the found location (after S/N, Microchip, Eartip)
+	
+
+ 
+v1. Glossary - Intake and Outcome Types
+Intake Types
+Intake types describe how animals enter the RCDAS shelter system (Chameleon).  Each intake type has specific subtypes that provide additional detail about the circumstances of the intake.  You will find intake and outcome types within Chameleon’s kennel window.
+CONFISCATE
+Definition:  Animals seized or confiscated by authorities (e.g., peace officers, humane society officers, animal control officers, or law enforcement) for various legal reasons and housed at RCDAS for a period mandated by state or local law.  Animals may be owned or stray.  See Penal Code section 597.1 under California State Law.
+
+
+When to Use: Use CONFISCATE when legal authority removes an animal from a situation, rather than the owner voluntarily surrendering or a stray being picked up routinely.
+        
+Subtype
+	Definition
+	Example
+	ABANDONMNT
+	Animal intentionally left by its owner without providing care or support  
+	Dog chained in vacant lot with no food or water; owner identified but refused to reclaim
+	AN CONTROL
+	Animal confiscated by an animal control officer, from a contract city (sheltering only)
+	Contract city officer seizes animal for hoarding case
+	BITE
+	Animal confiscated due to bite incident involving another person or another animal
+	Dog bites neighbor; animal is confiscated for quarantine and investigation
+	CRUELTY
+	Animal confiscated due to cruelty or neglect 
+	Severely emaciated horses seized by authorities
+	EVICTION
+	Animal confiscated when owner is evicted from property
+	Cats left behind after landlord eviction; sheriff requests animal control assistance
+	HOSPITAL
+	Animal seized when owner is hospitalized and unable to arrange care
+	Owner has medical emergency; no family available to care for pets
+	OWNER DIED
+	Animal confiscated due to death of owner
+	Deceased person’s animal discovered by authorities; no next of kin available
+	POLICE
+	Police confiscated animal and brought to shelter
+	Police responding to domestic violence call find injured animals at scene
+	PUB SAFETY
+	Animal confiscated due to threat of public safety
+	Aggressive dog repeatedly escaping yard and chasing children at bus stop
+	SPEC CIRC
+	Special circumstance such as disaster response (fire,flooding, earthquake)
+	Wildfire evacuation; animals rescued from danger zone
+	OWNER SUR (Owner Surrender)
+Definition:  Animal voluntarily brought to the shelter and relinquished by its owner, including adoption returns.
+
+
+When to Use: Use OWNER SUR when the owner is making a conscious decision to give up the animal.
+
+
+Subtype
+	Definition
+	Example
+	> 30 DAYS
+	Owner surrendered animal more than 30 days after adoption
+	Cat adopted 2 months ago returned due to behavior issues
+	AN CONTROL
+	Owner surrendered to animal control officer from contract city
+	Contract city officer accepts surrender from owner and delivers animal to RCDAS shelter
+	BITE
+	Owner voluntarily surrendered animal after it bit another person or another animal
+	Dog bites postal worker; owner brings dog to shelter voluntarily to surrender
+	CRUELTY
+	Owner voluntarily surrenders animal after or just prior to an Officer seizing the animal for a cited for animal cruelty violation
+	Dog chained outside without shelter, food, or water; owner agrees to surrender animal to RCDAS
+	FIELD
+	Owner surrendered animal directly to an officer in the field rather than at the shelter
+	Field Services Officer responds to a call about a repeatedly loose dog.  Upon arrival, officer speaks with owner, who admits they can no longer care for the dog and surrenders the animal to the field officer
+	OTC
+	Owner surrendered animal at shelter counter (Over The Counter)
+	Family moving to an apartment that doesn’t allow pets
+	ABANDONMENT
+	Custodian voluntarily turned in animal by citing abandonment as the reason
+	Landlord requests RCDAS take custody of animal left behind by tenant 
+	
+
+
+
+RETURN
+Definition:  Animal adopted from RCDAS is returned to the shelter. 
+
+
+When to Use: Use RETURN when the owner is returning an animal adopted from an RCDAS shelter.
+
+
+Subtype
+	Definition
+	Example
+	BITE
+	Owner returns adopted animal due to bite incident
+	Family adopts puppy and it bites child; family brings the dog back to shelter
+	IN 30 DAYS
+	Adopted animal returned within 30 days
+	Dog adopted on December 15th, returned on December 17th
+	
+
+STRAY
+Definition:  Animal stated to be unowned, free-roaming, or found without owner present.  Animal is held for legally mandated holding period to allow for owner reclaim.
+
+
+When to Use: Use STRAY when an animal is found running at large or the ownership status is unknown at time of intake.
+
+
+Subtype
+	Definition
+	Example
+	ABANDONMNT
+	Stray animal running a large, brought in by member of public
+	Member of the public finds animal wandering in neighborhood with no owner in sight and brings it to shelter
+	AN CONTROL
+	Stray picked up by animal control officer from contract city
+	Contract city animal control officer finds animal wandering in the street, with no owner in sight, no microchip, no collar/tag
+	BITE
+	Stray animal brought to shelter by member of the public due to bite incident
+	A stray cat scratched and bit someone, and the finder brought it to the shelter for quarantine. 
+	FIELD
+	Stray animal picked up by RCDAS Field Services
+	Field officer responds to report of loose dog in neighborhood
+	OTC
+	Stray animal brought to shelter by member of the public (Over The Counter)
+	Good Samaritan finds injured cat and brings it to shelter
+	DEAD
+	Dead stray animal brought to shelter (not counted in live release rate)
+	Citizen found a deceased dog on their property and brings it to shelter
+	
+
+TRANSFER (Transfer In)
+Definition:  Animal transferred into RCDAS’ possession from another organization or another RCDAS shelter.
+
+
+Subtype
+	Definition
+	Example
+	AN CONTROL
+	Animal transferred from contract city that has animal control but not sheltering
+	Desert Hot Springs transfers animals to CVAC for sheltering
+	DAS
+	Animal transferred internally between RCDAS shelters (Blythe, CVAC, Jurupa Valley, San Jacinto)
+	Blythe, primarily an intake shelter, transfers animals to CVAC to increase visibility and opportunities for live outcomes 
+	
+
+Other Intake Types
+
+
+Type/Subtype
+	Definition
+	DISPO REQ
+	Dead animal brought to RCDAS for disposal
+	    OTC
+	Dead animal brought to RCDAS for disposal by the public
+	    FIELD
+	Dead animal brought to RCDAS for disposal by field officer
+	EUTH REQ
+	Owner requests humane euthanasia due to medical or behavioral issue
+	    BITE
+	Owner requests humane euthanasia due to bite incident
+	    FIELD
+	Owner requests humane euthanasia and surrenders pet to officer in the field 
+	    OTC
+	Owner brings animal to the shelter and requests humane euthanasia for pet
+	HOSPITAL
+	Owner is in the hospital and there is no one to care for pet
+	HPZ - TMP BOARD
+	Healthy Pet Zone program providing veterinary care, supplies, and support to help families keep their pets during difficult times.  (e.g., homeless person hospitalized with no one to care for their pet)
+	RTO - ABANDONMENT
+	FOR BILLING PURPOSES ONLY.  Used to document and bill contract cities
+	SURGERY - 
+SPEC CIRC
+	Animals brought into the clinic for spay/neuter surgery that RCDAS had to keep overnight usually due to medical complications
+	TNR - TMP BOARD
+	TNR cat brought into the clinic for spay/neuter surgery that RCDAS had to keep overnight
+	Outcome Types
+Outcome types describe how animals exit the RCDAS shelter system.  Proper outcome coding is critical for accurate live release rate reporting and demonstrates our commitment to positive outcomes.  
+ADOPTION
+Definition: Animal custody permanently transferred from RCDAS to an individual adopter through the adoption process.
+
+
+When to Use: Use when an approved adopter completes the adoption process and takes permanent custody of the animal.
+
+
+Subtype
+	Definition
+	Example
+	CONTRACT
+	Animal adopted unaltered where a s/n deposit has been paid.
+	Family adopts a dog or cat that is unaltered and pays a spay/neuter deposit to return for surgery
+	NEW
+	General adoption (most common adoption type)
+	Family adopts dog from shelter
+	OFF SITE
+	Animal adopted at offsite location (not Petco, Petsmart, or adoption event)
+	Animal displayed at community center and adopted
+	PETCO
+	RCDAS animal housed at Petco location was adopted
+	Animal displayed at Petco adoption center adopted by customer
+	PETSMART
+	RCDAS animal housed at Petsmart location was adopted
+	Animal displayed at Petsmart adoption center adopted by customer
+	SURGWAIT
+	Animal was adopted and is in shelter awaiting surgery before going home
+	Cat adopted on Friday; scheduled for Monday surgery; will go home Tuesday
+	
+
+ADOPT EVNT (Adoption Event)
+Definition: Animal custody permanently transferred from RCDAS to an individual adopter at an adoption event.
+
+
+When to Use:  Use when tracking adoptions for a specific event or grant reimbursement.
+
+
+Subtype
+	Definition
+	Example
+	CONTRACT
+	Animal adopted unaltered where a s/n deposit has been paid
+	Family adopts a dog or cat that is unaltered and pays a spay/neuter deposit to return for surgery
+	NEW
+	General adoption (most common adoption type)
+	Family adopts dog at RCDAS mega adoption event
+	SURGWAIT
+	Animal was adopted and is in shelter awaiting surgery before going home
+	Family adopts a dog or cat and the animal stays in the shelter until surgery
+	
+
+RTO (Return to Owner)
+Definition: Animal returned to its owner after being processed as an intake.
+
+
+When to Use: Use when the original owner reclaims their animal from the shelter.
+
+
+Subtype
+	Definition
+	Example
+	ABANDONMENT
+	Used for billing purposes when known owner is charged for time animal remained in custody after failing to  reclaim (NOT counted in live release rate)
+	Owner identified but fails to reclaim within holding period; billing code only
+	CHNGED MND
+	The owner changed their mind about reclaiming the animal after starting the return-to-owner process
+	Owner comes to reclaim their dog but, after learning of medical costs, decides not to take the animal home
+	CONTRACT
+	Animal RTO’d unaltered where a s/n deposit has been paid
+	Family retrieves impounded, unaltered dog and pays spay/neuter deposit to return for surgery
+	COUNTER
+	Animal returned to owner at RCDAS shelter
+	Owner comes to shelter, provides identification, and reclaims their lost dog
+	FIELD
+	Animal returned to owner in the field by Field Services officer
+	Field officer picks up stray, verifies microchip, and returns animal directly to owner’s home
+	SURGWAIT
+	Animal RTO’d and is in shelter waiting on surgery
+	Family retrieves impounded, unaltered dog and animal stays in the shelter until surgery
+	
+
+TRANSFER (Transfer Out)
+Definition: Animal custody transitioned to another organization or another RCDAS shelter.
+
+
+Subtype
+	Definition
+	Example
+	AN CONTROL
+	Animal Transferred to another Animal Control Agency
+	Dog is impounded by RCDAS and is transferred to an allied agency.
+	ANML SAMAR
+	Animal transferred to Animal Samaritans (animalsamaritans.org)
+	Animals transferred to Animal Samaritan's rescue partner
+	AT VET
+	Animal transferred to veterinarian for medical care
+	Injured animal sent to offsite emergency veterinary clinic
+	CONTRACT
+	Animal transferred unaltered where a s/n deposit has been paid
+	Unaltered animal transferred pending spay/neuter surgery deposit
+	DAS
+	Animal transferred internally between RCDAS shelters (NOT counted in live release rate)
+	Blythe transfers animals to CVAC to increase exposure and adoption opportunities for those animals
+	LEAF
+	Animal transferred to Animal Friends of The Valley (AFV)
+	Field Officers transferring impounded animals to AFV that were impounded in JPA (Joint Powers Authority)
+	OFF SITE
+	Animal transferred to offsite location (not Petsmart of Petco)
+	Animals temporarily displayed at special community event
+	PETSMART
+	Animal transferred to Petsmart location for adoption exposure
+	Adoptable cats transferred to Petsmart adoption center
+	RESC-HOLD
+	Animal being held for rescue pickup
+	Rescue partner has made a commitment on an animal but the animal is still in the shelter
+	RESCUE GRP
+	Animal transferred to rescue organization
+	Breed-specific rescue takes dog for placement
+	SPCA
+	Animal transferred to Mary S. Roberts (MSR) rescue
+	Animal transferred to MSR
+	
+
+EUTH (Euthanasia)
+Definition: Animal euthanized while in RCDAS custody.
+
+
+When to Use: Use when an animal is humanely euthanized for medical, behavioral, or legal reasons.        
+
+
+Subtype
+	Definition
+	Example
+	AT VET
+	Animal euthanized while at veterinary office
+	ACO working Standby takes an injured animal to an after-hours vet and animal is euthanized.
+	COURT ORD
+	Animal euthanized under directive from a court or legal authority typically following ruling related to public safety, dangerous dog designation, or other legal proceedings
+	Animal involved in a severe bite case is euthanized after judge issues a court order
+	OWNER REQ
+	Owner requests humane euthanasia due to medical or behavioral issue
+	Shelter provides humane euthanasia for an owner’s senior pet suffering from chronic medical issues and poor quality of life
+	RABIES TST
+	Animal euthanized due to suspected rabies infection and submitted for FRA to confirm the presence of the rabies virus.
+	A stray raccoon showing neurological symptoms is euthanized and sent for rabies testing.
+	TOO YOUNG
+	Animal humanely euthanized because it is too young to survive or thrive on its own and lacks a mother or suitable care option.
+	A litter of newborn kittens without a mother and without a foster opportunity were euthanized because they were too young to survive on their own 
+	TRT-BEHV
+	Animal euthanized due to behavior issues that could have been improved or resolved in a typical home but were not manageable within the shelter setting.
+	A long stay dog develops behavior issues while in shelter; foster and adoption are not available.
+	TRT-MEDI
+	Animal euthanized due to medical conditions that are treatable but cost-prohibitive or require resources beyond what the shelter can provide
+	A cat impounded with highly contagious URI at an RCDAS shelter that the shelter veterinarian has determined can be treated with reasonable measures but requires resources beyond what the shelter can provide
+	UNTRT-BEHV
+	Animal euthanized due to severe behavior issues that are considered unsafe or untreatable, even with intervention or typical home
+	A dog declared to be dangerous or vicious as defined by county ordinance or California state law during any legal hearing process
+	UNTRT-MEDI
+	Animal euthanized due to serious or terminal medical conditions that are not treatable and would significantly impact the animal’s quality of life
+	Injured animal impounded at an RCDAS shelter that the shelter veterinarian deemed to be suffering and untreatable
+	
+
+
+
+DIED (Died In Care)
+Definition: Animal died unassisted while in RCDAS custody.                                                
+Subtype
+	Definition
+	Example
+	AT VET
+	Animal died naturally or was found deceased while under veterinary care, either during treatment or recovery at an offsite vet
+	Standby ACO takes an injured animal to an after-hours vet and the injured animal dies while at the emergency clinic.
+	ENROUTE
+	Animal died while on its way to or from the shelter, veterinary clinic, or another facility 
+	A dog that was hit by a car died on its way to the shelter before receiving veterinary care.
+	IN FOSTER
+	Animal died while placed in a foster home, either from natural causes, illness, or other circumstances
+	A neonate kitten died in foster care despite supportive feeding and warming efforts.
+	IN KENNEL
+	Animal was found deceased in its kennel while in shelter’s care
+	A cat was found deceased in its kennel during morning rounds, having died overnight from unknown causes.
+	IN SURGERY
+	Animal died during surgical procedure
+	A cat undergoing a spay surgery experienced complications and died before the procedure was completed.
+	RABIES TST
+	Animal died and was submitted for rabies testing to determine if virus was present
+	A raccoon that bit a dog was found dead and submitted for rabies testing.
+	
+
+Other Outcome Types
+                                                
+Type/Subtype
+	Definition
+	Example
+	TNR[a]
+	A community-based practice, distinct from shelter-based RTF, primarily for managing feral cat populations. Cats are humanely trapped, sterilized, vaccinated, ear-tipped, and returned to their original outdoor location, often under the care of a community caregiver. These cats are NOT counted as an intake or an outcome.
+	A colony caretaker traps a cat, takes it to an RCDAS clinic for spay/neuter, vaccinations, and eartipping.  The colony caretaker then returns the cat to its found location.
+	CCP[b]
+	Community Cat means any free-roaming cat that may be cared for by one or more residents of the immediate area, whether known or unknown.  A community cat may or may not be feral.  These cats are counted as intakes and outcomes for the shelter
+	Any healthy cat that was impounded into an RCDAS shelter that is spay/neutered, eartipped, and released.
+	RTF/SNR[c]
+	A shelter-based program for managing community cats. Healthy cats with no signs of ownership are brought to the shelter, sterilized, vaccinated, ear-tipped, and returned to the location where they were found.  These cats are counted as intakes and outcomes for the shelter
+	Any healthy cat that was impounded into an RCDAS shelter deemed eligible to be spay/neutered, eartipped, vaccinated, and returned to its found location.  
+	MISSING
+	Animal outcome is unknown
+	N/A
+	    ESCAPED
+	Animal physically escaped from RCDAS shelter
+	A dog slipped out of its collar and ran off while being walked by a volunteer; despite search efforts, the dog was not located
+	    IN FOSTER
+	Animal was reported lost or missing while in foster care
+	A foster reported that a cat escaped from the home though an open window and could not be found
+	    IN KENNEL
+	Animal unaccounted for within the shelter; records show is should be present but it cannot be located and there is no evidence of escape 
+	During morning rounds, a cat listed as housed in Kennel X could not be found, and there were no signs of escape
+	    STOLEN
+	Animal stolen from RCDAS custody
+	A dog was removed from its kennel overnight without authorization; security cameras recorded individual removing the animal 
+	RELEASED[d]
+	Community Cat impounded and released back into the field
+	N/A
+	    CCP CAT[e]
+	Community Cat means any free-roaming cat that may be cared for by one or more residents of the immediate area, whether known or unknown.  A community cat may or may not be feral.
+	Any healthy cat that was impounded into an RCDAS shelter that is spay/neutered, eartipped, and released.
+	    EARTIPPED[f]
+	Community Cat that is eartipped
+	A field officer impounds (STRAY-FIELD) and releases a confined cat that is eartipped, indicating that the cat is a community cat that has been spay/neutered and vaccinated.
+	
+
+
+
+
+
+
+
+
+
+
+
+Obsolete and Historical Codes
+The following codes are no longer in use and should not be selected when entering new data.
+This section is provided for reference only to support interpretation of historical records and reports that may still reference these codes. These obsolete intake and outcome types reflect past operational practices, policy changes, and partnerships, and offer context for how RCDAS operations have evolved over time.
+
+
+  
+
+Obsolete Intake Types
+                                                
+Type / Subtype
+	What It Was
+	Why Obsolete
+	Date Discontinued
+	STRAY - NIGHT
+	Used when night drop boxes were open and stray placed inside.
+	Night drop boxes are closed for animal welfare reasons.
+	Unknown
+	OWNER SUR- NIGHT/SPCA
+	Used when night drop boxes were open and animal had a known owner  
+	Night drop boxes are closed for animal welfare reasons
+	Unknown
+	TRANSFER - SPCA 
+	Animals transferred to Riverside Humane Mary S. Roberts
+	No longer in use.  Animals are no longer transferred into RCDAS from Riverside Humane.  
+	Unknown
+	EUTH REQ - NIGHT
+	Used when night drop boxes were open
+	Night drop boxes are closed for animal welfare reasons
+	Unknown
+
+
+	OWNER SUR - NIGHT
+	Used when night drop boxes were open and animal had a known owner
+	Night drop boxes are closed for animal welfare reasons
+	Unknown
+	STRAY-NIGHT
+	Used when night drop boxes were open and animal did not have a known owner
+	Night drop boxes are closed for animal welfare reasons
+	Unknown
+
+
+	RETURN - FURSTDATE
+	Animal previously outcomed as Foster/Furstdate is returned to the shelter. 
+	No longer in use but there may be some still in the kennel window.
+	January 2025
+	FOSTER
+	Used to track animals in foster via Kennel Window
+	No longer used (replaced by Foster Window)
+	February 2025
+	FOSTER - BITE
+	Used to track animals in foster via Kennel Window
+	No longer used (replaced by Foster Window)
+	February 2025
+	FOSTER - FURSTDATE
+	Used to track animals in foster via Kennel Window
+	No longer used (replaced by Foster Window)
+	February 2025
+	FOSTER - RETURN
+	Used to track animals in foster via Kennel Window
+	No longer used (replaced by Foster Window)
+	February 2025
+	RETURN - FIELD TRIP
+	Animal previously outcomed as Foster/Field Trip is returned to the shelter.  This now lives in the foster window but there may be some still in the kennel window.
+	No longer in use but there may be some still in the kennel window.
+	January 2025
+	
+
+Obsolete Outcome Types
+                                                
+Type / Subtype
+	What It Was
+	Why Obsolete
+	Date Discontinued
+	RTO - WEB
+	Used during the COVID-19 pandemic when owners were required to schedule an online appointment to reclaim their pet, ensuring controlled public access and social distancing.
+	Once in-person operations resumed and public access restrictions were lifted, scheduling online reclaim appointments was no longer necessary. Walk-in reclaim procedures returned to standard practice.
+	Unknown
+	RTO - FOUND
+	Unknown
+	Unknown
+	Unknown
+	RTO - LOST
+	Unknown
+	Unknown
+	Unknown
+	TRANSFER - RAMONA
+	Used when San Jacinto shelter was closed
+	RCDAS no longer contracts with Ramona Humane
+	Unknown
+	TRANSFER - CCP CAT
+	Unknown
+	Unknown
+	Unknown
+	ADOPTION - TRIAL
+	Incomplete adoption pending spay/neuter surgery
+	Replaced by Foster to Adopt
+	February 2025
+	ADOPTION - FURSTDATE
+	Incomplete adoption pending spay/neuter surgery
+	Replaced by Foster to Adopt
+	February 2025
+	ADOPTION - FIELDTRIP
+	Incomplete adoption pending spay/neuter surgery
+	Replaced by Foster to Adopt
+	February 2025
+	ADOPT EVNT - FURSTDATE
+	Incomplete adoption pending spay/neuter surgery
+	Replaced by Foster to Adopt
+	February 2025
+	RELEASED - OFFSITE
+	Unknown
+	Unknown
+	Unknown
+	RESCUE - ADOPTABLE
+	Animals transferred to Rescue
+	No longer used (replaced by Transfer/Rescue)
+	Unknown
+	 
+Document Version History
+                                                
+Version
+	Date
+	Changes
+	1.0
+	Original
+	Initial glossary with basic intake and outcome types definitions
+	
+
+	
+
+	
+
+	                        
+Quick Reference Guide
+Riverside Animal Services Data Glossary:  Quick Reference Guide
+
+
+INTAKE QUICK REFERENCE
+
+
+QUICK DECISION
+Is owner present?
+→ YES + Voluntary = OWNER SUR | YES + Forced = CONFISCATE | NO = STRAY or TRANSFER
+	
+
+MOST COMMON INTAKE TYPES / SUBTYPES
+TYPE / SUBTYPE
+	WHEN TO USE
+	EXAMPLE
+	STRAY - FIELD
+	Field Services picked up stray
+	Officer responds to loose dog call and bring to shelter
+	STRAY - OTC
+	Public brings stray to shelter intake counter
+	Good Samaritan finds lost dog and brings to shelter
+	OWNER SUR - OTC
+	Owner voluntarily surrenders at intake counter
+	Family moving and cannot take pet; voluntarily brings to shelter
+	OWNER SUR - FIELD
+	Owner surrenders to Field Services
+	
+
+	CONFISCATE
+	Animal take by authorities (not voluntary)
+	Use subtype:  BITE, CRUELTY, EVICTION, PUB SAFETY, etc
+	TRANSFER - DAS
+	From another RCDAS shelter
+	Animal transferred from Blythe to CVAC
+	
+
+COMMON MISTAKES
+⃞⃞   WRONG
+	✔ CORRECT
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+Riverside Animal Services Data Glossary:  Quick Reference Guide
+
+
+OUTCOME QUICK REFERENCE
+
+
+QUICK DECISION
+Who is taking custody?
+→ Original owner = RTO | New owner = ADOPTION | Organization = TRANSFER | Deceased = DIED or EUTH
+	
+
+MOST COMMON OUTCOME TYPES / SUBTYPES
+TYPE / SUBTYPE
+	WHEN TO USE
+	EXAMPLE
+	ADOPTION - NEW
+	General adoption (most common)
+	Approved adopter completes process and takes animal home
+	RTO - COUNTER
+	Owner reclaims at shelter
+	Owner comes to shelter, pays fees, reclaims lost dog
+	TRANSFER - DAS
+	To another RCDAS shelter (NOT in LRR)
+	Transfer from Blythe to CVAC to increase opportunity for live outcome
+	TRANSFER - RESCUE GRP
+	To rescue organization
+	Dog transferred to rescue group to provide additional medical care and increase its chances of adoption
+	EUTH - 
+	Animal euthanized
+	Use subtype: UNTRT-MEDI, UNTRT-BEHV, TRT-MEDI, TRT-BEHV, OWNER REQ, etc.
+	DIED - 
+	Died unassisted in care
+	Use subtype:  IN KENNEL, IN FOSTER, IN SURGERY, ENROUTE, AT VET
+	
+
+ADOPTION RETURNS
+OWNER SUR - IN 30 DAYS
+	OWNER SUR - > 30 DAYS
+	Adopted from RCDAS and returned within 30 days
+	Adopted from RCDAS and returned after 30 days
+	
+
+[a]Once SOP is complete, these should be the three main outcome types in Chameleon (TNR, CCP, RTF).
+[b]Once SOP is complete, these should be the three main outcome types in Chameleon (TNR, CCP, RTF).
+[c]Once SOP is complete, these should be the three main outcome types in Chameleon (TNR, CCP, RTF).
+[d]Once new SOP is complete, it's recommended that these subtypes become obsolete.
+[e]Once new SOP is complete, it's recommended that these subtypes become obsolete.
+[f]Once new SOP is complete, it's recommended that these subtypes become obsolete.

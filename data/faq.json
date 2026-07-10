@@ -1,0 +1,115 @@
+{
+  "note": "Common questions for new and experienced staff. Answers are drawn from the RCDAS New Staff Reference Guide and the policy and procedure library. Every answer links to its source; the source document is always the authority.",
+  "items": [
+    {
+      "q": "What does RCDAS actually do?",
+      "a": "RCDAS is one of the largest shelter systems in the nation, taking in 30,000 to 40,000 animals a year across four campuses: Jurupa Valley (largest), San Jacinto, Coachella Valley (CVAC), and Blythe. The work spans stray and lost pets, adoptions, foster, rescue partnerships, field services and cruelty investigations, spay and neuter, TNR, and veterinary care for sick and injured animals.",
+      "docs": ["guide-welcome-and-basics"]
+    },
+    {
+      "q": "What is Chameleon and why does everyone keep mentioning it?",
+      "a": "Chameleon is the animal management software the department runs on. Nearly every intake, movement, medical note, and outcome is recorded there. Person records use a PID and animal records use an AID, both seven-digit numbers. Start with the general Chameleon policy before using any module.",
+      "docs": ["000-01"]
+    },
+    {
+      "q": "What are the shelter hours, and what does adoption cost?",
+      "a": "Main shelters (Riverside, CVAC, San Jacinto) are open Tuesday through Friday 11 am to 6 pm and weekends 10 am to 4 pm, closed Mondays and holidays. Blythe runs Monday through Saturday 10 am to 4 pm. Dog adoptions are $105, $55, or $20 depending on days available; cats $65, $45, or $25 by age. Seniors get 50 percent off and military or veterans adopt free. Full fee tables are in the Essential Information chapter.",
+      "docs": ["guide-essential-information"]
+    },
+    {
+      "q": "How long do we hold a stray animal before it can be adopted or transferred?",
+      "a": "Holding periods depend on how the animal came in, whether it has identification, and the intake type. Do not rely on a remembered number of days; open the holding periods policy and check the table for your exact situation.",
+      "docs": ["000-08"]
+    },
+    {
+      "q": "What information do I collect on every call?",
+      "a": "At minimum: exact address and cross streets, caller name and contact details (callers must be adults), a detailed description of the situation, animal description and behavior, any Animal ID numbers, and the timeframe of what was observed. Field activities are then prioritized 1 through 5, where Priority 1 is an active threat to human life and Priority 5 is routine.",
+      "docs": ["guide-call-handling-procedures"]
+    },
+    {
+      "q": "A member of the public says a dog bit someone. What do I do?",
+      "a": "Bite reports have a specific call procedure and a required investigation and reporting flow. Forward to the Rabies Control Desk when available; otherwise collect all the incident details and email rabiescontrol@rivco.org. Verify jurisdiction based on where the bite happened. Bite and rabies documentation has legal deadlines.",
+      "docs": ["bite-report-call-procedures", "100-04", "guide-specialized-procedures"]
+    },
+    {
+      "q": "What happens when an animal might have rabies?",
+      "a": "Rabies control work runs through the Rabies Control Desk and the Rabies Control Investigation Report. Quarantine handling has its own safety guidelines. These are public health legal requirements, so follow the documents exactly.",
+      "docs": ["100-11", "100-04", "300-03"]
+    },
+    {
+      "q": "Someone found a stray pet. What are their options?",
+      "a": "First determine whether the animal is sick, injured, or dangerous. If not, ask whether the finder can hold onto the pet; a found report on Petco Love Lost plus neighborhood posting reunites most pets faster than shelter intake. If they cannot keep it, give them shelter drop-off instructions or create a pickup activity. Recommend a microchip scan at any vet, PetSmart, Petco, or shelter.",
+      "docs": ["guide-specific-call-types-and-procedures"]
+    },
+    {
+      "q": "How does the adoption process work end to end?",
+      "a": "The Adoption Process procedure walks through the full flow from selection to contract to outcome entry in Chameleon. No appointment is needed; adopters visit during shelter hours and everything is first come, first served. Dogs on stray hold can take DIBS placements; cats are not eligible because they have no stray holding period.",
+      "docs": ["adoption-process", "guide-specific-call-types-and-procedures"]
+    },
+    {
+      "q": "What do I say when someone wants to surrender their pet?",
+      "a": "Surrender is a consultation-based service, not a same-day guarantee. Verify jurisdiction, then offer diversion first: Healthy Pet Zone support, behavior resources, temporary boarding for crises, and self-rehoming help. If surrender is still needed, it requires an appointment, valid ID, and proof of ownership. The Standard Scripts chapter has the approved wording for these conversations.",
+      "docs": ["guide-standard-scripts", "guide-specific-call-types-and-procedures"]
+    },
+    {
+      "q": "What is the Healthy Pet Zone (HPZ)?",
+      "a": "HPZ helps families keep their pets during hard times: low-cost veterinary care, a pet food pantry, supplies like leashes and dog houses, temporary emergency boarding up to two weeks, and homeless outreach support. It is available to Riverside County and contract city residents, with availability varying by campus.",
+      "docs": ["guide-specific-call-types-and-procedures"]
+    },
+    {
+      "q": "What are TNR, CCP, and community cats?",
+      "a": "Community cats are free-roaming cats, which are legal in California and not required to be licensed. Trap-Neuter-Return (TNR) sterilizes, vaccinates, and ear-tips outdoor cats, then returns them to their territory. The Community Cat Program (CCP) covers impounded cats that are sterilized and released. Walk-in TNR is limited to 10 cats per day, 2 per person, in proper traps only. For cats that are not bleeding, biting, or broken, refer callers to the counselor teams.",
+      "docs": ["guide-specific-call-types-and-procedures"]
+    },
+    {
+      "q": "Who decides whether an animal is euthanized, and what has to happen first?",
+      "a": "Euthanasia decisions follow the Euthanasia Policy, and the euthanasia log must be completed for every procedure. Field euthanasia has its own separate policy with stricter conditions. Owner-requested euthanasia is an appointment-based service with a $50 fee and is never guaranteed. If you are unsure whether a situation qualifies, stop and ask your supervisor before acting.",
+      "docs": ["000-36", "200-36", "200-33"]
+    },
+    {
+      "q": "What does 'Needs Rescue' mean on a kennel card?",
+      "a": "Needs Rescue is a formal designation with its own identification procedure. It flags animals that need placement with a rescue partner rather than standard adoption. Read the procedure before applying or removing the designation.",
+      "docs": ["protocol-for-the-identification-of-needs-rescue-animals"]
+    },
+    {
+      "q": "How do I safely handle or restrain a fractious animal?",
+      "a": "Animal Handling and Restraint covers approved equipment and techniques, including control pole use. Quarantine areas have additional rules. Never improvise restraint on a dangerous animal; get help.",
+      "docs": ["300-10", "300-03"]
+    },
+    {
+      "q": "Can I foster an animal, or tell a member of the public how to foster?",
+      "a": "The Animal Foster Care Program policy covers eligibility, responsibilities, and how animals enter and exit foster. Community foster lets finders care for stray pets at home, which raises reunion rates. Kitten foster is critical in spring and summer; foster families get supplies, medical support, and a 24/7 emergency line.",
+      "docs": ["000-31", "guide-specific-call-types-and-procedures"]
+    },
+    {
+      "q": "What does RCDAS do about wildlife calls?",
+      "a": "RCDAS handles injured wildlife, aggressive wildlife posing immediate threats, and deceased wildlife removal. Healthy wildlife, coyote sightings, and bees are referred out: Fish and Wildlife for predators, pest control for bees. Any animal that is sick, injured, or actively attacking gets a call created.",
+      "docs": ["guide-specific-call-types-and-procedures"]
+    },
+    {
+      "q": "Who do I report to, and what do I do if I disagree with a direction?",
+      "a": "The Chain of Command procedure explains reporting lines and escalation. The Code of Ethics and Employee Conduct policy covers professional expectations. Internal disagreements have a conflict resolution policy. The standing expectations: treat every person and animal with respect, ask instead of guessing, and know your limits to keep everyone safe.",
+      "docs": ["chain-of-command", "000-17", "000-14", "guide-welcome-and-basics"]
+    },
+    {
+      "q": "A city council member or supervisor's office is calling about a complaint. What now?",
+      "a": "Board of Supervisor and City Council complaints follow a specific routing policy. Do not answer on behalf of the department; capture the details and route it per the policy. Media requests go to the public information officer, urgent ones by phone.",
+      "docs": ["000-09", "guide-specialized-procedures"]
+    },
+    {
+      "q": "How do I handle cash, refunds, or a returned check?",
+      "a": "Cash Handling covers registers and payments, daily deposits have their own procedure, and returned checks follow the NSF receipt procedure in Chameleon.",
+      "docs": ["000-22", "000-25", "bad-check-procedure-nsf-receipt-in-chameleon"]
+    },
+    {
+      "q": "Where do volunteers fit, and what can they do?",
+      "a": "Volunteer guidelines exist for each campus plus a general volunteer procedure. Volunteers work within defined roles; staff remain responsible for regulated tasks like medical care and euthanasia.",
+      "docs": ["volunteer-standard-operating-procedures", "volunteer-guidelines-riverside-animal-shelter", "volunteer-guidelines-coachella-valley-and-san-jacinto-valley-animal-campuses"]
+    },
+    {
+      "q": "The document I found says 'Draft pending approval.' Can I follow it?",
+      "a": "Yes, these are the department's current working documents, consolidated in 2026 and moving through the new approval flow. The status banner tells you where each one stands. If a document conflicts with a direct instruction from your supervisor, follow the chain of command and flag the conflict.",
+      "docs": ["chain-of-command"]
+    }
+  ]
+}

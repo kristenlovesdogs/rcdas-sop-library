@@ -1,0 +1,830 @@
+[
+ {
+  "term": "ASC",
+  "definition": "Animal Services Counselor. Staff position focused on adoption and rescue",
+  "category": "Staff Code/Acronym",
+  "synonyms": "Animal Services Counselor",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "SST",
+  "definition": "Support Services Technician. Support staff who assist behind the scenes such as facilities or janitorial",
+  "category": "Staff Code/Acronym",
+  "synonyms": "Support Services Technician",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "CA",
+  "definition": "Complaint Against. Who is the complaint about? The person, owner, business, or responsible party that the caller is reporting",
+  "category": "Staff Code/Acronym",
+  "synonyms": "Complaint Against",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "RP",
+  "definition": "Reporting Party. Who is calling? The person, organization, or agency that is contacting the shelter to report a concern or request service",
+  "category": "Staff Code/Acronym",
+  "synonyms": "Reporting Party",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "QTR",
+  "definition": "Quarantine Release. Animal under state mandated rabies quarantine is released",
+  "category": "Staff Code/Acronym",
+  "synonyms": "Quarantine Release",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "RCI",
+  "definition": "Rabies Control Investigation. Also known as bite report",
+  "category": "Staff Code/Acronym",
+  "synonyms": "Rabies Control Investigation",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Activity",
+  "definition": "A service request or case created in the Chameleon system for field officers or staff to complete (such as responding to a stray animal complaint or conducting a welfare check).",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Animal Control Officer (ACO)",
+  "definition": "Field staff who respond to animal-related calls, investigate complaints, and enforce animal laws.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Animal ID",
+  "definition": "Unique identification number assigned to each animal that enters the RCDAS system.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "CalTrans",
+  "definition": "California Department of Transportation, responsible for deceased animal removal on state highways and freeways.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Cisco Finesse",
+  "definition": "Phone system software used for call center operations.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Community cat (aka stray cat or free-roaming cat)",
+  "definition": "Cats are not required to be licensed or registered in the State of California. Cats that live outdoors, either part of the time or all the time, are considered community cats.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Community Foster",
+  "definition": "Temporary care for stray animals by volunteers in their own homes instead of bringing them to the shelter, which increases the chances of reuniting with owners.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Contracted Cities",
+  "definition": "Incorporated cities that contract with Riverside County Department of Animal Services (RCDAS) to provide animal control field services, animal sheltering services, or both.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Cross Streets",
+  "definition": "The intersecting streets nearest to a specific address, used to help locate exact positions.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "CVAC",
+  "definition": "Coachella Valley Animal Campus, one of four RCDAS shelter facilities.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Diversion",
+  "definition": "Process of offering alternatives to pet surrender, including resources and support services to help owners keep their animals.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "End-of-Life Services",
+  "definition": "Humane euthanasia services provided to pet owners who cannot afford private veterinary care.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Euthanasia",
+  "definition": "The humane ending of an animal's life, typically due to severe illness, injury, or behavioral issues.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Extension Request",
+  "definition": "A request to extend the deadline for paying an animal control citation.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Feral",
+  "definition": "Wild or untamed animals that avoid human contact, typically referring to cats that were not socialized to humans.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "GEO Codes",
+  "definition": "Geographic reference codes used to identify specific locations within the county.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "HPZ",
+  "definition": "Healthy Pet Zone program providing veterinary care, supplies, and support to help families keep their pets during difficult times.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Intake",
+  "definition": "The process of receiving and documenting animals brought into the shelter system.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Jurisdiction",
+  "definition": "Geographic area served by RCDAS (unincorporated Riverside County plus contracted cities).",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Kennel",
+  "definition": "Individual housing unit for animals in the shelter; also refers to the department that manages daily animal care.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Neonate",
+  "definition": "Newborn animals, typically referring to puppies or kittens under four weeks of age.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Noisy Animal Declaration",
+  "definition": "A formal complaint document required to initiate noise violation proceedings against pet owners.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Official Notice (Green Card)",
+  "definition": "Door hanger used by ACOs after visiting a property and not making contact with a person.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "OOJ",
+  "definition": "Out of Jurisdiction - areas not served by RCDAS, requiring referral to other agencies.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Person ID (PID)",
+  "definition": "ID number used to identify individuals in the Chameleon database system.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Priority Levels",
+  "definition": "Classification system for field activities based on urgency (1=Emergency, 2=Urgent, 3=Assist Fire/Law, 4=Must be responded to same day, 5=Routine).",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "RCDAS",
+  "definition": "Riverside County Department of Animal Services.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "SNR",
+  "definition": "Shelter-Neuter-Return program for friendly stray cats that are spayed/neutered, then adopted or returned to their territory.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Spay/Neuter",
+  "definition": "Surgical procedures to prevent animal reproduction (spay for females, neuter for males).",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Surrender Fee",
+  "definition": "A fee charged to owners who surrender their pets to the shelter, intended to cover care costs.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Timestamp",
+  "definition": "Date and time notation added to database records to track when actions occurred.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Trap",
+  "definition": "A humane cage device used to capture cats for TNR programs safely.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Unincorporated County",
+  "definition": "Areas of Riverside County not within city limits, served directly by county government rather than municipal services.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Violation Number",
+  "definition": "Unique identifier assigned to each citation or violation case.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Welfare Check",
+  "definition": "Investigation to assess whether animals are receiving proper care, food, water, and shelter.",
+  "category": "Operational Term",
+  "synonyms": "",
+  "source": "RCDAS New Staff Reference Guide (Call Center & Customer Service)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - AN CONTROL",
+  "definition": "Animal transferred from contract city that has animal control but not sheltering Example: Desert Hot Springs transfers animals to CVAC for sheltering",
+  "category": "Chameleon Intake Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - DAS",
+  "definition": "Animal transferred internally between RCDAS shelters (Blythe, CVAC, Jurupa Valley, San Jacinto) Example: Blythe, primarily an intake shelter, transfers animals to CVAC to increase visibility and opportunities for live outcomes",
+  "category": "Chameleon Intake Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "ADOPT EVNT",
+  "definition": "Animal custody permanently transferred from RCDAS to an individual adopter at an adoption event.",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "ADOPT EVNT (Adoption Event)",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "ADOPT EVNT - CONTRACT",
+  "definition": "Animal adopted unaltered where a s/n deposit has been paid Example: Family adopts a dog or cat that is unaltered and pays a spay/neuter deposit to return for surgery",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "ADOPT EVNT - NEW",
+  "definition": "General adoption (most common adoption type) Example: Family adopts dog at RCDAS mega adoption event",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "ADOPT EVNT - SURGWAIT",
+  "definition": "Animal was adopted and is in shelter awaiting surgery before going home Example: Family adopts a dog or cat and the animal stays in the shelter until surgery",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - ANML SAMAR",
+  "definition": "Animal transferred to Animal Samaritans (animalsamaritans.org) Example: Animals transferred to Animal Samaritan's rescue partner",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - AT VET",
+  "definition": "Animal transferred to veterinarian for medical care Example: Injured animal sent to offsite emergency veterinary clinic",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - CONTRACT",
+  "definition": "Animal transferred unaltered where a s/n deposit has been paid Example: Unaltered animal transferred pending spay/neuter surgery deposit",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - LEAF",
+  "definition": "Animal transferred to Animal Friends of The Valley (AFV) Example: Field Officers transferring impounded animals to AFV that were impounded in JPA (Joint Powers Authority)",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - OFF SITE",
+  "definition": "Animal transferred to offsite location (not Petsmart of Petco) Example: Animals temporarily displayed at special community event",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - PETSMART",
+  "definition": "Animal transferred to Petsmart location for adoption exposure Example: Adoptable cats transferred to Petsmart adoption center",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - RESC-HOLD",
+  "definition": "Animal being held for rescue pickup Example: Rescue partner has made a commitment on an animal but the animal is still in the shelter",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - RESCUE GRP",
+  "definition": "Animal transferred to rescue organization Example: Breed-specific rescue takes dog for placement",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "TRANSFER - SPCA",
+  "definition": "Animal transferred to Mary S. Roberts (MSR) rescue Example: Animal transferred to MSR",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "EUTH",
+  "definition": "Animal euthanized while in RCDAS custody.",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "EUTH (Euthanasia)",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "DIED",
+  "definition": "Animal died unassisted while in RCDAS custody.",
+  "category": "Chameleon Outcome Type/Subtype",
+  "synonyms": "DIED (Died In Care)",
+  "source": "RCDAS Data Glossary v1.0 (Cicconi, Nov 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Government Animal Shelter",
+  "definition": "A city or county-operated entity providing animal control services and housing services. Often named Animal Services or Animal Care and Control. RCDAS is this type of organization.",
+  "category": "Animal Welfare Organization Type (SAC)",
+  "synonyms": "animal services; animal care and control; pound",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Animal Shelter with Government Contract",
+  "definition": "A private or nonprofit agency with a formal contract with a government entity for animal control or housing services.",
+  "category": "Animal Welfare Organization Type (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Animal Shelter without Government Contract",
+  "definition": "A private or nonprofit agency with a physical facility but no government contract.",
+  "category": "Animal Welfare Organization Type (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Humane Society or SPCA",
+  "definition": "Nonprofit organizations that may or may not have government contracts. Traditionally unaffiliated with national organizations of similar names.",
+  "category": "Animal Welfare Organization Type (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Animal Rescue",
+  "definition": "Also called foster-based rescue. An animal welfare organization that houses animals exclusively in the homes of volunteers or staff. May be a 501(c)(3) nonprofit and can hold full or partial government contracts.",
+  "category": "Animal Welfare Organization Type (SAC)",
+  "synonyms": "foster-based rescue; rescue group",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Sanctuary",
+  "definition": "A nonprofit that houses animals for the remainder of their lives. Some sanctuaries also function as rescue groups that adopt some animals out.",
+  "category": "Animal Welfare Organization Type (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Non-Sheltering Service Provider",
+  "definition": "An agency providing direct or partnered services without sheltering animals.",
+  "category": "Animal Welfare Organization Type (SAC)",
+  "synonyms": "non-sheltering animal welfare organization",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Finder Foster Intake",
+  "definition": "A process where the organization conducts an intake assessment of a stray pet with its finder. The pet stays with the finder for the agreed hold period, preventing shelter overcrowding while keeping the pet in a home environment.",
+  "category": "General Term (SAC)",
+  "synonyms": "finder to foster",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Total Intake",
+  "definition": "Total animals entering the organization, including transfers in from other organizations.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "gross intake",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Community Intake",
+  "definition": "Total animals entering the shelter minus transfers in from other organizations. Prevents double-counting when summing intakes across multiple organizations.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "net intake",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Relinquished by Owner",
+  "definition": "SAC term for an animal admitted by its owner, including adoption returns. RCDAS records this as OWNER SUR.",
+  "category": "General Term (SAC)",
+  "synonyms": "owner surrender",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Seizure/Confiscate",
+  "definition": "Pets impounded by animal control or law enforcement due to neglect, cruelty, ordinance violations, police arrests, evictions, or other legal circumstances. RCDAS records this as CONFISCATE.",
+  "category": "General Term (SAC)",
+  "synonyms": "seizure",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Transfer In",
+  "definition": "Animal transferred into the organization's possession from another organization.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Community Live Outcomes",
+  "definition": "Sum of animals that left through a live outcome type minus transfers to another animal welfare organization.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Total Non-Live Outcomes",
+  "definition": "Sum of animals that left via a non-live outcome: died, missing, and euthanized.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Total Outcomes",
+  "definition": "All outcomes: adoptions, return to owner or field, other live outcomes, transfers out, shelter euthanasia, and died or lost in care.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Transfer Out",
+  "definition": "Animal custody transitioned to another organization, such as local rescue partners or national groups.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Died in Care",
+  "definition": "Animal died, unassisted, while in the custody of the organization. RCDAS records this as DIED.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Shelter Euthanasia",
+  "definition": "Animal euthanized in the custody of the organization.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Owner Intended Euthanasia (OIE)",
+  "definition": "An owner brings their pet specifically requesting euthanasia due to a medical or behavioral issue. SAC recommends treating OIE as a community service rather than an intake and outcome. RCDAS records this as EUTH REQ.",
+  "category": "General Term (SAC)",
+  "synonyms": "owner requested euthanasia; ORE",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Return to Owner in Field",
+  "definition": "A pet found by animal control or shelter staff in the community and returned to its owner without entering the organization or being processed as an intake. SAC reports this as a community service.",
+  "category": "General Term (SAC)",
+  "synonyms": "RTO in field",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Start Count",
+  "definition": "The number of animals in care on the first day of the selected period.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "beginning count",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "End Count",
+  "definition": "The number of animals in care on the last day of the selected period.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "ending count",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Intake Type Rate",
+  "definition": "The percentage of total intakes that are a specific intake type. Calculated as intake type divided by total gross intakes.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Outcome Type Rate",
+  "definition": "The percentage of total outcomes that are a specific outcome type. Calculated as outcome type divided by total outcomes.",
+  "category": "Data & Reporting Metric",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Altered/Unaltered",
+  "definition": "The animal's reproductive status. Also called sterilized/unsterilized or spayed/neutered/intact. May be updated during the stay.",
+  "category": "General Term (SAC)",
+  "synonyms": "sterilized; intact; spayed; neutered",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Intake Subtype",
+  "definition": "A more specific description of why the animal is in the organization's custody.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Intake Reason",
+  "definition": "The reported reason the animal is in the organization's custody. Possible reasons vary widely among shelters.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Outcome Subtype",
+  "definition": "A more specific description of why the animal is no longer in the organization's custody.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Outcome Reason",
+  "definition": "The reported reason the animal is no longer in the organization's custody.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Breed (Primary/Secondary)",
+  "definition": "The animal's primary and, if applicable, secondary breed, usually determined only by physical appearance and a breed guess.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Date of Birth",
+  "definition": "The reported or estimated birthdate of the animal, often a guess based on appearance and teeth.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Intake Age (Group)",
+  "definition": "The animal's age group at intake.",
+  "category": "General Term (SAC)",
+  "synonyms": "",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ },
+ {
+  "term": "Shelter Animals Count (SAC)",
+  "definition": "A collaborative, industry-led nonprofit that maintains The National Database of sheltered animal statistics, used for trends and benchmarking across the country. RCDAS reports data to SAC.",
+  "category": "General Term (SAC)",
+  "synonyms": "SAC; national database",
+  "source": "Shelter Animals Count Animal Welfare Glossary (Jan 2025)",
+  "status": "Current",
+  "notes": ""
+ }
+]

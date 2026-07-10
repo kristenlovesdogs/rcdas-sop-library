@@ -1,0 +1,1 @@
+# No third-party dependencies; server runs on the Python standard library.

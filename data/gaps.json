@@ -1,0 +1,26 @@
+[
+ {
+  "topic": "Animal evacuation (shelter-wide)",
+  "note": "No standalone evacuation SOP; Facility ERP covers portions."
+ },
+ {
+  "topic": "Whole-shelter sanitation",
+  "note": "Kennel and area cleaning SOPs exist; no facility-wide sanitation program document."
+ },
+ {
+  "topic": "Missing animals",
+  "note": "No SOP for animals missing from inventory."
+ },
+ {
+  "topic": "Phone-center triage (current)",
+  "note": "Existing call center docs predate current triage practice."
+ },
+ {
+  "topic": "Telework",
+  "note": "No department telework policy."
+ },
+ {
+  "topic": "Time Clock SOP",
+  "note": "Policy 000-12 requires a Time Clock SOP that was never written."
+ }
+]
