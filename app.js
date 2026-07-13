@@ -650,7 +650,7 @@ function renderQuizHome() {
   G = null;
   $("#quizArea").innerHTML = `
     <h2>Test your knowledge</h2>
-    <p class="hint">Pick a category and answer ${QUIZ_ROUND} quick questions. Every answer links back to the policy or procedure it comes from, so a miss is just a shortcut to the right document.</p>
+    <p class="hint">Pick a category and answer ${QUIZ_ROUND} quick questions.</p>
     <div class="quiz-cats">${S.quiz.map((c, idx) => `
       <button class="home-card home-card--${c.color}" onclick="startQuiz(${idx})">
         <span class="home-head"><span class="home-title">${esc(c.title)}</span></span>
