@@ -82,10 +82,9 @@ body {
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand img { width: 46px; height: 46px; border-radius: 50%; background: #fff; object-fit: contain; }
-.brand-dept { display: block; font-size: 12px; opacity: .9; letter-spacing: .04em; text-transform: uppercase; }
-.brand-title { display: block; font-size: 18px; font-weight: 700; }
+.brand-dept { display: block; font-size: 14px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.brand-title { display: block; font-size: 22px; font-weight: 700; }
 .topbar-right { display: flex; align-items: center; gap: 12px; }
-.corpus-stat { font-size: 12px; opacity: .9; }
 .user-chip { font-size: 13px; background: rgba(255,255,255,.15); padding: 4px 12px; border-radius: 99px; }
 
 .tabs {
@@ -257,12 +256,13 @@ textarea {
 .rev-item { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
 
 @media (max-width: 860px) {
-  .brand-dept, .corpus-stat { display: none; }
   .topbar { padding: 8px 14px; }
   .brand img { width: 38px; height: 38px; }
-  .brand-title { font-size: 16px; }
+  .brand-dept { font-size: 12px; }
+  .brand-title { font-size: 17px; }
 }
 @media (max-width: 560px) {
+  .brand-dept { display: none; }
   .user-chip { display: none; }
 }
 @media (max-width: 640px) {

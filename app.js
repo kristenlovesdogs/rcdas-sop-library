@@ -54,8 +54,6 @@ async function boot() {
     });
   });
 
-  $("#corpusStat").textContent =
-    `${corpus.counts.documents} documents | ${corpus.counts.policies} policies | ${corpus.counts.procedures} procedures`;
   if (health.auth) $("#gateNote").textContent = "Sign in with your email and the department access password.";
   const mode = $("#modeChip");
   mode.textContent = S.live ? "AI: live" : "AI: demo mode (no API key configured)";
