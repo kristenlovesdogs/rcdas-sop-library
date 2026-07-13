@@ -511,3 +511,8 @@ textarea {
 .quiz-done-score { font-size: 44px; font-weight: 800; color: var(--teal-dark); margin-bottom: 6px; }
 .quiz-done h3 { color: var(--navy); font-size: 22px; margin-bottom: 8px; }
 .quiz-alt { background: var(--navy); margin-left: 8px; }
+
+/* ---------- glossary pager ---------- */
+.pager { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 22px 0 8px; }
+.pager-info { color: var(--muted); font-size: 14px; }
+.pager-prev { background: var(--navy); }

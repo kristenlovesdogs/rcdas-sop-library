@@ -567,7 +567,20 @@ function buildGlossaryFilters() {
   renderGlossary();
 }
 
+let glossPage = 0;
+
 function renderGlossary() {
+  glossPage = 0;
+  renderGlossaryPage();
+}
+
+function glossGo(delta) {
+  glossPage += delta;
+  renderGlossaryPage();
+  $("#tab-glossary").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderGlossaryPage() {
   const q = $("#glossBox").value.trim().toLowerCase();
   const cat = $("#glossCat").value;
   const status = $("#glossStatus").value;
@@ -591,9 +604,20 @@ function renderGlossary() {
     if (sort === "za") list.reverse();
   }
   const cap = 60;
+  const pages = Math.max(1, Math.ceil(list.length / cap));
+  glossPage = Math.min(Math.max(glossPage, 0), pages - 1);
+  const start = glossPage * cap;
+  const page = list.slice(start, start + cap);
+  const pager = pages > 1 ? `
+    <div class="pager">
+      ${glossPage > 0 ? `<button class="btn-primary pager-prev" onclick="glossGo(-1)">Previous</button>` : ""}
+      <span class="pager-info">Page ${glossPage + 1} of ${pages}</span>
+      ${glossPage < pages - 1 ? `<button class="btn-primary" onclick="glossGo(1)">Next</button>` : ""}
+    </div>` : "";
   $("#glossOut").innerHTML =
-    `<p class="showing">Showing ${Math.min(cap, list.length)} of ${list.length} terms</p>` +
-    list.slice(0, cap).map((g) => `
+    (list.length ? `<p class="showing">Showing ${start + 1} to ${start + page.length} of ${list.length} terms</p>`
+                 : `<p class="showing">No terms match.</p>`) +
+    page.map((g) => `
       <div class="gloss-card">
         <b>${esc(g.term)}</b>
         <div class="gloss-meta">
@@ -602,7 +626,7 @@ function renderGlossary() {
         </div>
         <div class="gloss-def">${esc(g.definition)}</div>
         ${g.synonyms ? `<div class="gloss-syn">Also called: ${esc(g.synonyms)}</div>` : ""}
-      </div>`).join("");
+      </div>`).join("") + pager;
 }
 
 /* ---------- gaps ---------- */
