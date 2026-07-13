@@ -74,24 +74,29 @@
         </select>
         <select id="catFilter"><option value="">All categories</option></select>
       </div>
-      <p class="hint">Search understands shelter terminology and Chameleon codes. Try a topic, a document number, or a plain question. Or pick a category below to browse.</p>
       <div id="results"></div>
+    </section>
 
-      <div class="draft-section">
-        <h3>Draft a procedure</h3>
-        <p class="hint">Could not find a document for something? Enter the topic and a research-based draft will be prepared in the RCDAS SOP template. Drafts always require leadership review and a director signature before taking effect.</p>
-        <div class="ask-row">
-          <input id="gapBox" type="text" placeholder="Topic, e.g. Parvo treatment">
-          <button id="gapBtn" class="btn-primary">Create a draft</button>
-        </div>
-        <div id="draftOut"></div>
+    <!-- DRAFT -->
+    <section id="tab-draft" class="panel">
+      <h2>Draft a new SOP or policy</h2>
+      <p class="hint">Enter the topic and a research-based draft will be prepared in the RCDAS SOP template. Drafts always require leadership review and a director signature before taking effect.</p>
+      <div class="ask-row">
+        <input id="gapBox" type="text" placeholder="Topic, e.g. Parvo treatment">
+        <button id="gapBtn" class="btn-primary">Create a draft</button>
       </div>
+      <div id="draftOut"></div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="tab-quiz" class="panel">
+      <div id="quizArea"></div>
     </section>
 
     <!-- ASK -->
     <section id="tab-ask" class="panel">
       <h2>Ask a question</h2>
-      <p class="hint">Ask anything about RCDAS policies and procedures, in plain language. You can look something up, or describe a situation and ask whether it followed policy. Answers come only from the department's own documents and always cite their sources; the cited document is the authority. Situation questions are an informational comparison, not a disciplinary finding, and personnel matters follow the chain of command.</p>
+      <p class="hint">Ask anything about RCDAS policies and procedures, in plain language. You can look something up, or describe a situation and ask whether it followed policy. Answers come only from the department's own documents and always cite their sources.</p>
       <div class="ask-row">
         <input id="askBox" type="text" placeholder="Ask a question or describe a situation...">
         <button id="askBtn" class="btn-primary">Ask</button>

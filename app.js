@@ -13,12 +13,13 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 /* ---------- boot ---------- */
 
 async function boot() {
-  const [corpus, glossary, faq, gaps, guide, health] = await Promise.all([
+  const [corpus, glossary, faq, gaps, guide, quiz, health] = await Promise.all([
     fetch("data/corpus.json").then((r) => r.json()),
     fetch("data/glossary.json").then((r) => r.json()),
     fetch("data/faq.json").then((r) => r.json()),
     fetch("data/gaps.json").then((r) => r.json()),
     fetch("data/guide.json").then((r) => r.json()),
+    fetch("data/quiz.json").then((r) => r.json()).catch(() => ({ categories: [] })),
     fetch("api/health").then((r) => r.json()).catch(() => ({ live: false })),
   ]);
   S.guide = guide.map((g) => ({
@@ -40,6 +41,7 @@ async function boot() {
   S.glossary = glossary;
   S.faq = faq;
   S.gaps = gaps;
+  S.quiz = quiz.categories || [];
   S.live = !!health.live;
   S.docs.forEach((d) => S.byId.set(d.id, d));
 
@@ -490,8 +492,17 @@ async function callAPI(path, payload, outEl, renderFn) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    const data = await r.json();
+    let data = await r.json();
     if (data.error) throw new Error(data.error);
+    // Long jobs (draft research) return a job id immediately; poll until done
+    // so the request never outlives the host's proxy timeout.
+    while (data.job) {
+      await new Promise((res) => setTimeout(res, 5000));
+      const s = await fetch(`api/draft/status?job=${encodeURIComponent(data.job)}`);
+      const st = await s.json();
+      if (st.error) throw new Error(st.error);
+      if (st.status === "done") { data = st; break; }
+    }
     renderFn(data);
   } catch (e) {
     outEl.innerHTML = `<div class="demo-note">Request failed: ${esc(e.message)}</div>`;
@@ -516,9 +527,8 @@ function ask() {
 }
 
 function requestDraft(topic) {
-  switchTab("search");
+  switchTab("draft");
   $("#gapBox").value = topic;
-  $("#gapBox").scrollIntoView({ behavior: "smooth", block: "center" });
   draft();
 }
 
@@ -608,15 +618,117 @@ function renderHome() {
     <button class="home-card home-card--${c.color}" onclick="${c.action}">
       <span class="home-head"><span class="home-icon">${ICONS[c.icon]}</span>
       <span class="home-title">${c.title}</span></span>
-    </button>`).join("");
+    </button>`).join("") + (S.quiz.length ? `
+    <button class="home-card quiz-banner" onclick="goQuiz()">
+      <span class="home-icon">${ICONS.quiz}</span>
+      <span class="quiz-banner-text">
+        <span class="home-title">Test your knowledge</span>
+        <span class="quiz-banner-sub">Think you know your SOPs? Take the five question challenge.</span>
+      </span>
+      <span class="quiz-banner-cta">Start</span>
+    </button>` : "");
 }
 
-// Jump to the draft tool inside Find a Document and focus it.
+// Open the dedicated Draft screen and focus the topic box.
 function goDraft() {
-  switchTab("search");
+  switchTab("draft");
   const box = $("#gapBox");
-  box.scrollIntoView({ behavior: "smooth", block: "center" });
-  setTimeout(() => box.focus(), 250);
+  setTimeout(() => box.focus(), 100);
+}
+
+/* ---------- knowledge game ---------- */
+
+const QUIZ_ROUND = 5;
+let G = null; // current game: {cat, qs, i, score}
+
+function goQuiz() {
+  switchTab("quiz");
+  renderQuizHome();
+}
+
+function renderQuizHome() {
+  G = null;
+  $("#quizArea").innerHTML = `
+    <h2>Test your knowledge</h2>
+    <p class="hint">Pick a category and answer ${QUIZ_ROUND} quick questions. Every answer links back to the policy or procedure it comes from, so a miss is just a shortcut to the right document.</p>
+    <div class="quiz-cats">${S.quiz.map((c, idx) => `
+      <button class="home-card home-card--${c.color}" onclick="startQuiz(${idx})">
+        <span class="home-head"><span class="home-title">${esc(c.title)}</span></span>
+        <span class="quiz-banner-sub">${esc(c.tagline)}</span>
+      </button>`).join("")}
+    </div>`;
+}
+
+function startQuiz(catIdx) {
+  const cat = S.quiz[catIdx];
+  const qs = cat.questions.slice();
+  for (let i = qs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [qs[i], qs[j]] = [qs[j], qs[i]];
+  }
+  G = { cat, qs: qs.slice(0, QUIZ_ROUND), i: 0, score: 0 };
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  const q = G.qs[G.i];
+  $("#quizArea").innerHTML = `
+    <div class="quiz-top">
+      <button class="quiz-back" onclick="renderQuizHome()">&larr; Categories</button>
+      <span class="quiz-progress">${esc(G.cat.title)} &middot; Question ${G.i + 1} of ${G.qs.length}</span>
+      <span class="quiz-score">Score ${G.score}</span>
+    </div>
+    <div class="quiz-card">
+      <h3 class="quiz-q">${esc(q.q)}</h3>
+      <div class="quiz-choices">${q.choices.map((c, i) => `
+        <button class="quiz-choice" onclick="answerQuiz(${i})">${esc(c)}</button>`).join("")}
+      </div>
+      <div id="quizFeedback"></div>
+    </div>`;
+}
+
+function answerQuiz(picked) {
+  const q = G.qs[G.i];
+  const right = picked === q.answer;
+  if (right) G.score++;
+  document.querySelectorAll(".quiz-choice").forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.answer) b.classList.add("quiz-right");
+    else if (i === picked) b.classList.add("quiz-wrong");
+  });
+  const doc = S.byId.get(q.doc);
+  const last = G.i + 1 >= G.qs.length;
+  $("#quizFeedback").innerHTML = `
+    <div class="quiz-why ${right ? "quiz-why--right" : "quiz-why--wrong"}">
+      <b>${right ? "Correct!" : "Not quite."}</b> ${esc(q.why)}
+      ${doc ? `<div class="cites"><button class="cite-chip" onclick="openDoc('${doc.id}')">${esc(doc.number ? doc.number + " " : "")}${esc(doc.title)}</button></div>` : ""}
+    </div>
+    <p style="margin-top:14px"><button class="btn-primary" onclick="${last ? "renderQuizDone()" : "nextQuiz()"}">${last ? "See my score" : "Next question"}</button></p>`;
+  document.querySelector(".quiz-score").textContent = "Score " + G.score;
+}
+
+function nextQuiz() {
+  G.i++;
+  renderQuizQuestion();
+}
+
+function renderQuizDone() {
+  const s = G.score, n = G.qs.length;
+  const rank =
+    s === n ? ["SOP Superstar", "Perfect score. The documents would be proud of you."] :
+    s >= n - 1 ? ["Almost Expert", "So close! One quick review and you own this category."] :
+    s >= 3 ? ["Solid Start", "Good foundation. The source documents below each question have the rest."] :
+    ["Future Expert", "Everyone starts somewhere. Try Ask a Question to explore this topic, then come back for a rematch."];
+  $("#quizArea").innerHTML = `
+    <div class="quiz-card quiz-done">
+      <div class="quiz-done-score">${s} / ${n}</div>
+      <h3>${rank[0]}</h3>
+      <p class="hint">${rank[1]}</p>
+      <p style="margin-top:18px">
+        <button class="btn-primary" onclick="startQuiz(${S.quiz.indexOf(G.cat)})">Play again</button>
+        <button class="btn-primary quiz-alt" onclick="renderQuizHome()">Pick another category</button>
+      </p>
+    </div>`;
 }
 
 const ASK_EXAMPLES = [

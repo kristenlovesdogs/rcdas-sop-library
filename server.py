@@ -11,7 +11,9 @@ Run:  python3 server.py  (port 8642)
 import json
 import re
 import os
+import threading
 import urllib.request
+import uuid
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -40,6 +42,26 @@ API_KEY = os.environ.get("ANTHROPIC_API_KEY", "").strip()
 MODEL = os.environ.get("RCDAS_MODEL", "claude-opus-4-8")
 # Shared staff password. If unset (local dev), any sign-in is accepted.
 PASSCODE = os.environ.get("RCDAS_PASSCODE", "").strip()
+
+# Draft research runs for several minutes, longer than hosting proxies allow
+# a single request to live (Render/Cloudflare cut off around 100s). So
+# /api/draft returns a job id immediately, the work happens in a thread, and
+# the client polls /api/draft/status. In-memory is fine: one instance, and a
+# restart mid-job just means the client sees "unknown job" and can retry.
+JOBS = {}
+JOBS_LOCK = threading.Lock()
+
+
+def run_draft_job(job_id, topic, docs):
+    try:
+        text = call_claude_research(
+            SYSTEM_DRAFT,
+            f"DRAFT REQUEST TOPIC: {topic}\n\nPOSSIBLY RELATED RCDAS DOCUMENTS:\n{doc_block(docs)}")
+        with JOBS_LOCK:
+            JOBS[job_id] = {"status": "done", "mode": "live", "text": text}
+    except Exception as e:
+        with JOBS_LOCK:
+            JOBS[job_id] = {"status": "error", "error": str(e)}
 
 STYLE = (
     "Write in measured, professional prose. Never use em dashes. "
@@ -266,6 +288,18 @@ class Handler(SimpleHTTPRequestHandler):
         if self.path.rstrip("/") == "/api/health":
             return self._json({"live": bool(API_KEY), "auth": bool(PASSCODE),
                                "model": MODEL if API_KEY else None})
+        if self.path.startswith("/api/draft/status"):
+            from urllib.parse import urlparse, parse_qs
+            job_id = parse_qs(urlparse(self.path).query).get("job", [""])[0]
+            with JOBS_LOCK:
+                job = JOBS.get(job_id)
+                if job and job["status"] in ("done", "error"):
+                    del JOBS[job_id]
+            if job is None:
+                return self._json({"error": "unknown job; the server may have restarted. Please try the draft again."}, 404)
+            if job["status"] == "error":
+                return self._json({"error": job["error"]}, 500)
+            return self._json(job)
         return super().do_GET()
 
     def do_POST(self):
@@ -303,10 +337,12 @@ class Handler(SimpleHTTPRequestHandler):
                 if not t:
                     return self._json({"error": "empty topic"}, 400)
                 if API_KEY:
-                    text = call_claude_research(
-                        SYSTEM_DRAFT,
-                        f"DRAFT REQUEST TOPIC: {t}\n\nPOSSIBLY RELATED RCDAS DOCUMENTS:\n{doc_block(docs)}")
-                    return self._json({"mode": "live", "text": text})
+                    job_id = uuid.uuid4().hex
+                    with JOBS_LOCK:
+                        JOBS[job_id] = {"status": "running"}
+                    threading.Thread(target=run_draft_job, args=(job_id, t, docs),
+                                     daemon=True).start()
+                    return self._json({"job": job_id})
                 return self._json({"mode": "demo", "text": demo_draft(t, docs)})
 
             return self._json({"error": "not found"}, 404)

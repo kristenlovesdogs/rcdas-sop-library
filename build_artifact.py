@@ -33,21 +33,23 @@ data = {
     "faq": json.loads((HERE / "data/faq.json").read_text()),
     "gaps": json.loads((HERE / "data/gaps.json").read_text()),
     "guide": json.loads((HERE / "data/guide.json").read_text()),
+    "quiz": json.loads((HERE / "data/quiz.json").read_text()),
 }
 data_js = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 # ---------- app.js ----------
 js = (HERE / "app.js").read_text()
 
-old = '''  const [corpus, glossary, faq, gaps, guide, health] = await Promise.all([
+old = '''  const [corpus, glossary, faq, gaps, guide, quiz, health] = await Promise.all([
     fetch("data/corpus.json").then((r) => r.json()),
     fetch("data/glossary.json").then((r) => r.json()),
     fetch("data/faq.json").then((r) => r.json()),
     fetch("data/gaps.json").then((r) => r.json()),
     fetch("data/guide.json").then((r) => r.json()),
+    fetch("data/quiz.json").then((r) => r.json()).catch(() => ({ categories: [] })),
     fetch("api/health").then((r) => r.json()).catch(() => ({ live: false })),
   ]);'''
-new = '''  const { corpus, glossary, faq, gaps, guide } = window.__DATA;
+new = '''  const { corpus, glossary, faq, gaps, guide, quiz } = window.__DATA;
   const health = { live: false };'''
 assert old in js
 js = js.replace(old, new)
