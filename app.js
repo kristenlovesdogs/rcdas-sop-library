@@ -754,6 +754,9 @@ function askExample(q) {
 function switchTab(name) {
   document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === name));
   document.querySelectorAll(".panel").forEach((p) => p.classList.toggle("active", p.id === "tab-" + name));
+  // The quiz panel renders on demand; show the category picker unless a
+  // round is already on screen.
+  if (name === "quiz" && !$("#quizArea").innerHTML) renderQuizHome();
 }
 
 function initEvents() {
