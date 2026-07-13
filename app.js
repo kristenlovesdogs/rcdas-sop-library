@@ -571,6 +571,14 @@ function renderGlossary() {
   const q = $("#glossBox").value.trim().toLowerCase();
   const cat = $("#glossCat").value;
   const status = $("#glossStatus").value;
+  const sort = $("#glossSort").value;
+  // Blank until the user searches, filters, or sorts; a wall of 600 terms
+  // is overwhelming as a landing state.
+  if (!q && !cat && !status && !sort) {
+    $("#glossOut").innerHTML =
+      `<p class="hint">Search for a term, pick a category or status, or choose a sort to browse all ${S.glossary.length} terms.</p>`;
+    return;
+  }
   let list = S.glossary;
   if (cat) list = list.filter((g) => g.category === cat);
   if (status) list = list.filter((g) => g.status === status);
@@ -578,6 +586,10 @@ function renderGlossary() {
     (g.term || "").toLowerCase().includes(q) ||
     (g.definition || "").toLowerCase().includes(q) ||
     (g.synonyms || "").toLowerCase().includes(q));
+  if (sort) {
+    list = list.slice().sort((a, b) => (a.term || "").localeCompare(b.term || ""));
+    if (sort === "za") list.reverse();
+  }
   const cap = 60;
   $("#glossOut").innerHTML =
     `<p class="showing">Showing ${Math.min(cap, list.length)} of ${list.length} terms</p>` +
@@ -772,6 +784,7 @@ function initEvents() {
   $("#glossBox").addEventListener("input", renderGlossary);
   $("#glossCat").addEventListener("change", renderGlossary);
   $("#glossStatus").addEventListener("change", renderGlossary);
+  $("#glossSort").addEventListener("change", renderGlossary);
   $("#viewerClose").addEventListener("click", () => $("#viewer").classList.add("hidden"));
   $("#viewer").addEventListener("click", (e) => { if (e.target.id === "viewer") $("#viewer").classList.add("hidden"); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") $("#viewer").classList.add("hidden"); });
