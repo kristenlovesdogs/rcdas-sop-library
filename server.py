@@ -159,6 +159,67 @@ def _post_messages(body):
         return json.loads(r.read())
 
 
+def _post_messages_stream(body):
+    """Like _post_messages but with streaming, for research requests that can
+    run well past 8 minutes. A non-streaming request that long dies on read
+    timeouts; with SSE the connection stays active, and we accumulate the
+    events back into a complete response dict ({content, stop_reason})."""
+    body = dict(body)
+    body["stream"] = True
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages",
+        data=json.dumps(body).encode(),
+        headers={
+            "content-type": "application/json",
+            "x-api-key": API_KEY,
+            "anthropic-version": "2023-06-01",
+        },
+    )
+    blocks, stop_reason = [], None
+    with urllib.request.urlopen(req, timeout=300) as r:  # per-read timeout
+        for raw in r:
+            line = raw.decode("utf-8", "replace").strip()
+            if not line.startswith("data: "):
+                continue
+            try:
+                ev = json.loads(line[6:])
+            except json.JSONDecodeError:
+                continue
+            t = ev.get("type")
+            if t == "content_block_start":
+                blocks.append(dict(ev["content_block"]))
+            elif t == "content_block_delta":
+                d, b = ev["delta"], blocks[ev["index"]]
+                dt = d.get("type")
+                if dt == "text_delta":
+                    b["text"] = b.get("text") or ""
+                    b["text"] += d["text"]
+                elif dt == "thinking_delta":
+                    b["thinking"] = b.get("thinking") or ""
+                    b["thinking"] += d["thinking"]
+                elif dt == "signature_delta":
+                    b["signature"] = d["signature"]
+                elif dt == "input_json_delta":
+                    b["_pj"] = b.get("_pj", "") + d["partial_json"]
+                elif dt == "citations_delta":
+                    b.setdefault("citations", []).append(d["citation"])
+            elif t == "content_block_stop":
+                b = blocks[ev["index"]]
+                pj = b.pop("_pj", "")
+                if pj.strip():
+                    try:
+                        b["input"] = json.loads(pj)
+                    except json.JSONDecodeError:
+                        pass
+                # None-valued placeholder fields upset replay validation
+                blocks[ev["index"]] = {k: v for k, v in b.items() if v is not None}
+            elif t == "message_delta":
+                stop_reason = ev["delta"].get("stop_reason") or stop_reason
+            elif t == "error":
+                raise RuntimeError(json.dumps(ev.get("error")))
+    return {"content": blocks, "stop_reason": stop_reason}
+
+
 def call_claude_research(system, user_text, max_tokens=16000):
     """Draft with live web research. Web search runs server-side at Anthropic.
     Resumes on pause_turn (server tool loop) and continues on max_tokens
@@ -168,7 +229,7 @@ def call_claude_research(system, user_text, max_tokens=16000):
     tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 14}]
     parts = []
     for i in range(8):
-        data = _post_messages({
+        data = _post_messages_stream({
             "model": MODEL,
             "max_tokens": max_tokens,
             "system": system,
