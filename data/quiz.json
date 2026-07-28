@@ -1,485 +1,773 @@
 {
-  "note": "SOP knowledge game question bank. Every question is grounded in a corpus document; doc is the corpus document id shown as the source after answering. Hand-written July 2026 from the consolidated corpus; review after substantive SOP revisions.",
-  "categories": [
+ "note": "SOP knowledge game question bank. Every question is grounded in a corpus document; doc is the corpus document id shown as the source after answering. Hand-written July 2026 from the consolidated corpus and expanded to 10 questions per category; review after substantive SOP revisions. The front end shuffles choice order at round start, so answer positions here do not need balancing.",
+ "categories": [
+  {
+   "key": "intake",
+   "title": "Intake & Stray Processing",
+   "color": "teal",
+   "tagline": "Holds, impounds, and getting pets back home",
+   "questions": [
     {
-      "key": "intake",
-      "title": "Intake & Stray Processing",
-      "color": "teal",
-      "tagline": "Holds, impounds, and getting pets back home",
-      "questions": [
-        {
-          "q": "A stray dog comes in with no license tag, no microchip, and no tattoo. How long is the Stray Wait hold?",
-          "choices": [
-            "Four business days, not counting holidays, weekends, or the day of impound",
-            "Ten calendar days from the day of impound",
-            "72 hours including weekends",
-            "Seven calendar days from the day of impound"
-          ],
-          "answer": 0,
-          "why": "Stray Wait animals are held four business days, and holidays, weekends, and the day of impound do not count toward the hold.",
-          "doc": "000-08"
-        },
-        {
-          "q": "A cat arrives with a microchip that traces to an owner. After notification is mailed, how long is the Owner Known hold?",
-          "choices": [
-            "Four business days",
-            "Ten calendar days from the time notification is sent by first class mail",
-            "Five business days from the time the owner answers the phone",
-            "There is no hold once an owner is identified"
-          ],
-          "answer": 1,
-          "why": "Owner Known animals are held ten calendar days from when notification is sent by first class mail, with a Chameleon status of Known Wait.",
-          "doc": "000-08"
-        },
-        {
-          "q": "What Chameleon status do you enter for a stray that has viable identification at the time of impound?",
-          "choices": [
-            "SW for Stray Wait",
-            "OS for Owner Surrender",
-            "KW for Known Wait",
-            "RTO for Return to Owner"
-          ],
-          "answer": 2,
-          "why": "An animal with a license tag, microchip, tattoo, or known owner information is statused KW, Known Wait.",
-          "doc": "how-to-impound-a-stray-in-chameleon"
-        },
-        {
-          "q": "Every avenue to reach a Known Wait animal's owner has failed. What has to happen before you change the status to Stray Wait?",
-          "choices": [
-            "Nothing, change it as soon as the mailed notice goes out",
-            "Supervisory approval",
-            "A 30 day waiting period",
-            "Written signoff from the shelter veterinarian"
-          ],
-          "answer": 1,
-          "why": "The status changes from Known Wait to Stray Wait only after all contact avenues are exhausted and a supervisor approves.",
-          "doc": "000-08"
-        },
-        {
-          "q": "An owner arrives to reclaim their impounded dog. What do you ask for first to verify their identity?",
-          "choices": [
-            "A utility bill with their address",
-            "A photo of the dog on their phone",
-            "A government issued identification",
-            "Their Chameleon Person ID number"
-          ],
-          "answer": 2,
-          "why": "State law requires positive identification, so you request a government issued ID and match it against the owner information in Chameleon.",
-          "doc": "animal-reclaimed-by-owner-animal-redemptions"
-        },
-        {
-          "q": "A healthy dog is being reclaimed by its owner. What must happen before it can leave, under the rule in effect since January 1, 2022?",
-          "choices": [
-            "The dog must be spayed or neutered",
-            "The dog must be microchipped, unless a veterinarian certifies in writing it is medically unfit for the procedure",
-            "The owner must complete an obedience class voucher",
-            "The dog must complete a ten day observation period"
-          ],
-          "answer": 1,
-          "why": "No healthy dog or cat may be reclaimed without being microchipped unless veterinary staff certifies in writing that the animal is medically unfit for microchipping.",
-          "doc": "animal-reclaimed-by-owner-animal-redemptions"
-        }
-      ]
+     "q": "A stray dog comes in with no license tag, no microchip, and no tattoo. How long is the Stray Wait hold?",
+     "choices": [
+      "Four business days, not counting holidays, weekends, or the day of impound",
+      "Ten calendar days from the day of impound",
+      "72 hours including weekends",
+      "Seven calendar days from the day of impound"
+     ],
+     "answer": 0,
+     "why": "Stray Wait animals are held four business days, and holidays, weekends, and the day of impound do not count toward the hold.",
+     "doc": "000-08"
     },
     {
-      "key": "medical",
-      "title": "Veterinary & Medical",
-      "color": "navy",
-      "tagline": "Vaccines, rabies, and medical must-knows",
-      "questions": [
-        {
-          "q": "A healthy four month old dog is impounded this morning. Which vaccines does it receive at impound?",
-          "choices": [
-            "Rabies only",
-            "DHPP and an intranasal Bordetella",
-            "FVRCP and rabies",
-            "None until the stray hold expires"
-          ],
-          "answer": 1,
-          "why": "All dogs older than six weeks receive DHPP and intranasal Bordetella at the time of impound or delivery to the shelter.",
-          "doc": "100-01"
-        },
-        {
-          "q": "Which vaccine do all cats older than six weeks receive at impound?",
-          "choices": [
-            "FVRCP",
-            "DHPP",
-            "Bordetella",
-            "FeLV"
-          ],
-          "answer": 0,
-          "why": "Cats older than six weeks receive an FVRCP vaccination at the time of impound, with case by case exceptions for safety.",
-          "doc": "100-01"
-        },
-        {
-          "q": "When does an adopted dog or cat receive its rabies vaccination?",
-          "choices": [
-            "At the first visit to the adopter's own veterinarian",
-            "Only if it is going to a home with other pets",
-            "Before release from the shelter, if it is three months of age or older",
-            "At six months of age regardless of adoption date"
-          ],
-          "answer": 2,
-          "why": "Dogs and cats three months of age or older are given a rabies vaccination before release from the shelter upon adoption.",
-          "doc": "100-01"
-        },
-        {
-          "q": "A dog has been in foster care for a month. What does the vaccination protocol require?",
-          "choices": [
-            "Nothing further until adoption",
-            "Booster vaccinations, because it has been in care longer than three weeks",
-            "A new rabies vaccination every month",
-            "Deworming only"
-          ],
-          "answer": 1,
-          "why": "Any dog or cat maintained at the shelter or in foster care for more than three weeks receives booster vaccinations.",
-          "doc": "100-01"
-        },
-        {
-          "q": "A member of the public asks the shelter to euthanize their healthy, adoptable pet. What does policy direct you to do?",
-          "choices": [
-            "Schedule it for the next euthanasia day",
-            "Accept the animal and place it on the adoption floor without telling the owner",
-            "Refer the request to a local veterinarian, veterinary clinic, or hospital",
-            "Ask a supervisor to approve the euthanasia"
-          ],
-          "answer": 2,
-          "why": "DAS does not euthanize healthy, adoptable animals at an owner's request. All such requests are referred to a local veterinarian or clinic.",
-          "doc": "000-36"
-        },
-        {
-          "q": "Before an adoptable animal may even be considered for euthanasia due to shelter capacity, what must be true?",
-          "choices": [
-            "It has been impounded ten or more consecutive days and all required holding periods have expired",
-            "It has failed a behavior evaluation",
-            "It has been passed over at one adoption event",
-            "The kennel supervisor has an opening on the schedule"
-          ],
-          "answer": 0,
-          "why": "Consideration applies only to animals impounded for ten or more consecutive days, and only after all required holding periods have expired, with shelter team and veterinary review.",
-          "doc": "000-36"
-        }
-      ]
+     "q": "A cat arrives with a microchip that traces to an owner. After notification is mailed, how long is the Owner Known hold?",
+     "choices": [
+      "Four business days",
+      "Ten calendar days from the time notification is sent by first class mail",
+      "Five business days from the time the owner answers the phone",
+      "There is no hold once an owner is identified"
+     ],
+     "answer": 1,
+     "why": "Owner Known animals are held ten calendar days from when notification is sent by first class mail, with a Chameleon status of Known Wait.",
+     "doc": "000-08"
     },
     {
-      "key": "handling",
-      "title": "Animal Care & Handling",
-      "color": "brown",
-      "tagline": "Reading body language and staying safe",
-      "questions": [
-        {
-          "q": "What is the guiding principle for physically restraining any animal at RCDAS?",
-          "choices": [
-            "Full control at all times, no matter the animal",
-            "The minimum effective restraint the situation requires",
-            "Two staff members for every animal",
-            "Mechanical restraint first, hands second"
-          ],
-          "answer": 1,
-          "why": "Apply only as much physical control as the situation requires, and escalate technique only when a lesser approach has failed or is unsafe.",
-          "doc": "300-10"
-        },
-        {
-          "q": "A cat gives you a small scratch that barely breaks the skin. What do you do?",
-          "choices": [
-            "Rinse it and keep working; only bites get reported",
-            "Report it to a supervisor immediately, regardless of severity",
-            "Mention it at the end of your shift if it still hurts",
-            "Only report it if the cat is a rabies suspect"
-          ],
-          "answer": 1,
-          "why": "All bites and scratches are reported to a supervisor immediately, regardless of severity, with an incident report and medical evaluation as needed.",
-          "doc": "300-10"
-        },
-        {
-          "q": "A dog in a kennel shows whale eye, a tucked tail, flattened ears, and lip licking. What is it telling you?",
-          "choices": [
-            "It is relaxed and ready to be leashed",
-            "It is fearful or stressed",
-            "It is playing",
-            "It is food motivated"
-          ],
-          "answer": 1,
-          "why": "Whale eye, a tucked tail, flattened ears, lip licking, yawning, and a stiff still posture are signs of fear or stress. Adjust your approach.",
-          "doc": "300-10"
-        },
-        {
-          "q": "How do you approach a calm but uncertain dog?",
-          "choices": [
-            "Head on with steady eye contact so it can see you",
-            "From the side, avoiding direct eye contact, offering the back of a loose hand to sniff",
-            "Quickly, before it has time to react",
-            "From behind, so it cannot see the leash"
-          ],
-          "answer": 1,
-          "why": "Move slowly from the side rather than head on, avoid direct eye contact, and offer the back of a loose hand for sniffing before touching.",
-          "doc": "300-10"
-        },
-        {
-          "q": "Which of these is a catch pole NEVER used for?",
-          "choices": [
-            "Guiding a dog's head in the direction of travel",
-            "Securing a dog before moving it to a kennel",
-            "Lifting, dragging, or choking a dog",
-            "Walking beside a dog that needs extra control"
-          ],
-          "answer": 2,
-          "why": "A catch pole is a tool of guidance and control, not force. It is never used to lift, drag, or choke a dog.",
-          "doc": "300-10"
-        },
-        {
-          "q": "Which disease on this list can pass from shelter animals to people?",
-          "choices": [
-            "Parvovirus",
-            "Canine distemper",
-            "Ringworm",
-            "Feline leukemia"
-          ],
-          "answer": 2,
-          "why": "Ringworm is zoonotic, along with rabies, roundworm, salmonella, and toxoplasmosis. Wash hands after handling animals and wear gloves when health status is unknown.",
-          "doc": "300-10"
-        }
-      ]
+     "q": "What Chameleon status do you enter for a stray that has viable identification at the time of impound?",
+     "choices": [
+      "SW for Stray Wait",
+      "OS for Owner Surrender",
+      "KW for Known Wait",
+      "RTO for Return to Owner"
+     ],
+     "answer": 2,
+     "why": "An animal with a license tag, microchip, tattoo, or known owner information is statused KW, Known Wait.",
+     "doc": "how-to-impound-a-stray-in-chameleon"
     },
     {
-      "key": "operations",
-      "title": "Shelter Operations",
-      "color": "yellow",
-      "tagline": "Feeding, kennels, and daily routines",
-      "questions": [
-        {
-          "q": "How often are puppies and kittens between six and twelve weeks old fed?",
-          "choices": [
-            "Once a day",
-            "Twice a day",
-            "Three times a day",
-            "Free fed from a full bowl"
-          ],
-          "answer": 2,
-          "why": "Puppies and kittens six to twelve weeks old are fed three times per day. From twelve weeks to twelve months it is twice a day, and adults at least once a day.",
-          "doc": "300-09"
-        },
-        {
-          "q": "When should shelter animals have access to water?",
-          "choices": [
-            "At feeding times",
-            "At all times",
-            "Twice a day in summer",
-            "Whenever kennel staff finish cleaning"
-          ],
-          "answer": 1,
-          "why": "All animals are offered water at all times, and new impounds are offered water while being processed.",
-          "doc": "300-09"
-        },
-        {
-          "q": "How long may processing of a new impound take before the animal is settled?",
-          "choices": [
-            "No limit as long as the lobby is busy",
-            "No more than one hour",
-            "Up to four hours",
-            "Until the end of the shift"
-          ],
-          "answer": 1,
-          "why": "Processing time for new impounds shall not exceed one hour, and the animal is offered water throughout.",
-          "doc": "300-09"
-        },
-        {
-          "q": "Two dogs start fighting in a kennel. What is your FIRST move?",
-          "choices": [
-            "Enter the kennel and grab the collars",
-            "Stay outside the kennel and use a loud noise to distract and separate them",
-            "Spray them with the hose immediately",
-            "Wait for them to tire out"
-          ],
-          "answer": 1,
-          "why": "Stay calm, stay outside the kennel, and start with a loud noise to distract. The hose comes next if fighting continues, and you enter only with help from other staff if necessary.",
-          "doc": "breaking-up-dog-fights"
-        },
-        {
-          "q": "A dog has now been in two fights. Where does it go?",
-          "choices": [
-            "Back with its kennelmate once things calm down",
-            "In a kennel alone, with a handwritten Dog Aggressive note on its card",
-            "Straight to the euthanasia list",
-            "To whichever kennel has space"
-          ],
-          "answer": 1,
-          "why": "A dog with two or more fights is removed, kenneled alone, and gets a handwritten Dog Aggressive note on the card, with notes entered in Chameleon.",
-          "doc": "breaking-up-dog-fights"
-        },
-        {
-          "q": "After any dog fight, when do notes go into Chameleon?",
-          "choices": [
-            "Immediately after the fight",
-            "By the end of the week",
-            "Only if an animal was injured",
-            "Only if the public witnessed it"
-          ],
-          "answer": 0,
-          "why": "Notes are entered in Chameleon immediately after a dog fight. They drive kennel decisions and keep the next handler safe.",
-          "doc": "breaking-up-dog-fights"
-        }
-      ]
+     "q": "Every avenue to reach a Known Wait animal's owner has failed. What has to happen before you change the status to Stray Wait?",
+     "choices": [
+      "Nothing, change it as soon as the mailed notice goes out",
+      "Supervisory approval",
+      "A 30 day waiting period",
+      "Written signoff from the shelter veterinarian"
+     ],
+     "answer": 1,
+     "why": "The status changes from Known Wait to Stray Wait only after all contact avenues are exhausted and a supervisor approves.",
+     "doc": "000-08"
     },
     {
-      "key": "outcomes",
-      "title": "Outcomes & Placement",
-      "color": "teal",
-      "tagline": "Adoptions and foster done right",
-      "questions": [
-        {
-          "q": "How is an adoption counseling conversation supposed to feel to the adopter?",
-          "choices": [
-            "Like a pass or fail screening interview",
-            "Like a conversational discussion with open ended questions, focused on finding a successful match",
-            "Like a paperwork review",
-            "Like a background investigation"
-          ],
-          "answer": 1,
-          "why": "Counselors use a conversational approach with open ended questions about lifestyle and expectations. The checklist guides the conversation and provides education; it is not a rigid test the applicant must pass.",
-          "doc": "adoption-process"
-        },
-        {
-          "q": "When may a visitor start viewing adoptable animals?",
-          "choices": [
-            "Only after completing an Adoption Application",
-            "Before completing an Adoption Application",
-            "After a counselor is assigned to them",
-            "Only during scheduled viewing hours"
-          ],
-          "answer": 1,
-          "why": "Visitors may view animals before completing an application, and any available counselor can assist them; visitors are not assigned to a specific counselor.",
-          "doc": "adoption-process"
-        },
-        {
-          "q": "A visitor wants a specific dog. What does the counselor check in Chameleon first?",
-          "choices": [
-            "That the dog is available for adoption and free of holds",
-            "The adoption fee balance for the day",
-            "Whether the dog has a cute intake photo",
-            "The visitor's past donation history"
-          ],
-          "answer": 0,
-          "why": "The counselor confirms the animal is available for adoption and free of holds, then reviews its information to support the matching discussion.",
-          "doc": "adoption-process"
-        },
-        {
-          "q": "Who must evaluate an animal before it leaves the shelter for a foster placement?",
-          "choices": [
-            "Any volunteer who has fostered before",
-            "The Shelter Operations Chief or designee and a shelter veterinarian or designee",
-            "The front desk lead",
-            "Only the Foster Care Coordinator"
-          ],
-          "answer": 1,
-          "why": "Both the Shelter Operations Chief or designee and a shelter veterinarian or designee must confirm suitability for fostering, and the review is documented in Chameleon.",
-          "doc": "000-31"
-        },
-        {
-          "q": "When must foster program paperwork be completed?",
-          "choices": [
-            "Within a week of placement",
-            "Before the animal is removed from RCDAS premises",
-            "At the end of the foster period",
-            "Only for medical fosters"
-          ],
-          "answer": 1,
-          "why": "All foster paperwork is completed before an animal leaves RCDAS premises, with questions escalated to the Foster Care Coordinator.",
-          "doc": "000-31"
-        },
-        {
-          "q": "An employee fosters a litter of kittens. What happens when the kittens are ready for adoption?",
-          "choices": [
-            "The employee receives first priority to adopt the animals in their care, with standard fees and legal limits applying",
-            "The employee adopts them free of charge",
-            "The kittens go to the public adoption floor and the employee waits in line",
-            "Employees are not allowed to adopt their foster animals"
-          ],
-          "answer": 0,
-          "why": "Employee foster caregivers get first priority to adopt animals in their care at the end of the foster period. Standard adoption fees and legal limits still apply.",
-          "doc": "000-31"
-        }
-      ]
+     "q": "An owner arrives to reclaim their impounded dog. What do you ask for first to verify their identity?",
+     "choices": [
+      "A utility bill with their address",
+      "A photo of the dog on their phone",
+      "A government issued identification",
+      "Their Chameleon Person ID number"
+     ],
+     "answer": 2,
+     "why": "State law requires positive identification, so you request a government issued ID and match it against the owner information in Chameleon.",
+     "doc": "animal-reclaimed-by-owner-animal-redemptions"
     },
     {
-      "key": "callcenter",
-      "title": "Call Center & Customer Service",
-      "color": "navy",
-      "tagline": "Bite calls and public safety on the phone",
-      "questions": [
-        {
-          "q": "A caller says a dog is attacking someone right now. What priority is this call?",
-          "choices": [
-            "Priority 5, standard bite investigation",
-            "Priority 3, same day response",
-            "Priority 1, emergency",
-            "Refer the caller to 211"
-          ],
-          "answer": 2,
-          "why": "If the animal is currently attacking or loose and aggressive, the call is treated as a Priority 1 emergency.",
-          "doc": "bite-report-call-procedures"
-        },
-        {
-          "q": "A caller reports a bite that happened yesterday. The dog is contained in the owner's yard. What priority is this?",
-          "choices": [
-            "Priority 1",
-            "Priority 2",
-            "Priority 5",
-            "No activity is needed if the dog is contained"
-          ],
-          "answer": 2,
-          "why": "A bite that has already occurred, where the animal is contained or its location is known, proceeds as a Priority 5 bite investigation.",
-          "doc": "bite-report-call-procedures"
-        },
-        {
-          "q": "The Rabies Control Desk is unavailable and you have a bite call on the line. What do you do?",
-          "choices": [
-            "Ask the caller to call back later",
-            "Collect the required information and create an Activity",
-            "Transfer the call to any supervisor",
-            "Take a callback number only"
-          ],
-          "answer": 1,
-          "why": "When the Rabies Control Desk is unavailable, you collect the required information and create an Activity in Chameleon so the report is not lost.",
-          "doc": "bite-report-call-procedures"
-        },
-        {
-          "q": "A caller has questions about specimen results and quarantine completion. Where do those questions go?",
-          "choices": [
-            "Email the Rabies Control desk at rabiescontrol@rivco.org",
-            "Give the caller the shelter veterinarian's cell number",
-            "Tell them results are posted on the website",
-            "Answer from memory based on similar cases"
-          ],
-          "answer": 0,
-          "why": "Specimen results, quarantine completion confirmations, and complex rabies questions are emailed to the Rabies Control desk at rabiescontrol@rivco.org.",
-          "doc": "bite-report-call-procedures"
-        },
-        {
-          "q": "How do you verify jurisdiction for a bite report?",
-          "choices": [
-            "By the caller's home address in every case",
-            "By the owner of the biting animal, or by the bite location if owner information is not available",
-            "By whichever shelter is closest",
-            "Jurisdiction does not matter for bites"
-          ],
-          "answer": 1,
-          "why": "Verify jurisdiction by the owner of the animal responsible for the bite. If owner information is not available, verify it by the location where the bite occurred.",
-          "doc": "bite-report-call-procedures"
-        },
-        {
-          "q": "Which memo template is used when documenting a bite in the activity window?",
-          "choices": [
-            "Owner Info",
-            "Bite Details",
-            "Incident Summary",
-            "Rabies Watch"
-          ],
-          "answer": 1,
-          "why": "The activity includes a memo using the Bite Details template, with the required information entered in order in the comment section.",
-          "doc": "bite-report-call-procedures"
-        }
-      ]
+     "q": "A healthy dog is being reclaimed by its owner. What must happen before it can leave, under the rule in effect since January 1, 2022?",
+     "choices": [
+      "The dog must be spayed or neutered",
+      "The dog must be microchipped, unless a veterinarian certifies in writing it is medically unfit for the procedure",
+      "The owner must complete an obedience class voucher",
+      "The dog must complete a ten day observation period"
+     ],
+     "answer": 1,
+     "why": "No healthy dog or cat may be reclaimed without being microchipped unless veterinary staff certifies in writing that the animal is medically unfit for microchipping.",
+     "doc": "animal-reclaimed-by-owner-animal-redemptions"
+    },
+    {
+     "q": "You are entering a microchip number in the Chameleon Tag No field. How should it be typed?",
+     "choices": [
+      "Numbers only, with no extra characters",
+      "With dashes between every three digits",
+      "With the letters MC in front of the number",
+      "With the lot number added to the end"
+     ],
+     "answer": 0,
+     "why": "Enter the microchip number in the Tag No field with no extra characters. Entry errors can make it impossible to locate the owner.",
+     "doc": "microchip-transactions"
+    },
+    {
+     "q": "A Notice of Impoundment letter goes out to an owner identified by a license, tag, or microchip. By when does it tell the owner to contact Animal Services?",
+     "choices": [
+      "Within 48 hours of the letter date",
+      "On or before the 10 day stray hold deadline by 11 a.m.",
+      "Within 30 calendar days",
+      "There is no deadline as long as fees are paid"
+     ],
+     "answer": 1,
+     "why": "The Notice of Impoundment instructs the owner to come to the shelter or call on or before the 10 day stray hold deadline by 11 a.m.",
+     "doc": "notice-of-impoundment-noi-letter-template"
+    },
+    {
+     "q": "A dog is being transported from your shelter to another DAS campus. What outcome type and subtype does the sending shelter enter in the kennel record?",
+     "choices": [
+      "Outcome type RTO, subtype OWNER",
+      "Outcome type ADOPTION, subtype PARTNER",
+      "Outcome type TRANSFER, subtype DAS",
+      "Outcome type MOVE, subtype CAMPUS"
+     ],
+     "answer": 2,
+     "why": "The staff member removing the animal completes the kennel record with outcome type TRANSFER and outcome subtype DAS, plus the outcome date, time, and their userid.",
+     "doc": "how-to-transfer-impounded-animals-between-das-shelters-using-the-chameleon-kennel-window"
+    },
+    {
+     "q": "A customer is finishing a transaction at the front counter. What does the donation policy say about asking for a donation?",
+     "choices": [
+      "Staff may never solicit donations",
+      "A donation is required before the transaction can be completed",
+      "Hand the customer a flyer and say nothing",
+      "Ask during each transaction when appropriate: \"Would you like to donate to help a homeless pet today?\""
+     ],
+     "answer": 3,
+     "why": "Staff request a donation during each business transaction when appropriate, using that script, and use judgment in situations where soliciting would be inappropriate.",
+     "doc": "000-75"
     }
-  ]
+   ]
+  },
+  {
+   "key": "medical",
+   "title": "Veterinary & Medical",
+   "color": "navy",
+   "tagline": "Vaccines, rabies, and medical must-knows",
+   "questions": [
+    {
+     "q": "A healthy four month old dog is impounded this morning. Which vaccines does it receive at impound?",
+     "choices": [
+      "Rabies only",
+      "DHPP and an intranasal Bordetella",
+      "FVRCP and rabies",
+      "None until the stray hold expires"
+     ],
+     "answer": 1,
+     "why": "All dogs older than six weeks receive DHPP and intranasal Bordetella at the time of impound or delivery to the shelter.",
+     "doc": "100-01"
+    },
+    {
+     "q": "Which vaccine do all cats older than six weeks receive at impound?",
+     "choices": [
+      "FVRCP",
+      "DHPP",
+      "Bordetella",
+      "FeLV"
+     ],
+     "answer": 0,
+     "why": "Cats older than six weeks receive an FVRCP vaccination at the time of impound, with case by case exceptions for safety.",
+     "doc": "100-01"
+    },
+    {
+     "q": "When does an adopted dog or cat receive its rabies vaccination?",
+     "choices": [
+      "At the first visit to the adopter's own veterinarian",
+      "Only if it is going to a home with other pets",
+      "Before release from the shelter, if it is three months of age or older",
+      "At six months of age regardless of adoption date"
+     ],
+     "answer": 2,
+     "why": "Dogs and cats three months of age or older are given a rabies vaccination before release from the shelter upon adoption.",
+     "doc": "100-01"
+    },
+    {
+     "q": "A dog has been in foster care for a month. What does the vaccination protocol require?",
+     "choices": [
+      "Nothing further until adoption",
+      "Booster vaccinations, because it has been in care longer than three weeks",
+      "A new rabies vaccination every month",
+      "Deworming only"
+     ],
+     "answer": 1,
+     "why": "Any dog or cat maintained at the shelter or in foster care for more than three weeks receives booster vaccinations.",
+     "doc": "100-01"
+    },
+    {
+     "q": "A member of the public asks the shelter to euthanize their healthy, adoptable pet. What does policy direct you to do?",
+     "choices": [
+      "Schedule it for the next euthanasia day",
+      "Accept the animal and place it on the adoption floor without telling the owner",
+      "Refer the request to a local veterinarian, veterinary clinic, or hospital",
+      "Ask a supervisor to approve the euthanasia"
+     ],
+     "answer": 2,
+     "why": "DAS does not euthanize healthy, adoptable animals at an owner's request. All such requests are referred to a local veterinarian or clinic.",
+     "doc": "000-36"
+    },
+    {
+     "q": "Before an adoptable animal may even be considered for euthanasia due to shelter capacity, what must be true?",
+     "choices": [
+      "It has been impounded ten or more consecutive days and all required holding periods have expired",
+      "It has failed a behavior evaluation",
+      "It has been passed over at one adoption event",
+      "The kennel supervisor has an opening on the schedule"
+     ],
+     "answer": 0,
+     "why": "Consideration applies only to animals impounded for ten or more consecutive days, and only after all required holding periods have expired, with shelter team and veterinary review.",
+     "doc": "000-36"
+    },
+    {
+     "q": "Where do you start scanning an animal for a microchip, and in what pattern?",
+     "choices": [
+      "At the left shoulder blade, moving slowly in a figure-eight across the neck and both shoulders",
+      "At the base of the tail, moving straight up the spine",
+      "Over the collar area only",
+      "Anywhere, as long as the scanner beeps"
+     ],
+     "answer": 0,
+     "why": "Hold the scanner about one inch from the body, begin at the left shoulder blade, the standard implant site, and move slowly in a figure-eight pattern. Chips migrate, so continue down the back and neck.",
+     "doc": "100-14"
+    },
+    {
+     "q": "The scanner detects a chip number. What must you do before recording it in Chameleon?",
+     "choices": [
+      "Call the microchip company to confirm it",
+      "Perform a second pass over the same area to confirm the number reads consistently",
+      "Nothing, one read is enough",
+      "Ask a supervisor to witness the scan"
+     ],
+     "answer": 1,
+     "why": "After a chip is detected, perform a second pass over the same area to confirm the number reads consistently before recording it.",
+     "doc": "100-14"
+    },
+    {
+     "q": "How long is the standard bite quarantine for a dog or cat, and when can the animal be released?",
+     "choices": [
+      "Four business days, released automatically",
+      "Thirty days, released by any staff member",
+      "Ten days from the date of the bite, released only with written authorization from the Rabies Control program or local health officer",
+      "Ten days from impound, released when fees are paid"
+     ],
+     "answer": 2,
+     "why": "The standard bite quarantine is 10 days from the date of the bite, and release requires written authorization from the Rabies Control program or the local health officer.",
+     "doc": "300-03"
+    },
+    {
+     "q": "An animal at the shelter needs veterinary care, but the veterinary staff is unavailable. What happens?",
+     "choices": [
+      "The animal waits until veterinary staff return",
+      "Front counter staff give medications from the clinic shelf",
+      "The finder is called to take the animal back",
+      "An Animal Control Officer, or kennel staff if no officer is available, transports the animal to a local veterinary clinic"
+     ],
+     "answer": 3,
+     "why": "When veterinary staff is unavailable, an Animal Control Officer is called to transport the animal to a local veterinary clinic, and kennel staff transport when no officer is available.",
+     "doc": "300-05"
+    }
+   ]
+  },
+  {
+   "key": "handling",
+   "title": "Animal Care & Handling",
+   "color": "brown",
+   "tagline": "Reading body language and staying safe",
+   "questions": [
+    {
+     "q": "What is the guiding principle for physically restraining any animal at RCDAS?",
+     "choices": [
+      "Full control at all times, no matter the animal",
+      "The minimum effective restraint the situation requires",
+      "Two staff members for every animal",
+      "Mechanical restraint first, hands second"
+     ],
+     "answer": 1,
+     "why": "Apply only as much physical control as the situation requires, and escalate technique only when a lesser approach has failed or is unsafe.",
+     "doc": "300-10"
+    },
+    {
+     "q": "A cat gives you a small scratch that barely breaks the skin. What do you do?",
+     "choices": [
+      "Rinse it and keep working; only bites get reported",
+      "Report it to a supervisor immediately, regardless of severity",
+      "Mention it at the end of your shift if it still hurts",
+      "Only report it if the cat is a rabies suspect"
+     ],
+     "answer": 1,
+     "why": "All bites and scratches are reported to a supervisor immediately, regardless of severity, with an incident report and medical evaluation as needed.",
+     "doc": "300-10"
+    },
+    {
+     "q": "A dog in a kennel shows whale eye, a tucked tail, flattened ears, and lip licking. What is it telling you?",
+     "choices": [
+      "It is relaxed and ready to be leashed",
+      "It is fearful or stressed",
+      "It is playing",
+      "It is food motivated"
+     ],
+     "answer": 1,
+     "why": "Whale eye, a tucked tail, flattened ears, lip licking, yawning, and a stiff still posture are signs of fear or stress. Adjust your approach.",
+     "doc": "300-10"
+    },
+    {
+     "q": "How do you approach a calm but uncertain dog?",
+     "choices": [
+      "Head on with steady eye contact so it can see you",
+      "From the side, avoiding direct eye contact, offering the back of a loose hand to sniff",
+      "Quickly, before it has time to react",
+      "From behind, so it cannot see the leash"
+     ],
+     "answer": 1,
+     "why": "Move slowly from the side rather than head on, avoid direct eye contact, and offer the back of a loose hand for sniffing before touching.",
+     "doc": "300-10"
+    },
+    {
+     "q": "Which of these is a catch pole NEVER used for?",
+     "choices": [
+      "Guiding a dog's head in the direction of travel",
+      "Securing a dog before moving it to a kennel",
+      "Lifting, dragging, or choking a dog",
+      "Walking beside a dog that needs extra control"
+     ],
+     "answer": 2,
+     "why": "A catch pole is a tool of guidance and control, not force. It is never used to lift, drag, or choke a dog.",
+     "doc": "300-10"
+    },
+    {
+     "q": "Which disease on this list can pass from shelter animals to people?",
+     "choices": [
+      "Parvovirus",
+      "Canine distemper",
+      "Ringworm",
+      "Feline leukemia"
+     ],
+     "answer": 2,
+     "why": "Ringworm is zoonotic, along with rabies, roundworm, salmonella, and toxoplasmosis. Wash hands after handling animals and wear gloves when health status is unknown.",
+     "doc": "300-10"
+    },
+    {
+     "q": "A dog is leaving the shelter with its adopter. What must staff do before handing the dog off?",
+     "choices": [
+      "Fit the dog with a collar with a custom printed ID tag attached",
+      "Nothing, if the adopter brought their own supplies",
+      "Bathe the dog",
+      "Apply a temporary paper collar"
+     ],
+     "answer": 0,
+     "why": "Staff fit all dogs with a collar before handing them to an adopter, foster, or confirmed owner, printing a custom ID tag and attaching it to the collar first.",
+     "doc": "mandatory-dog-collaring"
+    },
+    {
+     "q": "A five month old puppy arrives with paperwork saying it was vaccinated last month. What does the parvo prevention SOP require?",
+     "choices": [
+      "Skip vaccination since it has a history",
+      "Vaccinate with DA2PP at intake anyway, then booster every two weeks while it stays in the shelter",
+      "Wait for the veterinarian's weekly rounds",
+      "Give rabies vaccine only"
+     ],
+     "answer": 1,
+     "why": "All puppies get a DA2PP vaccine at intake regardless of reported vaccination history, with boosters every two weeks while the puppy remains in the shelter.",
+     "doc": "puppy-housing-movement-and-parvovirus-prevention"
+    },
+    {
+     "q": "What is the single most effective strategy for protecting puppies from shelter-acquired parvovirus?",
+     "choices": [
+      "Bathing puppies daily",
+      "Housing puppies in the lobby",
+      "Foster placement as soon as they are eligible",
+      "Doubling the vaccine dose"
+     ],
+     "answer": 2,
+     "why": "Every additional day in the shelter increases CPV exposure risk. Foster placement is the single most effective strategy for protecting puppies from shelter-acquired parvovirus.",
+     "doc": "puppy-housing-movement-and-parvovirus-prevention"
+    },
+    {
+     "q": "Where are the safety buckets with dog fight intervention tools kept?",
+     "choices": [
+      "Locked in the supervisor's office",
+      "One at the front desk of each campus",
+      "In the laundry room",
+      "One in each play yard and each kennel pod area, visible and never obstructed"
+     ],
+     "answer": 3,
+     "why": "One safety bucket goes in each play yard and each kennel pod area, in a visible, consistent spot that is never blocked, so staff can find the tools immediately under stress.",
+     "doc": "safety-bucket-contents-placement-and-maintenance"
+    }
+   ]
+  },
+  {
+   "key": "operations",
+   "title": "Shelter Operations",
+   "color": "yellow",
+   "tagline": "Feeding, kennels, and daily routines",
+   "questions": [
+    {
+     "q": "How often are puppies and kittens between six and twelve weeks old fed?",
+     "choices": [
+      "Once a day",
+      "Twice a day",
+      "Three times a day",
+      "Free fed from a full bowl"
+     ],
+     "answer": 2,
+     "why": "Puppies and kittens six to twelve weeks old are fed three times per day. From twelve weeks to twelve months it is twice a day, and adults at least once a day.",
+     "doc": "300-09"
+    },
+    {
+     "q": "When should shelter animals have access to water?",
+     "choices": [
+      "At feeding times",
+      "At all times",
+      "Twice a day in summer",
+      "Whenever kennel staff finish cleaning"
+     ],
+     "answer": 1,
+     "why": "All animals are offered water at all times, and new impounds are offered water while being processed.",
+     "doc": "300-09"
+    },
+    {
+     "q": "How long may processing of a new impound take before the animal is settled?",
+     "choices": [
+      "No limit as long as the lobby is busy",
+      "No more than one hour",
+      "Up to four hours",
+      "Until the end of the shift"
+     ],
+     "answer": 1,
+     "why": "Processing time for new impounds shall not exceed one hour, and the animal is offered water throughout.",
+     "doc": "300-09"
+    },
+    {
+     "q": "Two dogs start fighting in a kennel. What is your FIRST move?",
+     "choices": [
+      "Enter the kennel and grab the collars",
+      "Stay outside the kennel and use a loud noise to distract and separate them",
+      "Spray them with the hose immediately",
+      "Wait for them to tire out"
+     ],
+     "answer": 1,
+     "why": "Stay calm, stay outside the kennel, and start with a loud noise to distract. The hose comes next if fighting continues, and you enter only with help from other staff if necessary.",
+     "doc": "breaking-up-dog-fights"
+    },
+    {
+     "q": "A dog has now been in two fights. Where does it go?",
+     "choices": [
+      "Back with its kennelmate once things calm down",
+      "In a kennel alone, with a handwritten Dog Aggressive note on its card",
+      "Straight to the euthanasia list",
+      "To whichever kennel has space"
+     ],
+     "answer": 1,
+     "why": "A dog with two or more fights is removed, kenneled alone, and gets a handwritten Dog Aggressive note on the card, with notes entered in Chameleon.",
+     "doc": "breaking-up-dog-fights"
+    },
+    {
+     "q": "After any dog fight, when do notes go into Chameleon?",
+     "choices": [
+      "Immediately after the fight",
+      "By the end of the week",
+      "Only if an animal was injured",
+      "Only if the public witnessed it"
+     ],
+     "answer": 0,
+     "why": "Notes are entered in Chameleon immediately after a dog fight. They drive kennel decisions and keep the next handler safe.",
+     "doc": "breaking-up-dog-fights"
+    },
+    {
+     "q": "You are about to hose out a kennel during morning cleaning. Where is the dog?",
+     "choices": [
+      "Moved to the other side with the transfer door closed; animals are never sprayed or hosed in their kennels",
+      "Held on a leash in the aisle",
+      "In the kennel, as long as you aim carefully",
+      "In the lobby life room"
+     ],
+     "answer": 0,
+     "why": "Weather permitting, dogs are moved to the inside areas and the transfer doors closed before cleaning. Animals are never hosed down or sprayed while inside their kennels.",
+     "doc": "300-08-412"
+    },
+    {
+     "q": "What actually makes a disinfectant like Rescue work on a kennel surface?",
+     "choices": [
+      "A strong smell after rinsing",
+      "The surface stays visibly wet for the full required contact time before rinsing",
+      "Scrubbing as hard as possible",
+      "Rinsing immediately after applying"
+     ],
+     "answer": 1,
+     "why": "A disinfectant only works if it stays visibly wet on the surface for the full contact time. A surface that dries or is rinsed early has not been properly disinfected.",
+     "doc": "300-08-412"
+    },
+    {
+     "q": "When may a dog or cat be showcased in a lobby life room?",
+     "choices": [
+      "Immediately at intake",
+      "After three days",
+      "Only after it is past 10 days from impound and meets the selection criteria",
+      "Only after someone applies to adopt it"
+     ],
+     "answer": 2,
+     "why": "Dogs and cats go into lobby life rooms only after they are past 10 days from impound, and only after staff check all activity, medical, and kennel notes against the selection criteria.",
+     "doc": "lobby-life-rooms"
+    },
+    {
+     "q": "What does the radio call CODE FLUFFY mean?",
+     "choices": [
+      "A puppy needs a bath",
+      "An animal has escaped its kennel",
+      "Lunch delivery has arrived",
+      "Immediate help is needed for a dog fight or aggressive animal emergency, with the pod and kennel location"
+     ],
+     "answer": 3,
+     "why": "CODE FLUFFY is the RCDAS radio code requesting immediate assistance for a dog fight or aggressive animal emergency. The call includes the pod and kennel location.",
+     "doc": "300-08-412"
+    }
+   ]
+  },
+  {
+   "key": "outcomes",
+   "title": "Outcomes & Placement",
+   "color": "teal",
+   "tagline": "Adoptions and foster done right",
+   "questions": [
+    {
+     "q": "How is an adoption counseling conversation supposed to feel to the adopter?",
+     "choices": [
+      "Like a pass or fail screening interview",
+      "Like a conversational discussion with open ended questions, focused on finding a successful match",
+      "Like a paperwork review",
+      "Like a background investigation"
+     ],
+     "answer": 1,
+     "why": "Counselors use a conversational approach with open ended questions about lifestyle and expectations. The checklist guides the conversation and provides education; it is not a rigid test the applicant must pass.",
+     "doc": "adoption-process"
+    },
+    {
+     "q": "When may a visitor start viewing adoptable animals?",
+     "choices": [
+      "Only after completing an Adoption Application",
+      "Before completing an Adoption Application",
+      "After a counselor is assigned to them",
+      "Only during scheduled viewing hours"
+     ],
+     "answer": 1,
+     "why": "Visitors may view animals before completing an application, and any available counselor can assist them; visitors are not assigned to a specific counselor.",
+     "doc": "adoption-process"
+    },
+    {
+     "q": "A visitor wants a specific dog. What does the counselor check in Chameleon first?",
+     "choices": [
+      "That the dog is available for adoption and free of holds",
+      "The adoption fee balance for the day",
+      "Whether the dog has a cute intake photo",
+      "The visitor's past donation history"
+     ],
+     "answer": 0,
+     "why": "The counselor confirms the animal is available for adoption and free of holds, then reviews its information to support the matching discussion.",
+     "doc": "adoption-process"
+    },
+    {
+     "q": "Who must evaluate an animal before it leaves the shelter for a foster placement?",
+     "choices": [
+      "Any volunteer who has fostered before",
+      "The Shelter Operations Chief or designee and a shelter veterinarian or designee",
+      "The front desk lead",
+      "Only the Foster Care Coordinator"
+     ],
+     "answer": 1,
+     "why": "Both the Shelter Operations Chief or designee and a shelter veterinarian or designee must confirm suitability for fostering, and the review is documented in Chameleon.",
+     "doc": "000-31"
+    },
+    {
+     "q": "When must foster program paperwork be completed?",
+     "choices": [
+      "Within a week of placement",
+      "Before the animal is removed from RCDAS premises",
+      "At the end of the foster period",
+      "Only for medical fosters"
+     ],
+     "answer": 1,
+     "why": "All foster paperwork is completed before an animal leaves RCDAS premises, with questions escalated to the Foster Care Coordinator.",
+     "doc": "000-31"
+    },
+    {
+     "q": "An employee fosters a litter of kittens. What happens when the kittens are ready for adoption?",
+     "choices": [
+      "The employee receives first priority to adopt the animals in their care, with standard fees and legal limits applying",
+      "The employee adopts them free of charge",
+      "The kittens go to the public adoption floor and the employee waits in line",
+      "Employees are not allowed to adopt their foster animals"
+     ],
+     "answer": 0,
+     "why": "Employee foster caregivers get first priority to adopt animals in their care at the end of the foster period. Standard adoption fees and legal limits still apply.",
+     "doc": "000-31"
+    },
+    {
+     "q": "A volunteer takes a shelter dog on a day trip foster outing. Which rule applies in public?",
+     "choices": [
+      "Keep the dog leashed and in its Adopt Me vest, and never visit dog parks or let it run free",
+      "The dog may go off leash in open spaces",
+      "Dog parks are fine if empty",
+      "The vest is only needed inside the shelter"
+     ],
+     "answer": 0,
+     "why": "Outing dogs stay on leash at all times, wear the Adopt Me vest in public places, and never go to dog parks or open spaces to run free.",
+     "doc": "short-term-dog-foster-outings"
+    },
+    {
+     "q": "On a hot day, how does the 7 Second Rule protect a dog on an outing?",
+     "choices": [
+      "Give the dog water every 7 minutes",
+      "If you cannot hold the back of your hand on the pavement without discomfort, it is too hot for the dog to walk on",
+      "Walks are limited to 7 minutes",
+      "Wait 7 seconds before crossing any street"
+     ],
+     "answer": 1,
+     "why": "Check the ground with the back of your hand. If you cannot hold it there without discomfort, the pavement is too hot for the dog's feet.",
+     "doc": "short-term-dog-foster-outings"
+    },
+    {
+     "q": "A rescue group wants to start pulling animals from RCDAS. What must happen before the first transfer?",
+     "choices": [
+      "Nothing, any rescue may take animals",
+      "They pay a refundable deposit",
+      "They complete the application, receive written approval, and sign the RCDAS Transfer Agreement",
+      "They only need a verbal OK from the front desk"
+     ],
+     "answer": 2,
+     "why": "A partner organization must complete the RCDAS application process, receive written approval, and sign the Transfer Agreement before the first transfer. Approvals are reviewed annually.",
+     "doc": "transfer-of-animals-to-partner-organizations"
+    },
+    {
+     "q": "An adopter on a spay/neuter contract sends proof of surgery within 30 business days. What happens to their deposit?",
+     "choices": [
+      "It is forfeited",
+      "Half is refunded",
+      "It is applied to their license fee",
+      "It is refunded in full"
+     ],
+     "answer": 3,
+     "why": "Proof of sterilization within 30 business days earns a full refund of the spay/neuter deposit. Past 30 business days, the deposit is forfeited.",
+     "doc": "adoption-on-contract-business-flow-process"
+    }
+   ]
+  },
+  {
+   "key": "callcenter",
+   "title": "Call Center & Customer Service",
+   "color": "navy",
+   "tagline": "Bite calls and public safety on the phone",
+   "questions": [
+    {
+     "q": "A caller says a dog is attacking someone right now. What priority is this call?",
+     "choices": [
+      "Priority 5, standard bite investigation",
+      "Priority 3, same day response",
+      "Priority 1, emergency",
+      "Refer the caller to 211"
+     ],
+     "answer": 2,
+     "why": "If the animal is currently attacking or loose and aggressive, the call is treated as a Priority 1 emergency.",
+     "doc": "bite-report-call-procedures"
+    },
+    {
+     "q": "A caller reports a bite that happened yesterday. The dog is contained in the owner's yard. What priority is this?",
+     "choices": [
+      "Priority 1",
+      "Priority 2",
+      "Priority 5",
+      "No activity is needed if the dog is contained"
+     ],
+     "answer": 2,
+     "why": "A bite that has already occurred, where the animal is contained or its location is known, proceeds as a Priority 5 bite investigation.",
+     "doc": "bite-report-call-procedures"
+    },
+    {
+     "q": "The Rabies Control Desk is unavailable and you have a bite call on the line. What do you do?",
+     "choices": [
+      "Ask the caller to call back later",
+      "Collect the required information and create an Activity",
+      "Transfer the call to any supervisor",
+      "Take a callback number only"
+     ],
+     "answer": 1,
+     "why": "When the Rabies Control Desk is unavailable, you collect the required information and create an Activity in Chameleon so the report is not lost.",
+     "doc": "bite-report-call-procedures"
+    },
+    {
+     "q": "A caller has questions about specimen results and quarantine completion. Where do those questions go?",
+     "choices": [
+      "Email the Rabies Control desk at rabiescontrol@rivco.org",
+      "Give the caller the shelter veterinarian's cell number",
+      "Tell them results are posted on the website",
+      "Answer from memory based on similar cases"
+     ],
+     "answer": 0,
+     "why": "Specimen results, quarantine completion confirmations, and complex rabies questions are emailed to the Rabies Control desk at rabiescontrol@rivco.org.",
+     "doc": "bite-report-call-procedures"
+    },
+    {
+     "q": "How do you verify jurisdiction for a bite report?",
+     "choices": [
+      "By the caller's home address in every case",
+      "By the owner of the biting animal, or by the bite location if owner information is not available",
+      "By whichever shelter is closest",
+      "Jurisdiction does not matter for bites"
+     ],
+     "answer": 1,
+     "why": "Verify jurisdiction by the owner of the animal responsible for the bite. If owner information is not available, verify it by the location where the bite occurred.",
+     "doc": "bite-report-call-procedures"
+    },
+    {
+     "q": "Which memo template is used when documenting a bite in the activity window?",
+     "choices": [
+      "Owner Info",
+      "Bite Details",
+      "Incident Summary",
+      "Rabies Watch"
+     ],
+     "answer": 1,
+     "why": "The activity includes a memo using the Bite Details template, with the required information entered in order in the comment section.",
+     "doc": "bite-report-call-procedures"
+    },
+    {
+     "q": "A caller found a green card (official notice) from an officer on their door. What do you do?",
+     "choices": [
+      "Direct them to call the Animal Control Officer at the number on the card; if no number was left, gather their information and email the officer, copying the Sergeant or Lieutenant",
+      "Tell them they can ignore it",
+      "Schedule a court date for them",
+      "Transfer them straight to collections"
+     ],
+     "answer": 0,
+     "why": "Green card callers are directed to the officer's number on the card. If no number was left, gather the caller and activity information and email the officer, copying the appropriate Sergeant or Lieutenant.",
+     "doc": "citations-violations-collections-and-administrative-process-call-procedures"
+    },
+    {
+     "q": "A caller asks for a SECOND extension on an administrative citation. Who has to approve it?",
+     "choices": [
+      "No one, extensions are automatic",
+      "A field services supervisor, Sergeant or above",
+      "The front desk lead",
+      "The county tax collector"
+     ],
+     "answer": 1,
+     "why": "A first extension on an Administrative Citation can be processed without supervisor approval, but second or additional extensions require approval from a field services supervisor, Sergeant or above.",
+     "doc": "citations-violations-collections-and-administrative-process-call-procedures"
+    },
+    {
+     "q": "Which type of citation can NEVER be granted an extension?",
+     "choices": [
+      "An Administrative Citation",
+      "A first-time citation",
+      "A Non-Traffic Notice to Appear citation",
+      "A kennel license violation"
+     ],
+     "answer": 2,
+     "why": "Extensions are never granted for Non-Traffic Notice to Appear citations under any circumstances, because they require a court appearance.",
+     "doc": "citations-violations-collections-and-administrative-process-call-procedures"
+    },
+    {
+     "q": "A caller wants to keep six dogs on their property. What do they need from RCDAS?",
+     "choices": [
+      "Nothing, there is no limit",
+      "A rescue permit",
+      "A letter from their veterinarian",
+      "A kennel license, which permits more than four dogs on a property"
+     ],
+     "answer": 3,
+     "why": "A kennel license issued by RCDAS is required to keep more than four dogs on a property. Applications and renewals go through daskennels@rivco.org.",
+     "doc": "citations-violations-collections-and-administrative-process-call-procedures"
+    }
+   ]
+  }
+ ]
 }

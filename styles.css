@@ -221,6 +221,29 @@ textarea {
 .letterhead b { display: block; font-size: 17px; color: var(--brown); }
 .letterhead span { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--teal-dark); }
 
+/* Draft progress card, action bar, and plain-text editor */
+.draft-progress {
+  display: flex; gap: 16px; align-items: center; margin-top: 20px;
+  padding: 18px 20px; background: var(--teal-pale);
+  border: 1px solid var(--teal); border-radius: var(--radius);
+}
+.dp-spin {
+  width: 28px; height: 28px; flex: none;
+  border: 3px solid rgba(0, 143, 162, 0.2); border-top-color: var(--teal-dark);
+  border-radius: 50%; animation: dpspin .9s linear infinite;
+}
+@keyframes dpspin { to { transform: rotate(360deg); } }
+.dp-text { display: flex; flex-direction: column; gap: 2px; }
+.dp-text b { color: var(--teal-dark); }
+.draft-actions { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+.draft-editbox {
+  width: 100%; min-height: 460px; margin-top: 10px; padding: 16px;
+  font: 13px/1.55 ui-monospace, Menlo, Consolas, monospace;
+  color: var(--ink); background: #fff;
+  border: 1px solid var(--line); border-radius: var(--radius);
+}
+.draft-editbox:focus { outline: 2px solid var(--teal); border-color: var(--teal); }
+
 /* ---------- Document viewer ---------- */
 .viewer {
   position: fixed; inset: 0; z-index: 40; background: rgba(38,34,31,.5);

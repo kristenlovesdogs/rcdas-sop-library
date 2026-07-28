@@ -8,6 +8,8 @@ end to end without a key.
 
 Run:  python3 server.py  (port 8642)
 """
+import hashlib
+import hmac
 import json
 import re
 import os
@@ -44,6 +46,15 @@ MODEL = os.environ.get("RCDAS_MODEL", "claude-opus-4-8")
 # Shared staff password. If unset (local dev), any sign-in is accepted.
 PASSCODE = os.environ.get("RCDAS_PASSCODE", "").strip()
 
+
+def api_token():
+    """Token the client must send with every AI call. Derived from the
+    passcode rather than stored per-session, so it survives the restarts and
+    cold starts of the free hosting plan. Empty when auth is off."""
+    if not PASSCODE:
+        return ""
+    return hashlib.sha256(b"rcdas-api-v1:" + PASSCODE.encode()).hexdigest()
+
 # Draft research runs for several minutes, longer than hosting proxies allow
 # a single request to live (Render/Cloudflare cut off around 100s). So
 # /api/draft returns a job id immediately, the work happens in a thread, and
@@ -56,11 +67,9 @@ JOBS_LOCK = threading.Lock()
 JOB_KEEP_SECONDS = 900
 
 
-def run_draft_job(job_id, topic, docs):
+def run_draft_job(job_id, system, user_text, max_searches=14):
     try:
-        text = call_claude_research(
-            SYSTEM_DRAFT,
-            f"DRAFT REQUEST TOPIC: {topic}\n\nPOSSIBLY RELATED RCDAS DOCUMENTS:\n{doc_block(docs)}")
+        text = call_claude_research(system, user_text, max_searches=max_searches)
         with JOBS_LOCK:
             JOBS[job_id] = {"status": "done", "mode": "live", "text": text,
                             "done_at": time.time()}
@@ -68,6 +77,16 @@ def run_draft_job(job_id, topic, docs):
         with JOBS_LOCK:
             JOBS[job_id] = {"status": "error", "error": str(e),
                             "done_at": time.time()}
+
+
+def start_job(system, user_text, max_searches=14):
+    job_id = uuid.uuid4().hex
+    with JOBS_LOCK:
+        JOBS[job_id] = {"status": "running"}
+    threading.Thread(target=run_draft_job,
+                     args=(job_id, system, user_text, max_searches),
+                     daemon=True).start()
+    return job_id
 
 STYLE = (
     "Write in measured, professional prose. Never use em dashes. "
@@ -108,7 +127,7 @@ SYSTEM_CHECK = (
     "situation, say so plainly. " + STYLE
 )
 
-SYSTEM_DRAFT = (
+DRAFT_RESEARCH = (
     "You draft Standard Operating Procedures for the Riverside County Department "
     "of Animal Services (RCDAS), a large open-intake municipal shelter system in "
     "Southern California (four campuses, 30,000+ animals a year). "
@@ -135,6 +154,9 @@ SYSTEM_DRAFT = (
     "primary, peer-reviewed, and university sources over blogs. Where sources "
     "conflict, follow the most current research-based guidance and note the "
     "divergence. Do not begin writing until the research is done. "
+)
+
+DRAFT_STYLE = (
     "The research makes the draft ACCURATE. It does not change the VOICE. "
     "The finished document must read exactly like an existing RCDAS SOP: "
     "short, plain, and operational, the way a department policy is written, "
@@ -189,6 +211,23 @@ SYSTEM_DRAFT = (
     "If related RCDAS documents are provided, align terminology with them "
     "(Chameleon codes, campus names, position titles) and list them under "
     "RELATED DOCUMENTS. " + STYLE
+)
+
+SYSTEM_DRAFT = DRAFT_RESEARCH + DRAFT_STYLE
+
+SYSTEM_REVISE = (
+    "You revise an existing DRAFT Standard Operating Procedure for the "
+    "Riverside County Department of Animal Services (RCDAS) based on staff "
+    "feedback. You receive the current draft and the requested changes. "
+    "Apply the requested changes faithfully. Keep everything else that "
+    "already works; do not rewrite sections the feedback does not touch. "
+    "Return the COMPLETE revised document, from the DRAFT PENDING APPROVAL "
+    "banner through REVISION HISTORY, never just the changed part. "
+    "If the feedback asks for new factual or clinical content, use web "
+    "search to ground it in the same research-based sources a fresh draft "
+    "would use (ASV Guidelines, university shelter medicine programs, "
+    "respected national organizations); otherwise do not search. "
+    + DRAFT_STYLE
 )
 
 
@@ -267,12 +306,12 @@ def _post_messages_stream(body):
     return {"content": blocks, "stop_reason": stop_reason}
 
 
-def call_claude_research(system, user_text, max_tokens=16000):
+def call_claude_research(system, user_text, max_tokens=16000, max_searches=14):
     """Draft with live web research. Web search runs server-side at Anthropic.
     Resumes on pause_turn (server tool loop) and continues on max_tokens
     (thinking + research can consume a large share of the output budget)."""
     messages = [{"role": "user", "content": user_text}]
-    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 14}]
+    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": max_searches}]
     parts = []
     for i in range(8):
         data = _post_messages_stream({
@@ -389,6 +428,12 @@ def demo_draft(topic, docs):
     )
 
 
+def demo_revise(current, feedback):
+    return (current +
+            "\n\n[Demo mode: with an API key, the AI revises the draft above "
+            "to address this feedback: " + feedback + "]")
+
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *a, **kw):
         super().__init__(*a, directory=HERE, **kw)
@@ -400,6 +445,15 @@ class Handler(SimpleHTTPRequestHandler):
 
     def log_message(self, fmt, *args):
         print("%s - %s" % (self.address_string(), fmt % args))
+
+    def _authorized(self):
+        """AI endpoints answer only for signed-in staff; otherwise anyone
+        with the URL could burn API credits. Open when RCDAS_PASSCODE is
+        unset (local dev)."""
+        if not PASSCODE:
+            return True
+        tok = self.headers.get("X-RCDAS-Token", "")
+        return bool(tok) and hmac.compare_digest(tok, api_token())
 
     def _json(self, obj, code=200):
         body = json.dumps(obj).encode()
@@ -414,6 +468,8 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json({"live": bool(API_KEY), "auth": bool(PASSCODE),
                                "model": MODEL if API_KEY else None})
         if self.path.startswith("/api/draft/status"):
+            if not self._authorized():
+                return self._json({"error": "auth", "detail": "not signed in"}, 401)
             from urllib.parse import urlparse, parse_qs
             job_id = parse_qs(urlparse(self.path).query).get("job", [""])[0]
             with JOBS_LOCK:
@@ -441,7 +497,9 @@ class Handler(SimpleHTTPRequestHandler):
         path = self.path.rstrip("/")
         if path == "/api/login":
             ok = (not PASSCODE) or payload.get("password", "") == PASSCODE
-            return self._json({"ok": ok})
+            return self._json({"ok": ok, "token": api_token() if ok else ""})
+        if not self._authorized():
+            return self._json({"error": "auth", "detail": "not signed in"}, 401)
         try:
             if path == "/api/ask":
                 q = payload.get("question", "").strip()
@@ -466,13 +524,27 @@ class Handler(SimpleHTTPRequestHandler):
                 if not t:
                     return self._json({"error": "empty topic"}, 400)
                 if API_KEY:
-                    job_id = uuid.uuid4().hex
-                    with JOBS_LOCK:
-                        JOBS[job_id] = {"status": "running"}
-                    threading.Thread(target=run_draft_job, args=(job_id, t, docs),
-                                     daemon=True).start()
+                    job_id = start_job(
+                        SYSTEM_DRAFT,
+                        f"DRAFT REQUEST TOPIC: {t}\n\nPOSSIBLY RELATED RCDAS DOCUMENTS:\n{doc_block(docs)}")
                     return self._json({"job": job_id})
                 return self._json({"mode": "demo", "text": demo_draft(t, docs)})
+
+            if path == "/api/draft/revise":
+                t = payload.get("topic", "").strip()
+                current = payload.get("current", "").strip()
+                feedback = payload.get("feedback", "").strip()
+                if not current or not feedback:
+                    return self._json({"error": "empty draft or feedback"}, 400)
+                if API_KEY:
+                    job_id = start_job(
+                        SYSTEM_REVISE,
+                        f"REVISION REQUEST for the draft SOP on: {t}\n\n"
+                        f"STAFF FEEDBACK (apply these changes):\n{feedback}\n\n"
+                        f"CURRENT DRAFT:\n{current}",
+                        max_searches=5)
+                    return self._json({"job": job_id})
+                return self._json({"mode": "demo", "text": demo_revise(current, feedback)})
 
             return self._json({"error": "not found"}, 404)
         except Exception as e:

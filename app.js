@@ -77,24 +77,28 @@ function initAuth() {
     const email = $("#email").value.trim();
     const password = $("#password").value;
     if (!email || !password) return;
-    let ok = true;
+    let ok = true, token = "";
     try {
       const r = await fetch("api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-      ok = (await r.json()).ok;
+      const res = await r.json();
+      ok = res.ok;
+      token = res.token || "";
     } catch (_) { ok = true; }  // no server (shared preview): accept
     if (!ok) {
       $("#gateError").textContent = "That password is not correct. Check with your administrator.";
       return;
     }
     sessionStorage.setItem("rcdas_user", email);
+    sessionStorage.setItem("rcdas_token", token);
     showApp(email);
   });
   $("#signOut").addEventListener("click", () => {
     sessionStorage.removeItem("rcdas_user");
+    sessionStorage.removeItem("rcdas_token");
     location.reload();
   });
 }
@@ -359,13 +363,10 @@ function renderGuideSections(sections) {
     </div>`).join("");
 }
 
-function openDoc(id) {
-  const d = S.byId.get(id);
-  if (!d) return;
-
-  // Guide chapters are reference material, not SOP-template documents.
-  if (d.type === "Guide") return openGuide(d);
-
+// Renders any document-shaped object in the official SOP template. Shared by
+// the document viewer and the AI draft screen so drafts look exactly like
+// filed documents. `banners` is extra HTML shown under the letterhead.
+function sopHTML(d, banners) {
   const relRows = (d.related || []).map((r) => {
     const type = typeof r === "string" ? "Related" : (r.type || "Related");
     const name = typeof r === "string" ? r : (r.name || r.title || r.number || "");
@@ -391,16 +392,11 @@ function openDoc(id) {
     ? `<tr><td colspan="4">${esc(r)}</td></tr>`
     : `<tr><td>${esc(r.date || "")}</td><td>${esc(r.version || "")}</td><td>${esc(r.author || "")}</td><td>${esc(r.desc || r.description || "")}</td></tr>`).join("");
 
-  const p = d.provenance || { state: "reformatted", label: "", short: "" };
-  const provCls = PROV_CLS[p.state] || PROV_CLS.reformatted;
-
-  $("#viewerBody").innerHTML = `
+  return `
     <div class="sop">
       <div class="sop-header">County of Riverside — Department of Animal Services<br><span>${d.type === "Policy" ? "Departmental Policy" : "Standard Operating Procedure"}</span></div>
 
-      <div class="sop-provenance ${provCls}"><b>${esc(p.short)}.</b> ${esc(p.label)}</div>
-      ${d.dualListed ? `<div class="doc-banner warn">This document appears on both the active and sunsetted tracker tabs; its status is unresolved. Confirm with leadership before relying on it.</div>` : ""}
-      ${d.flag ? `<div class="doc-banner warn">Registry flag: ${esc(d.flag)}</div>` : ""}
+      ${banners || ""}
 
       <table class="sop-meta">
         <tr><th>SOP Number</th><td>${d.number ? esc(d.number) : "To be assigned by administrator"}</td></tr>
@@ -421,6 +417,7 @@ function openDoc(id) {
         ${d.scope ? `<div class="sop-sub"><div class="sop-sub-head">Scope</div><p>${esc(d.scope)}</p></div>` : ""}
         ${defRows ? `<div class="sop-sub"><div class="sop-sub-head">Definitions</div>
           <table class="sop-table"><thead><tr><th>Term</th><th>Definition</th></tr></thead><tbody>${defRows}</tbody></table></div>` : ""}
+        ${d.procIntro ? `<p>${esc(d.procIntro)}</p>` : ""}
         ${renderProcedure(d.sections)}
         ${campus ? `<div class="sop-sub"><div class="sop-sub-head">Campus-Specific Variations</div><ul>${campus}</ul></div>` : ""}
       </div>
@@ -433,6 +430,23 @@ function openDoc(id) {
       ${revRows ? `<div class="sop-section"><div class="sop-label">Revision History</div>
         <table class="sop-table"><thead><tr><th>Date</th><th>Version</th><th>Author</th><th>Description of Changes</th></tr></thead><tbody>${revRows}</tbody></table></div>` : ""}
     </div>`;
+}
+
+function openDoc(id) {
+  const d = S.byId.get(id);
+  if (!d) return;
+
+  // Guide chapters are reference material, not SOP-template documents.
+  if (d.type === "Guide") return openGuide(d);
+
+  const p = d.provenance || { state: "reformatted", label: "", short: "" };
+  const provCls = PROV_CLS[p.state] || PROV_CLS.reformatted;
+  const banners = `
+      <div class="sop-provenance ${provCls}"><b>${esc(p.short)}.</b> ${esc(p.label)}</div>
+      ${d.dualListed ? `<div class="doc-banner warn">This document appears on both the active and sunsetted tracker tabs; its status is unresolved. Confirm with leadership before relying on it.</div>` : ""}
+      ${d.flag ? `<div class="doc-banner warn">Registry flag: ${esc(d.flag)}</div>` : ""}`;
+
+  $("#viewerBody").innerHTML = sopHTML(d, banners);
   $("#viewer").classList.remove("hidden");
   $("#viewer").scrollTop = 0;
 }
@@ -480,16 +494,71 @@ function sectionsText(sections) {
   return parts.join("\n");
 }
 
-async function callAPI(path, payload, outEl, renderFn) {
-  outEl.innerHTML = path.includes("draft")
-    ? `<p class="thinking">Researching published best practices (ASV Guidelines, university shelter medicine programs) and writing the draft. This can take a few minutes...</p>`
-    : `<p class="thinking">Reading the relevant documents...</p>`;
+// Session token issued by api/login; the server requires it on every AI
+// call so strangers with the URL cannot spend API credits.
+function authHeaders() {
+  return { "X-RCDAS-Token": sessionStorage.getItem("rcdas_token") || "" };
+}
+
+// A 401 means the server no longer honors this session (signed in before
+// the token rollout, or the passcode changed). Send them back to the gate.
+function sessionExpired() {
+  sessionStorage.removeItem("rcdas_user");
+  sessionStorage.removeItem("rcdas_token");
+  location.reload();
+}
+
+// Live progress card for long draft jobs: a spinner, an honest stage line
+// keyed to elapsed time, and a ticking clock so it never looks frozen.
+const DRAFT_STAGES = {
+  draft: [
+    [0, "Researching published best practices...", "Searching the ASV Guidelines, university shelter medicine programs, and national organizations."],
+    [90, "Reading sources and comparing recommendations...", "Grounding every step in current, research-based guidance."],
+    [210, "Writing the draft...", "Composing the document in the RCDAS SOP template."],
+  ],
+  revise: [
+    [0, "Reading your feedback...", "Reviewing the current draft."],
+    [40, "Revising the draft...", "Applying your changes and keeping the rest intact."],
+  ],
+};
+
+function startDraftProgress(outEl, kind) {
+  const t0 = Date.now();
+  const typical = kind === "revise" ? "usually 1 to 3 minutes" : "usually 4 to 6 minutes";
+  outEl.innerHTML = `
+    <div class="draft-progress">
+      <div class="dp-spin" aria-hidden="true"></div>
+      <div class="dp-text">
+        <b id="dpStage"></b>
+        <span class="hint" id="dpDetail"></span>
+        <span class="hint" id="dpTime"></span>
+      </div>
+    </div>`;
+  const tick = () => {
+    const stageEl = $("#dpStage");
+    if (!stageEl) return;
+    const el = Math.floor((Date.now() - t0) / 1000);
+    let s = DRAFT_STAGES[kind][0];
+    for (const st of DRAFT_STAGES[kind]) if (el >= st[0]) s = st;
+    stageEl.textContent = s[1];
+    $("#dpDetail").textContent = s[2];
+    $("#dpTime").textContent = `Elapsed ${Math.floor(el / 60)}:${String(el % 60).padStart(2, "0")} (${typical}). Keep this tab open.`;
+  };
+  tick();
+  return setInterval(tick, 1000);
+}
+
+async function callAPI(path, payload, outEl, renderFn, kind) {
+  let timer = null;
+  if (kind) timer = startDraftProgress(outEl, kind);
+  else outEl.innerHTML = `<p class="thinking">Reading the relevant documents...</p>`;
   try {
     const r = await fetch(path, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", ...authHeaders() },
       body: JSON.stringify(payload),
     });
+    if (r.status === 401) return sessionExpired();
     let data = await r.json();
     if (data.error) throw new Error(data.error);
     // Long jobs (draft research) return a job id immediately; poll until done
@@ -503,7 +572,8 @@ async function callAPI(path, payload, outEl, renderFn) {
         await new Promise((res) => setTimeout(res, 5000));
         let st;
         try {
-          const s = await fetch(`api/draft/status?job=${encodeURIComponent(data.job)}`);
+          const s = await fetch(`api/draft/status?job=${encodeURIComponent(data.job)}`, { headers: authHeaders() });
+          if (s.status === 401) return sessionExpired();
           st = await s.json();
         } catch (_) {
           if (++misses >= 6) throw new Error("Lost contact with the server. Check your connection and try the draft again.");
@@ -512,16 +582,15 @@ async function callAPI(path, payload, outEl, renderFn) {
         misses = 0;
         if (st.error) throw new Error(st.error);
         if (st.status === "done") { data = st; break; }
-        const mins = Math.floor((Date.now() - started) / 60000);
-        const note = outEl.querySelector(".thinking");
-        if (note && mins >= 1) note.textContent =
-          `Still researching and writing (about ${mins} minute${mins === 1 ? "" : "s"} so far). Thorough topics can take 5 or more minutes...`;
-        if (mins >= 25) throw new Error("The draft is taking much longer than expected. Please try again.");
+        if (Date.now() - started > 25 * 60000) throw new Error("The draft is taking much longer than expected. Please try again.");
       }
     }
+    if (timer) { clearInterval(timer); timer = null; }
     renderFn(data);
   } catch (e) {
     outEl.innerHTML = `<div class="demo-note">Request failed: ${esc(e.message)}</div>`;
+  } finally {
+    if (timer) clearInterval(timer);
   }
 }
 
@@ -553,16 +622,139 @@ function draft() {
   if (!topic) return;
   const docs = retrieve(topic, 3);
   callAPI("api/draft", { topic, docs }, $("#draftOut"), (data) => {
-    $("#draftOut").innerHTML = `
-      <div class="draft-doc">
-        <div class="letterhead"><b>Riverside County Department of Animal Services</b>
-        <span>Standard Operating Procedure</span></div>${esc(data.text)}
-      </div>
-      <div class="demo-note">This is an AI-prepared draft based on published best practices. It has no effect until it completes the department approval flow and is signed by the Director.</div>
-      ${data.mode === "demo" ? `<div class="demo-note">Demo mode: this is a template skeleton. With an API key, the tool researches published, research-based best practices (ASV Guidelines, shelter medicine literature) and writes a complete draft.</div>` : ""}
-      <p style="margin-top:12px"><button class="btn-primary" onclick="downloadDraft()">Download draft (.md)</button></p>`;
-    S.lastDraft = { topic, text: data.text };
+    S.lastDraft = { topic, text: data.text, demo: data.mode === "demo" };
+    drawDraftDoc();
+  }, "draft");
+}
+
+// The draft comes back as plain text with the mandated headings. Parse it
+// into the same document shape the corpus uses so sopHTML renders it in the
+// official template. Sections the parser cannot find get placeholder text
+// instead of disappearing; if the text has no recognizable structure at all,
+// the whole body is shown as-is inside the template shell.
+const DRAFT_HEADS = ["SUBJECT", "PURPOSE", "AUTHORITY", "SCOPE", "DEFINITIONS",
+  "PROCEDURE", "CAMPUS VARIATIONS", "RELATED DOCUMENTS", "REFERENCES", "REVISION HISTORY"];
+
+function parseDraft(text, topic) {
+  const secs = {};
+  let cur = null, buf = [];
+  const flush = () => { if (cur) secs[cur] = buf.join("\n").trim(); };
+  for (const line of text.split("\n")) {
+    const m = line.match(/^\s*([A-Z][A-Z ]{2,}):?\s*(.*)$/);
+    const head = m && DRAFT_HEADS.includes(m[1].trim()) ? m[1].trim() : null;
+    if (head) { flush(); cur = head; buf = m[2] ? [m[2]] : []; }
+    else if (cur) buf.push(line);
+  }
+  flush();
+
+  const bullets = (t) => (t || "").split("\n").map((l) => l.replace(/^[-•*]\s*/, "").trim()).filter(Boolean);
+
+  const definitions = bullets(secs.DEFINITIONS).map((l) => {
+    const i = l.indexOf(":");
+    return i > 0 ? { term: l.slice(0, i).trim(), def: l.slice(i + 1).trim() } : { term: "", def: l };
   });
+
+  const sections = [];
+  const lead = [];
+  let sec = null;
+  for (const raw of (secs.PROCEDURE || "").split("\n")) {
+    const line = raw.trim();
+    if (!line) continue;
+    const h = line.match(/^([A-Z])[.)]\s+(.+)$/);
+    if (h) { sec = { heading: h[2], steps: [] }; sections.push(sec); continue; }
+    const st = line.match(/^\d+[.)]\s*(.+)$/);
+    if (sec && st) sec.steps.push(st[1]);
+    else if (sec && sec.steps.length) sec.steps[sec.steps.length - 1] += " " + line;
+    else if (sec) sec.body = (sec.body ? sec.body + " " : "") + line;
+    else lead.push(line);
+  }
+  // No lettered structure found: show the procedure text (or, failing even
+  // that, the whole draft) as one block rather than losing it.
+  if (!sections.length) {
+    const fallback = secs.PROCEDURE || text;
+    sections.push({ heading: "Procedure text (review formatting)", body: fallback, steps: [] });
+    lead.length = 0;
+  }
+
+  let refs = (secs.REFERENCES || "").split(/\n\s*\n/);
+  if (refs.length <= 1) refs = (secs.REFERENCES || "").split(/\n(?=\s*\d+[.)])/);
+  refs = refs.map((b) => b.replace(/\s*\n\s*/g, " ").replace(/^\s*\d+[.)]\s*/, "").trim()).filter(Boolean);
+
+  const campus = bullets(secs["CAMPUS VARIATIONS"]);
+  const related = bullets(secs["RELATED DOCUMENTS"]);
+
+  return {
+    id: null, number: null, dualListed: false, flag: null,
+    title: secs.SUBJECT || topic,
+    type: "Procedure",
+    category: "AI-prepared draft",
+    status: "Draft pending approval",
+    authority: secs.AUTHORITY || "Director of Animal Services",
+    supersedes: "N/A",
+    purpose: secs.PURPOSE || "To be completed during leadership review.",
+    scope: secs.SCOPE || "To be completed during leadership review.",
+    definitions,
+    procIntro: lead.join(" "),
+    sections,
+    campusVariations: campus.length ? campus : ["None noted in this draft."],
+    related: related.length ? related : ["None identified in this draft."],
+    references: refs.length ? refs : ["To be added during leadership review."],
+    appendices: [],
+    revisions: [secs["REVISION HISTORY"] || "Draft prepared for review."],
+  };
+}
+
+function drawDraftDoc() {
+  const d = parseDraft(S.lastDraft.text, S.lastDraft.topic);
+  const banner = `<div class="doc-banner warn">DRAFT PENDING APPROVAL. Prepared for leadership review; not in effect until approved and signed by the Director.</div>`;
+  $("#draftOut").innerHTML = `
+    ${sopHTML(d, banner)}
+    <div class="demo-note">This is an AI-prepared draft based on published best practices. It has no effect until it completes the department approval flow and is signed by the Director.</div>
+    ${S.lastDraft.demo ? `<div class="demo-note">Demo mode: this is a template skeleton. With an API key, the tool researches published, research-based best practices (ASV Guidelines, shelter medicine literature) and writes a complete draft.</div>` : ""}
+    <div class="draft-actions">
+      <button class="btn-primary" onclick="downloadDraft()">Download draft (.md)</button>
+      <button class="btn-primary quiz-alt" onclick="editDraft()">Edit the text</button>
+      <button class="btn-primary quiz-alt" onclick="toggleFeedback()">Request changes</button>
+    </div>
+    <div id="draftFeedback" class="hidden">
+      <p class="hint" style="margin-top:14px">Describe what to change and a revised draft will be prepared. Your current text, including any edits you saved, is the starting point.</p>
+      <div class="ask-row">
+        <input id="feedbackBox" type="text" placeholder="e.g. Add a section on after-hours emergencies, shorten the definitions">
+        <button class="btn-primary" onclick="reviseDraft()">Revise the draft</button>
+      </div>
+    </div>`;
+}
+
+function editDraft() {
+  $("#draftOut").innerHTML = `
+    <p class="hint" style="margin-top:14px">Edit the draft text below, then save. Keep the capitalized headings (PURPOSE, PROCEDURE, ...) so the document stays in the RCDAS template.</p>
+    <textarea id="draftEditBox" class="draft-editbox"></textarea>
+    <p style="margin-top:12px">
+      <button class="btn-primary" onclick="saveDraftEdit()">Save changes</button>
+      <button class="btn-primary quiz-alt" onclick="drawDraftDoc()">Cancel</button>
+    </p>`;
+  $("#draftEditBox").value = S.lastDraft.text;
+}
+
+function saveDraftEdit() {
+  S.lastDraft.text = $("#draftEditBox").value;
+  drawDraftDoc();
+}
+
+function toggleFeedback() {
+  $("#draftFeedback").classList.toggle("hidden");
+  const box = $("#feedbackBox");
+  if (!$("#draftFeedback").classList.contains("hidden")) box.focus();
+}
+
+function reviseDraft() {
+  const feedback = $("#feedbackBox").value.trim();
+  if (!feedback) return;
+  const payload = { topic: S.lastDraft.topic, current: S.lastDraft.text, feedback };
+  callAPI("api/draft/revise", payload, $("#draftOut"), (data) => {
+    S.lastDraft = { topic: S.lastDraft.topic, text: data.text, demo: data.mode === "demo" };
+    drawDraftDoc();
+  }, "revise");
 }
 
 function downloadDraft() {
