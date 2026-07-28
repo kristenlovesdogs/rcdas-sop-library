@@ -493,13 +493,31 @@ async function callAPI(path, payload, outEl, renderFn) {
     let data = await r.json();
     if (data.error) throw new Error(data.error);
     // Long jobs (draft research) return a job id immediately; poll until done
-    // so the request never outlives the host's proxy timeout.
-    while (data.job) {
-      await new Promise((res) => setTimeout(res, 5000));
-      const s = await fetch(`api/draft/status?job=${encodeURIComponent(data.job)}`);
-      const st = await s.json();
-      if (st.error) throw new Error(st.error);
-      if (st.status === "done") { data = st; break; }
+    // so the request never outlives the host's proxy timeout. Transient poll
+    // failures are tolerated: the job keeps running server-side, so one
+    // dropped response must not abandon a five-minute draft.
+    if (data.job) {
+      const started = Date.now();
+      let misses = 0;
+      for (;;) {
+        await new Promise((res) => setTimeout(res, 5000));
+        let st;
+        try {
+          const s = await fetch(`api/draft/status?job=${encodeURIComponent(data.job)}`);
+          st = await s.json();
+        } catch (_) {
+          if (++misses >= 6) throw new Error("Lost contact with the server. Check your connection and try the draft again.");
+          continue;
+        }
+        misses = 0;
+        if (st.error) throw new Error(st.error);
+        if (st.status === "done") { data = st; break; }
+        const mins = Math.floor((Date.now() - started) / 60000);
+        const note = outEl.querySelector(".thinking");
+        if (note && mins >= 1) note.textContent =
+          `Still researching and writing (about ${mins} minute${mins === 1 ? "" : "s"} so far). Thorough topics can take 5 or more minutes...`;
+        if (mins >= 25) throw new Error("The draft is taking much longer than expected. Please try again.");
+      }
     }
     renderFn(data);
   } catch (e) {
@@ -700,7 +718,17 @@ function startQuiz(catIdx) {
     const j = Math.floor(Math.random() * (i + 1));
     [qs[i], qs[j]] = [qs[j], qs[i]];
   }
-  G = { cat, qs: qs.slice(0, QUIZ_ROUND), i: 0, score: 0 };
+  // Shuffle each question's choices too, so the correct answer lands in a
+  // different position every round and no letter is a tell.
+  const round = qs.slice(0, QUIZ_ROUND).map((q) => {
+    const order = q.choices.map((_, k) => k);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    return { ...q, choices: order.map((k) => q.choices[k]), answer: order.indexOf(q.answer) };
+  });
+  G = { cat, qs: round, i: 0, score: 0 };
   renderQuizQuestion();
 }
 

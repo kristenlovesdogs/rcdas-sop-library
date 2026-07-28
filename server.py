@@ -12,6 +12,7 @@ import json
 import re
 import os
 import threading
+import time
 import urllib.request
 import uuid
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -50,6 +51,9 @@ PASSCODE = os.environ.get("RCDAS_PASSCODE", "").strip()
 # restart mid-job just means the client sees "unknown job" and can retry.
 JOBS = {}
 JOBS_LOCK = threading.Lock()
+# Finished jobs stay pollable this long. Deleting on first read loses a
+# five-minute draft if that one poll response never reaches the client.
+JOB_KEEP_SECONDS = 900
 
 
 def run_draft_job(job_id, topic, docs):
@@ -58,10 +62,12 @@ def run_draft_job(job_id, topic, docs):
             SYSTEM_DRAFT,
             f"DRAFT REQUEST TOPIC: {topic}\n\nPOSSIBLY RELATED RCDAS DOCUMENTS:\n{doc_block(docs)}")
         with JOBS_LOCK:
-            JOBS[job_id] = {"status": "done", "mode": "live", "text": text}
+            JOBS[job_id] = {"status": "done", "mode": "live", "text": text,
+                            "done_at": time.time()}
     except Exception as e:
         with JOBS_LOCK:
-            JOBS[job_id] = {"status": "error", "error": str(e)}
+            JOBS[job_id] = {"status": "error", "error": str(e),
+                            "done_at": time.time()}
 
 STYLE = (
     "Write in measured, professional prose. Never use em dashes. "
@@ -154,7 +160,12 @@ SYSTEM_DRAFT = (
     "for three to six), each one line. Skip it if the topic needs none. "
     "5. PROCEDURE: group steps under a few lettered subheadings (aim for three "
     "to six sections, A, B, C..., not the whole alphabet). Prefer fewer, "
-    "clearer sections over exhaustive coverage. "
+    "clearer sections over exhaustive coverage. Restart step numbering at 1 "
+    "inside each lettered section. "
+    "6. PLAIN TEXT ONLY. The document is displayed and filed as plain text. "
+    "Never use markdown: no asterisks, no bold or italic marks, no backticks, "
+    "no # headings. Write each heading as plain capitalized words followed by "
+    "a colon, exactly like an existing SOP. "
     "Use exactly this template structure with these headings: "
     "SUBJECT, PURPOSE, AUTHORITY (Director of Animal Services), SCOPE, "
     "DEFINITIONS (omit if not needed), PROCEDURE (numbered steps grouped under "
@@ -260,8 +271,7 @@ def call_claude_research(system, user_text, max_tokens=16000):
     """Draft with live web research. Web search runs server-side at Anthropic.
     Resumes on pause_turn (server tool loop) and continues on max_tokens
     (thinking + research can consume a large share of the output budget)."""
-    first_user = {"role": "user", "content": user_text}
-    messages = [first_user]
+    messages = [{"role": "user", "content": user_text}]
     tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 14}]
     parts = []
     for i in range(8):
@@ -275,16 +285,19 @@ def call_claude_research(system, user_text, max_tokens=16000):
         })
         parts.append("".join(b.get("text", "") for b in data.get("content", [])))
         reason = data.get("stop_reason")
-        print(f"draft research: iteration {i} stop_reason={reason}")
-        if reason == "pause_turn":
-            messages = [first_user, {"role": "assistant", "content": data["content"]}]
-            continue
+        print(f"draft research: iteration {i} stop_reason={reason}", flush=True)
+        if reason not in ("pause_turn", "max_tokens"):
+            break
+        # Continue the same assistant turn, keeping ALL content produced so
+        # far: replacing it with just the latest chunk would make the model
+        # forget its earlier searches and text on the second pause. The API
+        # forbids consecutive assistant messages, so merge into a trailing one.
+        if messages[-1]["role"] == "assistant":
+            messages[-1]["content"] = list(messages[-1]["content"]) + list(data["content"])
+        else:
+            messages.append({"role": "assistant", "content": data["content"]})
         if reason == "max_tokens":
-            messages = [first_user,
-                        {"role": "assistant", "content": data["content"]},
-                        {"role": "user", "content": "You hit the output token limit. Continue the draft exactly where you left off. Do not repeat anything you already wrote and do not restart."}]
-            continue
-        break
+            messages.append({"role": "user", "content": "You hit the output token limit. Continue the draft exactly where you left off. Do not repeat anything you already wrote and do not restart."})
     text = "".join(parts)
     # The model narrates its research before the letterhead; keep only the SOP,
     # from the DRAFT banner through the end of the revision history.
@@ -294,6 +307,10 @@ def call_claude_research(system, user_text, max_tokens=16000):
     m = re.search(r"REVISION HISTORY[:\s\S]*?Draft prepared for review\.", text)
     if m:
         text = text[:m.end()]
+    # The UI and the filed document are plain text; strip any markdown
+    # emphasis or heading marks the model slips in despite the prompt.
+    text = re.sub(r"\*\*([^*\n]+)\*\*", r"\1", text)
+    text = re.sub(r"^#+\s+", "", text, flags=re.M)
     return text.strip()
 
 
@@ -400,9 +417,13 @@ class Handler(SimpleHTTPRequestHandler):
             from urllib.parse import urlparse, parse_qs
             job_id = parse_qs(urlparse(self.path).query).get("job", [""])[0]
             with JOBS_LOCK:
+                now = time.time()
+                for k in [k for k, v in JOBS.items()
+                          if v.get("done_at") and now - v["done_at"] > JOB_KEEP_SECONDS]:
+                    del JOBS[k]
                 job = JOBS.get(job_id)
-                if job and job["status"] in ("done", "error"):
-                    del JOBS[job_id]
+                if job:
+                    job = {k: v for k, v in job.items() if k != "done_at"}
             if job is None:
                 return self._json({"error": "unknown job; the server may have restarted. Please try the draft again."}, 404)
             if job["status"] == "error":
